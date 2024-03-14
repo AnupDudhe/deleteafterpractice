@@ -7,8 +7,8 @@ WORKDIR /opt
 RUN tar -xzvf /opt/apache-tomcat-8.5.99.tar.gz
 RUN yum install java-11-openjdk -y
 ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war /opt/apache-tomcat-8.5.99/webapps/
-COPY context.xml /opt/apache-tomcat-8.5.99/conf/
-ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar  /opt/apache-tomcat-8.5.99/lib/
+#COPY context.xml /opt/apache-tomcat-8.5.99/conf/
+#ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar  /opt/apache-tomcat-8.5.99/lib/
 ENV db_pw="1234"
 #ARG db_pw
 
