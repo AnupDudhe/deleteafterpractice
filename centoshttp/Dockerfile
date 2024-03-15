@@ -3,7 +3,7 @@ FROM centos:7
 LABEL Dev="anup"
 RUN yum install httpd -y
 RUN rm -rf /var/www/html/index.html &&\
-    yum instalL unzip -y
+    yum install unzip -y
 WORKDIR /var/www/html/
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip .
 RUN unzip oxer.zip &&\
