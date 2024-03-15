@@ -1,5 +1,5 @@
 
-FROM centos
+FROM centos:7
 LABEL Dev="anup"
 RUN yum install httpd -y
 RUN rm -rf /var/www/html/index.html &&\
