@@ -10,4 +10,4 @@ RUN unzip oxer.zip &&\
     mv oxer-html/*  .
 
 EXPOSE 80
-CMD [httpd , "-DFOREGROUND"]  
+CMD httpd  -DFOREGROUND
