@@ -4,8 +4,7 @@ metadata:
   name: my-service
 spec:
   type: NodePort
-  selector: 
-    labels: 
+  selector:  
       app: my-pod
     #app.kubernetes.io/name: MyApp
   ports:
