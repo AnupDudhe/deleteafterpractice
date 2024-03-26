@@ -5,9 +5,14 @@ metadata:
 spec:
   selector:
     type: NodePort
-    label: 
+    label: my-pod
     #app.kubernetes.io/name: MyApp
   ports:
     - protocol: TCP
+      name: nginx
       port: 80
-      targetPort: 9376
+      targetPort: 80
+    - protocol: TCP
+      name: tomcat
+      port: 8080
+      targetPort: 8080
