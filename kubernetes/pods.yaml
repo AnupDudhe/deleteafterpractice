@@ -1,1 +1,12 @@
+apiversion: v1
+kind: Pod 
+Metadata:
+     name: my-pod
 
+spec:
+  containers:
+    - image: nginx
+      name: nginximg
+      ports:
+      - containerPort: 80
+        protocol: TCP
