@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     type: NodePort
-    label: my-pod
+    labels: my-pod
     #app.kubernetes.io/name: MyApp
   ports:
     - protocol: TCP
