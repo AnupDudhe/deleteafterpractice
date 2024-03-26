@@ -5,8 +5,8 @@ Metadata:
 
 spec:
   containers:
-    - image: nginx
-      name: nginximg
+    - name: nginx
+      image: nginx:latest
       ports:
       - containerPort: 80
         protocol: TCP
