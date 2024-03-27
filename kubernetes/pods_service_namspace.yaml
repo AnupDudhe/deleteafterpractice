@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Pod
 metadata:
      name: first-pod
+     namespace: dev
      labels:
       app: nginx
 spec: 
@@ -22,6 +23,7 @@ apiVersion: v1
 kind: Service 
 metadata:
  name: service1
+ namespace: dev
 spec:
   selector: 
     app: nginx 
