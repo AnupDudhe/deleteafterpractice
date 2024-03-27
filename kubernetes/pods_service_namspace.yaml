@@ -11,6 +11,7 @@ spec:
       image: nginx:latest 
       ports: 
        - containerPort: 80
+         protocol: TCP
 
 ---
 apiVersion: v1
@@ -24,4 +25,3 @@ spec:
   ports: 
     - port: 80 
       targetPort: 80
-...
