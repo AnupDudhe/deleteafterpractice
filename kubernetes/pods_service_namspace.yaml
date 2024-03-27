@@ -12,7 +12,11 @@ spec:
       ports: 
        - containerPort: 80
          protocol: TCP
-
+    - name: tomcat
+      image: tomcat:latest
+      ports:
+       - containerPort: 8080
+         protocol: TCP
 ---
 apiVersion: v1
 kind: Service 
@@ -27,3 +31,7 @@ spec:
       protocol: TCP
       targetPort: 80
       name: nginx
+    - port: 8080 
+      protocol: TCP
+      targetPort: 8080
+      name: Tomcat
