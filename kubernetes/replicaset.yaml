@@ -3,7 +3,7 @@ kind: ReplicaSet
 metadata: 
  name: replicaset
  labels: 
-    myapp: app1
+    myapp1: xyzapp
 spec:
   replicas: 3
   template:
