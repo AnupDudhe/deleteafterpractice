@@ -21,7 +21,7 @@ spec:
     metadata: 
       name: tomcattest
       labels:
-        myapp1: xyzapp1
+        myapp1: xyzapp
     spec:
       containers:
         - name: tomcat
@@ -31,5 +31,5 @@ spec:
              protocol: TCP 
   selector: 
     matchExpressions:
-      - {key: myapp1, operator: In, values: [xyzapp, xyzapp1]}  
+      - {key: myapp1, operator: In, values: [xyzapp]}  
         #{key: srvapp, operator: In, values: [app3]}  
