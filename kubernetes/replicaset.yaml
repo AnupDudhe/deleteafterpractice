@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+ name: replicaset
+ labels: 
+    myapp: app1
+spec:
+  replicas: 3
+  template:
+    metadata: 
+      name: nginxtest
+      labels:
+        myapp1: xyzapp
+    spec:
+        - name: nginx
+          image: nginx:latest
+          ports:
+           - containerport: 80
+             protocol: TCP
+  selector: 
+    matchExpressions:
+      - {key: myapp1, operator: In, values: [xyzapp, my-pod , myapp1]}    
