@@ -37,3 +37,6 @@ spec:
       protocol: TCP
       targetPort: 8080
       name: tomcat
+
+  #kubectl exec -it <pod_name> -c <container_name> -- <command>
+    
