@@ -22,20 +22,20 @@ spec:
           name: my-service
           labels: 
             myapp1: app3
-          spec:
-            type: NodePort
-            selector:  
-                myapp1: app3
-              #app.kubernetes.io/name: MyApp
-          ports:
-            - protocol: TCP
-              name: nginx
-              port: 80
-              targetPort: 80
-            - protocol: TCP
-              name: tomcat
-              port: 8080
-              targetPort: 8080
+    spec:
+      type: NodePort
+      selector:  
+          myapp1: app3
+        #app.kubernetes.io/name: MyApp
+    ports:
+      - protocol: TCP
+        name: nginx
+        port: 80
+        targetPort: 80
+      - protocol: TCP
+        name: tomcat
+        port: 8080
+        targetPort: 8080
   selector: 
     matchExpressions:
       - {key: myapp1, operator: In, values: [xyzapp, app3]}  
