@@ -11,13 +11,15 @@ spec:
         label: 
           app: myapp1
       spec:
-        - name: nginx
-          image: nginx:latest
-          ports:
-           - containerPort: 80
-             protocol: TCP
-        - name: tomcat
-          image: tomcat:latest
-          ports:
-           - containerPort: 8080
-             protocol: TCP
+        containers:
+          - name: nginx
+            image: nginx:latest
+            ports:
+            - containerPort: 80
+              protocol: TCP
+          - name: tomcat
+            image: tomcat:latest
+            ports:
+            - containerPort: 8080
+              protocol: TCP
+    selector: myapp1
