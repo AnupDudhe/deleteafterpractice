@@ -31,5 +31,5 @@ spec:
     #          protocol: TCP 
   selector: 
     matchExpressions:
-      - {key: myapp1, operator: In, values: [xyzapp]}  
+      - {key: myapp1, operator: In, values: [xyzapp , app3]}  
     #  - {key: myapp2, operator: In, values: [xyzapp1]}  
