@@ -22,4 +22,5 @@ spec:
             ports:
             - containerPort: 8080
               protocol: TCP
-    selector: myapp1
+    selector: 
+      app: myapp1
