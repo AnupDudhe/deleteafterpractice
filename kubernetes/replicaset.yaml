@@ -10,7 +10,7 @@ spec:
     metadata: 
       name: nginxtest
       labels:
-        myapp1: my-pod
+        myapp1: xyzapp
     spec:
       containers:
         - name: nginx
@@ -20,4 +20,4 @@ spec:
              protocol: TCP
   selector: 
     matchExpressions:
-      - {key: myapp1, operator: In, values: [ my-pod , myapp1]}    
+      - {key: myapp1, operator: In, values: [xyzapp, my-pod , myapp1]}    
