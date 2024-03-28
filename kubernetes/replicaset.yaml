@@ -32,10 +32,10 @@ spec:
           name: nginx
           port: 80
           targetPort: 80
-        - protocol: TCP
-          name: tomcat
-          port: 8080
-          targetPort: 8080
+        # - protocol: TCP
+        #   name: tomcat
+        #   port: 8080
+        #   targetPort: 8080
   selector: 
     matchExpressions:
       - {key: myapp1, operator: In, values: [xyzapp, app3]}  
