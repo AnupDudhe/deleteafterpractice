@@ -10,7 +10,7 @@ spec:
     metadata: 
       name: nginxtest
       labels:
-        myapp1: xyzapp
+        myapp1: my-pod
     spec:
       containers:
         - name: nginx
