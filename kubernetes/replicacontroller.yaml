@@ -5,7 +5,7 @@ metadata:
   labels:
     apps: myapp
 spec:
-    replica: 3
+    replicas: 3
     template:
       metadata: 
         name: testnginx
