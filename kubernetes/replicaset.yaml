@@ -21,7 +21,7 @@ spec:
     metadata: 
       name: tomcattest
       labels:
-        myapp2: xyzapp1
+        myapp1: xyzapp
     spec:
       containers:
         - name: tomcat
@@ -32,4 +32,4 @@ spec:
   selector: 
     matchExpressions:
       - {key: myapp1, operator: In, values: [xyzapp]}  
-      - {key: myapp2, operator: In, values: [xyzapp1]}  
+    #  - {key: myapp2, operator: In, values: [xyzapp1]}  
