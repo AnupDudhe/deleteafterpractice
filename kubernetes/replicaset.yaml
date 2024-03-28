@@ -25,7 +25,7 @@ spec:
     spec:
       type: NodePort
       selector:  
-          myapp1: app3
+          myapp1: xyzapp
         #app.kubernetes.io/name: MyApp
       ports:
         - protocol: TCP
