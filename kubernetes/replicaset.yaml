@@ -18,25 +18,18 @@ spec:
           ports:
            - containerPort: 80
              protocol: TCP 
-    metadata:
-          name: my-service
-          labels: 
-            myapp1: app3
+    metadata: 
+      name: tomcattest
+      labels:
+        myapp1: xyzapp1
     spec:
-      type: NodePort
-      selector:  
-          myapp1: xyzapp
-        #app.kubernetes.io/name: MyApp
-      ports:
-        - protocol: TCP
-          name: nginx
-          port: 80
-          targetPort: 80
-        # - protocol: TCP
-        #   name: tomcat
-        #   port: 8080
-        #   targetPort: 8080
+      containers:
+        - name: tomcat
+          image: tomcat:latest
+          ports:
+           - containerPort: 8080
+             protocol: TCP 
   selector: 
     matchExpressions:
-      - {key: myapp1, operator: In, values: [xyzapp, app3]}  
+      - {key: myapp1, operator: In, values: [xyzapp, xyzapp1]}  
         #{key: srvapp, operator: In, values: [app3]}  
