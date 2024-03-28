@@ -18,17 +18,17 @@ spec:
           ports:
            - containerPort: 80
              protocol: TCP 
-    metadata: 
-      name: tomcattest
-      labels:
-        myapp1: xyzapp
-    spec:
-      containers:
-        - name: tomcat
-          image: tomcat:latest
-          ports:
-           - containerPort: 8080
-             protocol: TCP 
+    # metadata: 
+    #   name: tomcattest
+    #   labels:
+    #     myapp1: xyzapp
+    # spec:
+    #   containers:
+    #     - name: tomcat
+    #       image: tomcat:latest
+    #       ports:
+    #        - containerPort: 8080
+    #          protocol: TCP 
   selector: 
     matchExpressions:
       - {key: myapp1, operator: In, values: [xyzapp]}  
