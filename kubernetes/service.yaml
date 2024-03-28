@@ -5,7 +5,7 @@ metadata:
 spec:
   type: NodePort
   selector:  
-      myapp1: xyzapp
+      myapp1: app3
     #app.kubernetes.io/name: MyApp
   ports:
     - protocol: TCP
