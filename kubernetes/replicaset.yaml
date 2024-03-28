@@ -25,7 +25,7 @@ spec:
           spec:
             type: NodePort
             selector:  
-                app: my-pod
+                myapp1: app3
               #app.kubernetes.io/name: MyApp
           ports:
             - protocol: TCP
@@ -38,5 +38,5 @@ spec:
               targetPort: 8080
   selector: 
     matchExpressions:
-      - {key: myapp1, operator: In, values: [xyzapp]}  
-        {key: srvapp, operator: In, values: [app3]}  
+      - {key: myapp1, operator: In, values: [xyzapp, app3]}  
+        #{key: srvapp, operator: In, values: [app3]}  
