@@ -8,6 +8,7 @@ spec:
     replica: 3
     template:
       metadata: 
+        name: testnginx
         label: 
           app: myapp1
       spec:
