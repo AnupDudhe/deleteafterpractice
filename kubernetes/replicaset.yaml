@@ -20,8 +20,8 @@ spec:
              protocol: TCP 
     metadata:
           name: my-service
-          label: 
-            srvapp: app3
+          labels: 
+            myapp1: app3
           spec:
             type: NodePort
             selector:  
