@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+ name: replicaset
+ labels: 
+    myapp: app1
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        appu: spec1
+      name: my-service
+    spec:
+      type: NodePort
+      selector:  
+          app: my-pod
+        #app.kubernetes.io/name: MyApp
+      ports:
+        - protocol: TCP
+          name: nginx
+          port: 80
+          targetPort: 80
+        - protocol: TCP
+          name: tomcat
+          port: 8080
+          targetPort: 8080
+  selector: 
+    appu: spec1
