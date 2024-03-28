@@ -16,7 +16,7 @@ spec:
         - name: nginx
           image: nginx:latest
           ports:
-           - containerport: 80
+           - containerPort: 80
              protocol: TCP
   selector: 
     matchExpressions:
