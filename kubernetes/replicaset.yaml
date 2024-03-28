@@ -12,6 +12,7 @@ spec:
       labels:
         myapp1: xyzapp
     spec:
+      containers:
         - name: nginx
           image: nginx:latest
           ports:
