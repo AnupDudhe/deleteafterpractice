@@ -9,7 +9,7 @@ spec:
     template:
       metadata: 
         name: testnginx
-        label: 
+        labels: 
           app: myapp1
       spec:
         containers:
