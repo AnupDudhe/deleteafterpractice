@@ -1,1 +1,29 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata: 
+  name: testDeployment
+  labels: 
+    app: dplapp
+spec:
+  replicas: 4
+  selector: 
+    matchLabels:
+      app: newapp
+  strategy:
+   type: RollingUpdate
+   rollingupdate: 
+    maxSurge: 2
+    maxUnavailable: 0
+  template:
+    metadata: 
+      name: nginxapp
+      labels: 
+        app: newapp
+    spec:
+      - name: mynginxapp
+        image: nginx:latest
+        pods:
+          - containerPort: 80
+            protocol: TCP
 
+        
