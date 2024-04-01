@@ -22,7 +22,7 @@ spec:
      containers:
         - name: mynginxapp
           image: nginx:latest
-          pods:
+          ports:
             - containerPort: 80
               protocol: TCP
 
