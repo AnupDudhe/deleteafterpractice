@@ -20,10 +20,11 @@ spec:
       labels: 
         app: newapp
     spec:
-      - name: mynginxapp
-        image: nginx:latest
-        pods:
-          - containerPort: 80
-            protocol: TCP
+     containers:
+        - name: mynginxapp
+          image: nginx:latest
+          pods:
+            - containerPort: 80
+              protocol: TCP
 
         
