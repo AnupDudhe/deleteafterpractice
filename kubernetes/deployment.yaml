@@ -3,7 +3,7 @@ kind: Deployment
 metadata: 
   name: testDeployment
   labels: 
-    app: dplapp
+    app: newapp
 spec:
   replicas: 4
   selector: 
@@ -16,7 +16,6 @@ spec:
     maxUnavailable: 0
   template:
     metadata: 
-      name: nginxapp
       labels: 
         app: newapp
     spec:
