@@ -17,7 +17,7 @@ spec:
     spec:
      containers:
         - name: mynginxapp
-          image: maridb:latest
+          image: mysql
           ports:
             - containerPort: 3306
               protocol: TCP
