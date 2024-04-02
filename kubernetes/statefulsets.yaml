@@ -27,6 +27,6 @@ spec:
             - containerPort: 3306
               protocol: TCP
           env:
-             MYSQL_ROOT_PASSWORD
-             value: "1234"
+            - MYSQL_ROOT_PASSWORD
+              value: "1234"
              
