@@ -1,1 +1,32 @@
 
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: 
+  name: statefulSet
+  labels: 
+    app: newapp
+spec:
+  replicas: 4
+  selector: 
+    matchLabels:
+      app: newapp
+  strategy:
+   type: RollingUpdate
+   rollingUpdate: 
+    maxSurge: 2
+    maxUnavailable: 0
+  template:
+    metadata: 
+      labels: 
+        app: newapp
+    spec:
+     containers:
+        - name: mynginxapp
+          image: maridb:latest
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+         env:
+             MYSQL_ROOT_PASSWORD
+             value: "1234"
+             
