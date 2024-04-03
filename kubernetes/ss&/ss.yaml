@@ -1,1 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: 
+  name: statefulset
+  labels: 
+    app: newapp
+spec:
+  replicas: 4
+  selector: 
+    matchLabels:
+      app: newapp
+  template:
+    metadata: 
+      labels: 
+        app: newapp
+    spec:
+     containers:
+        - name: mynginxapp
+          image: mysql
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: secret
+                  key: rootpw
+
+             
+
 
