@@ -23,8 +23,9 @@ spec:
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
-                name: config
-                key: rootpw
+                configMapKeyRef:
+                  name: config
+                  key: rootpw
 
              
 
