@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: 
+ name: daemon
+ labels: 
+    myapp: app1
+spec:
+  replicas: 3
+  template:
+    metadata: 
+      name: nginxtest
+      labels:
+        myapp1: xyzapp
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+           - containerPort: 80
+             protocol: TCP 
+    # metadata: 
+    #   name: tomcattest
+    #   labels:
+    #     myapp1: xyzapp
+    # spec:
+    #   containers:
+    #     - name: tomcat
+    #       image: tomcat:latest
+    #       ports:
+    #        - containerPort: 8080
+    #          protocol: TCP 
+  selector: 
+    matchExpressions:
+      - {key: myapp1, operator: In, values: [xyzapp , app3]}  
+    #  - {key: myapp2, operator: In, values: [xyzapp1]}  
