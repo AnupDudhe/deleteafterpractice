@@ -9,7 +9,8 @@ spec:
   selector: 
       matchLabels: 
         app: testapp
-  strategy: RollingUpdate
+  strategy: 
+        type: RollingUpdate
   template:  
     metadata:
       name: testpod
