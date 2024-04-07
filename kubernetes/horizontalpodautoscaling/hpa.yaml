@@ -1,1 +1,24 @@
-
+apiVersion: apps/v1
+kind:  Deployment
+metadata:  
+   name: testdeployment
+   labels: 
+      app: testapp
+spec:
+  replicas: 1
+  selector: 
+      matchLabels: 
+        app: testapp
+  strategy: RollingUpdate
+  template:  
+    metadata:
+      name: testpod
+      labels:
+        app: testapp
+    spec:
+        containers:
+          - image: nginx:latest
+            name: nginx
+            ports:
+              -   containerPort: 80
+                  protocol: TCP
