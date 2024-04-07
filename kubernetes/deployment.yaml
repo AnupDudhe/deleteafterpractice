@@ -25,5 +25,10 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
-
+---
+apiVersion: 
+kind: 
+metadata:
+  name: hpa
+spec:
         
