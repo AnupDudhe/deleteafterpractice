@@ -6,9 +6,9 @@ spec:
   capacity:
           storage: 10G
   volume:  filesystem
-  acessModes:
+  accessModes:
             -ReadWriteOnce
-  persistenceVolumeReclainPolicy: Recycle
+  persistenceVolumeReclaimPolicy: Recycle
   storageClassName: standard
   hostPath:
       path: /mnt/data
