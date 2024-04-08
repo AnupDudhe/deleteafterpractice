@@ -7,7 +7,7 @@ spec:
           storage: 10G
   volume:  filesystem
   accessModes:
-            -ReadWriteOnce
+            - ReadWriteOnce
   persistenceVolumeReclaimPolicy: Recycle
   storageClassName: standard
   hostPath:
