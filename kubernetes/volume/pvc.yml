@@ -6,7 +6,7 @@ spec:
   storageClassName: standard
   accessModes:
     - ReadWriteOnce
- volumeMode: Filesystem
+  volumeMode: Filesystem
   resources:
     requests:
       storage: 3Gi  
