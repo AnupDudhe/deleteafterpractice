@@ -8,7 +8,7 @@ spec:
   volume:  filesystem
   accessModes:
             - ReadWriteOnce
-  persistenceVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Recycle
   storageClassName: standard
   hostPath:
       path: /mnt/data
