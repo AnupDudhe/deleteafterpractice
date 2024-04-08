@@ -9,6 +9,6 @@ spec:
   acessModes:
             -ReadWriteOnce
   persistenceVolumeReclainPolicy: Recycle
-  stotageClassName: standard
-  hostpath:
+  storageClassName: standard
+  hostPath:
       path: /mnt/data
