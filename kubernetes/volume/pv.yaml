@@ -1,1 +1,14 @@
-
+apiVersion: v1
+kind: PersistentVolume
+metadata: 
+  name: pvol
+spec:
+  capacity:
+          storage: 10G
+  volume:  filesystem
+  acessModes:
+            -ReadWriteOnce
+  persistenceVolumeReclainPolicy: Recycle
+  stotageClassName: standard
+  hostpath:
+      path: /mnt/data
