@@ -19,7 +19,7 @@ spec:
               app: deployapplap   
         spec: 
           containers:
-             - name: frontendapp
+             - name: frontendmobapp
                image: anupdudhe/laptop
                ports:
                   - containerPort: 80
