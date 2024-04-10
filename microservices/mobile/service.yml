@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:  
-  name: clusteripsrv
+  name: clusteripsrvmob
 spec:
     type: ClusterIP
     selector:
