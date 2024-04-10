@@ -7,17 +7,17 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: test.in
+  - host: aeacfa45e6e374ad0bf819d3ab0cf77d-1831233556.us-west-2.elb.amazonaws.com
     http:
       paths:
-      - path: /
+      - path: /laptop
         pathType: Prefix
         backend:
           service:
             name: clusteripsrv
             port:
               number: 80 
-      - path: /
+      - path: /mobile
         pathType: Prefix
         backend:
           service:
