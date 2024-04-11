@@ -20,7 +20,7 @@ spec:
         spec: 
           containers:
              - name: frontendlapapp
-               image: anupdudhe/laptop
+               image: anupdudhe/frontendrds
                ports:
                   - containerPort: 80
                     protocol: TCP
