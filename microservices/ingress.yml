@@ -10,7 +10,7 @@ spec:
   - host: aeacfa45e6e374ad0bf819d3ab0cf77d-1831233556.us-west-2.elb.amazonaws.com
     http:
       paths:
-      - path: /laptop
+      - path: /
         pathType: Prefix
         backend:
           service:
