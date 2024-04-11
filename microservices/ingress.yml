@@ -17,12 +17,12 @@ spec:
             name: clusteripsrv
             port:
               number: 80 
-      - path: /mobile
+      - path: /student
         pathType: Prefix
         backend:
           service:
             name: clusteripsrvmob
             port:
-              number: 80
+              number: 8080
         
 
