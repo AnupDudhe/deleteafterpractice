@@ -7,8 +7,8 @@ spec:
     selector:
            app: deployappmob
     ports:
-        - port: 80
-          targetPort: 80
+        - port: 8080
+          targetPort: 8080
           name: http
           protocol: TCP
           
