@@ -23,7 +23,7 @@ spec:
              - name: frontendmobapp
                image: anupdudhe/backendrds
                ports:
-                  - containerPort: 80
+                  - containerPort: 8080
                     protocol: TCP
                resources:
                   requests:
