@@ -1,0 +1,17 @@
+apiVersion: v1
+kind:  Service
+metadata: 
+      name: loadbalancer
+spec:
+    type: LoadBalancer  
+    selector: 
+      app: new-app-lb
+    ports:
+        - port: 80
+          targetPort: 80
+          name: nginx
+          protocol: TCP
+        - port: 8080
+          targetPort: 8080
+          name: tomcat
+          protocol: TCP
