@@ -1,0 +1,31 @@
+apiVersion: apps/v1 
+kind:  ReplicaSet
+metadata:   
+      name: replicaset
+      labels:
+        app: replicasetapp
+spec: 
+    selector: 
+      matchExpressions:      
+           -  { key: app, operator: In , values: [replicasetapp,  new-app]}
+           #-  { key: app, operator: Exists}
+    #matchLabels: 
+          #app: rsapp
+    replicas: 3
+    template:
+        metadata: 
+          labels:
+              name: new-app
+              app: replicasetapp
+        spec:
+            containers: 
+                - name: nginx 
+                  image: nginx:latest
+                  resources: 
+                    requests:
+                      cpu: "100m"
+                      memory: "128Mi" 
+                  ports: 
+                      - containerPort: 80
+                        name: http
+                        protocol: TCP
