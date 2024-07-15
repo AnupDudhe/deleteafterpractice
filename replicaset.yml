@@ -9,14 +9,15 @@ spec:
       matchExpressions:      
            -  { key: app, operator: In , values: [replicasetapp,  new-app]}
            #-  { key: app, operator: Exists}
-    #matchLabels: 
-          #app: rsapp
+           #-  { key: app, operator: NotIn , values: [replicasetapp,  new-app]}
+      #matchLabels: 
+            #app: replicasetapp
     replicas: 3
     template:
         metadata: 
           labels:
               name: new-app
-              app: replicasetapp
+              app: replicasetapp  #replicasetapp1 change when using NotIn exp
         spec:
             containers: 
                 - name: nginx 
