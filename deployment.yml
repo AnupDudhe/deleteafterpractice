@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind:  Deployment
+metadata: 
+  name: deploy
+  labels:
+    app: depapp
+spec:
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+            maxSurge: 2     # Maximum number of pods that can be created over the desired replicas
+            maxUnavailable: 1  # Maximum number of pods that can be unavailable during the update 
+    selector: 
+      matchExpressions:      
+           #-  { key: app, operator: In , values: [replicasetapp,  new-app]}
+           #-  { key: app, operator: Exists}
+           #-  { key: app, operator: NotIn , values: [replicasetapp,  new-app]}
+      matchLabels: 
+            app: replicasetapp
+    replicas: 5
+    template:
+        metadata: 
+          labels:
+              name: new-app
+              app: replicasetapp  #replicasetapp1 change when using NotIn exp
+        spec:
+            containers: 
+                - name: nginx 
+                  image: nginx:latest
+                  resources: 
+                    requests:
+                      cpu: "100m"
+                      memory: "128Mi" 
+                  ports: 
+                      - containerPort: 80
+                        name: http
+                        protocol: TCP
