@@ -8,7 +8,7 @@ spec:
     strategy:
       type: RollingUpdate
       rollingUpdate:
-            maxSurge: 0    # Maximum number of pods that can be created over the desired replicas
+            maxSurge: 2   # Maximum number of pods that can be created over the desired replicas
             maxUnavailable: 2  # Maximum number of pods that can be unavailable during the update 
     selector: 
       matchExpressions:      
@@ -17,7 +17,7 @@ spec:
            #-  { key: app, operator: NotIn , values: [replicasetapp,  new-app]}
       matchLabels: 
             app: replicasetapp
-    replicas: 4
+    replicas: 10
     template:
         metadata: 
           labels:
