@@ -5,7 +5,7 @@ metadata:
       labels:
           app: statefullapp
       spec:
-          replica: 4
+          replicas: 4
           selector:
             matachlabels:
               app: statefullapp
