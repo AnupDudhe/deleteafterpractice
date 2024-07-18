@@ -9,23 +9,23 @@ metadata:
           selector:
             matachlabels:
               app: statefullapp
-      template:
-        metadata: 
-          labels:
-              name: new-statefullapp
-              app:  statefullapp #replicasetapp1 change when using NotIn exp
-        spec:
-            containers: 
-                - name: mysql 
-                  image: mysql:latest
-                  resources: 
-                    requests:
-                      cpu: "100m"
-                      memory: "128Mi" 
-                  ports: 
-                      - containerPort: 3306
-                        name: http
-                        protocol: TCP
-                  env:
-                      - name: MYSQL_ROOT_PASSWORD
-                        value: "1234"
+          template:
+            metadata: 
+              labels:
+                  name: new-statefullapp
+                  app:  statefullapp #replicasetapp1 change when using NotIn exp
+            spec:
+                containers: 
+                    - name: mysql 
+                      image: mysql:latest
+                      resources: 
+                        requests:
+                          cpu: "100m"
+                          memory: "128Mi" 
+                      ports: 
+                          - containerPort: 3306
+                            name: http
+                            protocol: TCP
+                      env:
+                          - name: MYSQL_ROOT_PASSWORD
+                            value: "1234"
