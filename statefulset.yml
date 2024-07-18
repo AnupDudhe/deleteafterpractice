@@ -1,31 +1,62 @@
-apiVersion:  apps/v1  
-kind:   StatefulSet
+# apiVersion:  apps/v1  
+# kind:   StatefulSet
+# metadata: 
+#       name: statefulset
+#       labels:
+#           app: statefullapp
+#       spec:
+#           replicas: 4
+#           selector:
+#             matachlabels:
+#               app: statefullapp
+#           template:
+#             metadata: 
+#               labels:
+#                   name: new-statefullapp
+#                   app:  statefullapp #replicasetapp1 change when using NotIn exp
+#             spec:
+#                 containers: 
+#                     - name: mysql 
+#                       image: mysql:latest
+#                       resources: 
+#                         requests:
+#                           cpu: "100m"
+#                           memory: "128Mi" 
+#                       ports: 
+#                           - containerPort: 3306
+#                             name: http
+#                             protocol: TCP
+#                       env:
+#                           - name: MYSQL_ROOT_PASSWORD
+#                             value: "1234"
+
+apiVersion: apps/v1
+kind:  StatefulSet
 metadata: 
-      name: statefulset
-      labels:
-          app: statefullapp
+  name: statefull
+  labels:
+    app: depapp
+spec:
+    selector: 
+      matchLabels: 
+          app: depapp
+    replicas: 4
+    template:
+      metadata:
+        labels:
+          name: mdb
+          app: depapp
       spec:
-          replicas: 4
-          selector:
-            matachlabels:
-              app: statefullapp
-          template:
-            metadata: 
-              labels:
-                  name: new-statefullapp
-                  app:  statefullapp #replicasetapp1 change when using NotIn exp
-            spec:
-                containers: 
-                    - name: mysql 
-                      image: mysql:latest
-                      resources: 
-                        requests:
-                          cpu: "100m"
-                          memory: "128Mi" 
-                      ports: 
-                          - containerPort: 3306
-                            name: http
-                            protocol: TCP
-                      env:
-                          - name: MYSQL_ROOT_PASSWORD
-                            value: "1234"
+        containers:
+          - name: mysql
+            image: mysql
+            resources: 
+                requests:
+                  cpu: "100m"
+                  memory: "128Mi
+            ports:
+                - containerPort: 3306
+                  protocol: TCP
+            env:
+                 - name: MYSQL_ROOT_PASSWORD
+                   value: "1234"      
