@@ -1,19 +1,46 @@
+# apiVersion: apps/v1
+# kind:  DaemonSet
+# metadata: 
+#   name: daemonset
+#   labels:
+#     app: cwagentapp
+# spec:
+#     selector: 
+#       matchLabels: 
+#           app: cwagentapp
+#     replicas: 4
+#     template:
+#       metadata:
+#         labels:
+#           name: cwagent
+#           app: cwagentapp
+#       spec:
+#         containers:
+#           - name: cwatch
+#             image: amazon/cloudwatch-agent:latest
+#             resources: 
+#                 requests:
+#                   cpu: "100m"
+#                   memory: "128Mi
+#             ports:
+#                 - containerPort: 80
+#                   protocol: TCP    
+
 apiVersion: apps/v1
 kind:  DaemonSet
 metadata: 
-  name: daemonset
+  name: daemon
   labels:
-    app: cwagentapp
+    app: depapp
 spec:
     selector: 
       matchLabels: 
-          app: cwagentapp
-    replicas: 4
+          app: depapp
     template:
       metadata:
         labels:
-          name: cwagent
-          app: cwagentapp
+          name: cwatch
+          app: depapp
       spec:
         containers:
           - name: cwatch
