@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind:  DaemonSet
+metadata: 
+  name: daemonset
+  labels:
+    app: cwagentapp
+spec:
+    selector: 
+      matchLabels: 
+          app: cwagentapp
+    replicas: 4
+    template:
+      metadata:
+        labels:
+          name: cwagent
+          app: cwagentapp
+      spec:
+        containers:
+          - name: cwatch
+            image: cloudwatch-agent
+            resources: 
+                requests:
+                  cpu: "100m"
+                  memory: "128Mi
+            ports:
+                - containerPort: 80
+                  protocol: TCP
+            
