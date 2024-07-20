@@ -47,9 +47,8 @@ metadata:
 spec: 
     scaleTargetRef:
         apiVersion: apps/v1
-        kind:  Deployment
-        metadata: 
-          name: deploy
+        kind:  Deployment 
+        name: deploy
     minReplicas: 1
     maxReplicas: 4
     metrics:
