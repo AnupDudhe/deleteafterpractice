@@ -1,0 +1,61 @@
+
+apiVersion: apps/v1
+kind:  Deployment
+metadata: 
+  name: deploy
+  labels:
+    app: depapp
+spec:
+    strategy:
+      type: RollingUpdate
+      # rollingUpdate:
+      #       maxSurge: 2   # Maximum number of pods that can be created over the desired replicas
+      #       maxUnavailable: 2  # Maximum number of pods that can be unavailable during the update 
+    selector: 
+      # matchExpressions:      
+      #      #-  { key: app, operator: In , values: [replicasetapp,  new-app]}
+      #      #-  { key: app, operator: Exists}
+      #      #-  { key: app, operator: NotIn , values: [replicasetapp,  new-app]}
+      matchLabels: 
+            app: replicasetapp
+    replicas: 2 #desiredstate
+    template:
+        metadata: 
+          labels:
+              name: new-app
+              app: replicasetapp  #replicasetapp1 change when using NotIn exp
+        spec:
+            containers: 
+                - name: nginx 
+                  image: nginx:latest
+                  resources: 
+                    requests:
+                      cpu: "32m"  #17m +
+                      memory: "40Mi"  #60mi 
+                    limits:
+                      cpu: "64m"
+                      memory: "80Mi"
+                  ports: 
+                      - containerPort: 80
+                        name: http
+                        protocol: TCP
+---
+apiVersion: autoscaling/v2 
+kind:  HorizontalPodAutoscaler
+metadata: 
+  name: hpa
+spec: 
+    scaleTargetRef:
+        apiVersion: apps/v1
+        kind:  Deployment
+        metadata: 
+          name: deploy
+    minReplicas: 1
+    maxReplicas: 4
+    metrics:
+      - type: Resource
+        resource:
+          name: cpu
+          target:
+            type: Utilization
+            averageUtilization: 50
