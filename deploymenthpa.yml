@@ -27,7 +27,8 @@ spec:
         spec:
             containers: 
                 - name: nginx 
-                  image: ubuntu
+<<<<<<< HEAD
+                  image: centos
                   resources: 
                     requests:
                       cpu: "32m"  #17m +
