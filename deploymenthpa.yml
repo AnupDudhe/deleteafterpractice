@@ -27,7 +27,7 @@ spec:
         spec:
             containers: 
                 - name: nginx 
-                  image: nginx:latest
+                  image: amazonlinux
                   resources: 
                     requests:
                       cpu: "32m"  #17m +
