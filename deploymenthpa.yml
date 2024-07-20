@@ -27,7 +27,6 @@ spec:
         spec:
             containers: 
                 - name: nginx 
-<<<<<<< HEAD
                   image: centos
                   resources: 
                     requests:
