@@ -5,7 +5,7 @@ metadata:
 spec:
     containers: 
         - name: nginx 
-          image: amazonlinux
+          image: nginx:latest
           resources: 
             requests:
               cpu: "100m"
