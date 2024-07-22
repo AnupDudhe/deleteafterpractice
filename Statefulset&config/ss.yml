@@ -18,10 +18,10 @@ spec:
         containers:
           - name: mysql
             image: mysql
-            resources: 
-                requests:
-                  cpu: "100m"
-                  memory: "128Mi
+            # resources: 
+            #     requests:
+            #       cpu: "100m"
+            #       memory: "128Mi
             ports:
                 - containerPort: 3306
                   protocol: TCP
