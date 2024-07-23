@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+      name: new-app
+spec:
+    volumes:
+        - name: mypd
+          persistentVolumeClaim:
+            claimName: pv-claim
+    containers: 
+        - name: nginx 
+          image: nginx:latest
+          volumeMounts:
+            - mountPath: "/share/local/nginx/"
+              name: mypd
+          resources: 
+            requests:
+              cpu: "500m"
+              memory: "128Mi" 
+          ports: 
+              - containerPort: 80
+                name: http
+                protocol: TCP
