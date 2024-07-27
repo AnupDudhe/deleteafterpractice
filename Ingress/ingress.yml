@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: oneingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: demo.in
+    http:
+      paths:
+        
+         -  path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: frontendsrv
+                port:
+                  number: 80
+         -  path: /student
+            pathType: Prefix
+            backend:
+              service: 
+                name: backendsrv
+                port:
+                  number: 8080
+  
