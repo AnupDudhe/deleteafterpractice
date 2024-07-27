@@ -6,6 +6,12 @@ metadata:
     myapp: app1
 spec:
   replicas: 3
+  selector: 
+      matchExpressions:      
+           -  { key: app, operator: In , values: [rsapp,  new-app]}
+          # -  { key: app, operator: Exists}
+    #matchLabels: 
+          #app: rsapp
   template:
     metadata: 
       name: nginxtest
