@@ -1,0 +1,11 @@
+resource "resource_Type" "resource_name" {
+  attributes = 
+  attributes = 
+}
+resource_type = constant value = "cloudprovidersname_servicename_resourcename"
+
+
+provider "cloudprovidername" {
+  region = "theregioninwhichyoucreateyourinfra"
+  profile = "themaskparameterinwhichyourkeysarehidden"
+}
