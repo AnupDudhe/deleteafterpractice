@@ -1,8 +1,8 @@
 Types of blocks - 
 
 resource "resource_Type" "resource_name" {
-  attributes = 
-  attributes = 
+  arguements = 
+  arguements = 
 }
 resource_type = constant value = "cloudprovidersname_servicename_resourcename"
 aws_ec2_eip
@@ -11,3 +11,9 @@ provider "cloudprovidername" {
   region = "theregioninwhichyoucreateyourinfra"
   profile = "themaskparameterinwhichyourkeysarehidden"
 }
+
+expression - 
+
+refrencing - syntax - 
+
+resourse_Type.resourcename.arguements
