@@ -4,9 +4,9 @@ resource "aws_instance" "this_inst" {
   availability_zone       = "us-east-1a"
   disable_api_termination = "true"
   key_name                = "anupnvdev"
-  security_groups         = "default"
+  #security_groups         = "default"
   count = "2"
-  #vpc_security_group_ids  = "sg-09d5d9601120f72dd"
+  vpc_security_group_ids  = ["sg-09d5d9601120f72dd"]
   volume_size   = "10GiB"
   volume_type   = "gp3"
 
