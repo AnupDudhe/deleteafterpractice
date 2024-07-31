@@ -33,7 +33,7 @@ variable "This_map" {
 variable "This_list" {
     description = "for ec2 count"
     type = map
-    default = ["ami-0427090fd1714168b",3]
+    default = ["ami-0427090fd1714168b","3"]
 }
 
 variable "This_any" {
