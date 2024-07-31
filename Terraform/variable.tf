@@ -9,6 +9,11 @@ variable "This_Path" {
     default = "/"
 }
 
+variable "This_api_termination" {
+    description = "for api termination"
+    type = boolean
+    default = true
+}
 
 
 
