@@ -3,10 +3,7 @@ variable "This_Aws_UserName" {
     type = string
     default = "sai"
 }
-variable "This_Path" {
-    description = "user path"
-    type = string
-    default = "/"
-}
+
+
 
 

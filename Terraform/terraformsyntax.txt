@@ -1,5 +1,5 @@
 Types of blocks - 
-
+resource block
 resource "resource_Type" "resource_name" {
   arguements = 
   arguements = 
@@ -7,10 +7,28 @@ resource "resource_Type" "resource_name" {
 resource_type = constant value = "cloudprovidersname_servicename_resourcename"
 aws_ec2_eip
 
+provider block 
 provider "cloudprovidername" {
   region = "theregioninwhichyoucreateyourinfra"
   profile = "themaskparameterinwhichyourkeysarehidden"
 }
+
+
+variable block
+
+variable "This_Path" {
+    description = "the description for this variable"
+    type = "mention data type" 
+    default = "mention the variable that you want to pass in your main.tf file"
+}
+types of data types. 
+string "character" , number (int) , boolean (true or false , yes or no , 0 or 1) , float 0.1,
+map , dictionary , list , tuple , set
+
+
+
+
+
 
 expression - 
 
