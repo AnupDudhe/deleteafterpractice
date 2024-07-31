@@ -35,3 +35,6 @@ expression -
 refrencing - syntax - 
 
 resourse_Type.resourcename.arguements
+
+how to call a variable and insert it into your resource file ?
+arguement = var.variablename
