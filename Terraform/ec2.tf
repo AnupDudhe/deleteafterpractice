@@ -6,7 +6,7 @@ resource "aws_instance" "this_inst" {
   key_name                = var.This_map.keyone
   #security_groups         = "default"
   count = var.This_list.1
-  vpc_security_group_ids  = [var.This_any.list]
+  vpc_security_group_ids  = ["var.This_any.list"]
   #volume_size   = "10GiB"
   #volume_type   = "gp3"
     tags = {
