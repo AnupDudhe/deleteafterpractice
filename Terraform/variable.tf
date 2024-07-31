@@ -11,7 +11,7 @@ variable "This_Path" {
 
 variable "This_api_termination" {
     description = "for api termination"
-    type = boolean
+    type = bool
     default = true
 }
 
