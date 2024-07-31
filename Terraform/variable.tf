@@ -40,7 +40,6 @@ variable "This_any" {
     description = "for ec2 count"
     type = any
     default = {
-       list =   ["sg-09d5d9601120f72dd"]
        string = "t2.micro"
        
     }
