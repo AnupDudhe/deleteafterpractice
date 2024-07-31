@@ -21,3 +21,28 @@ variable "This_count" {
     default = 3
 }
 
+variable "This_map" {
+    description = "for ec2 count"
+    type = map
+    default = {
+        keyone = "anupnvdev"
+        keytwo = "us-east-1a"
+    }
+}
+
+variable "This_list" {
+    description = "for ec2 count"
+    type = map
+    default = ["ami-0427090fd1714168b" , 3 ]
+}
+
+variable "This_any" {
+    description = "for ec2 count"
+    type = any
+    default = {
+       list =   ["sg-09d5d9601120f72dd"]
+       string = "t2.micro"
+       
+    }
+}
+
