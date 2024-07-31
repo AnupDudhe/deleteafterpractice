@@ -15,5 +15,9 @@ variable "This_api_termination" {
     default = true
 }
 
-
+variable "This_count" {
+    description = "for ec2 count"
+    type = number
+    default = 3
+}
 

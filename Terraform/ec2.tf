@@ -5,7 +5,7 @@ resource "aws_instance" "this_inst" {
   disable_api_termination = var.This_api_termination
   key_name                = "anupnvdev"
   #security_groups         = "default"
-  count = "2"
+  count = var.This_count
   vpc_security_group_ids  = ["sg-09d5d9601120f72dd"]
   #volume_size   = "10GiB"
   #volume_type   = "gp3"
