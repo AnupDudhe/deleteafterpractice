@@ -19,5 +19,5 @@ resource "aws_instance" "this_inst" {
 
 
 output "ec2_outputs" {
-  value = "aws_instance.this_inst.public_ip"
+  value = aws_instance.this_inst.public_ip
 }
