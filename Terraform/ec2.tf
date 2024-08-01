@@ -1,5 +1,5 @@
 resource "aws_instance" "this_inst" {
-  ami                     = 
+  ami                     = data.aws_ami.datablock-ami.id
   instance_type           = var.This_any.string
   availability_zone       = var.This_map.keytwo
   disable_api_termination = var.This_api_termination
