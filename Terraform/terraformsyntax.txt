@@ -30,17 +30,19 @@ outputblock -
 output "name_of_your_outputblock" {
   value = "resource_Type.resource_name.attributereference"
 }
+to call your output = output.name_of_your_outputblock
 
-
-data "resource_Type" "name_of_your_datablock" {
-     name_regex       = "theresourceyoutosearch/filter"
+data "aws_ami" "datablock-ami" {
+     name_regex       = "data"
      owners =  ["self"] #search/filter from existing account or anyother account
 
      filter {
        name = "name"
-       values = ["theresourceyoutosearch/filter"]
+       values = ["data"]
      }
 }
+data.resource_Type.name_of_your_datablock.attributereference
+
 
 
 
