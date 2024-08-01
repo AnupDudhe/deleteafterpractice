@@ -18,6 +18,18 @@ resource "aws_instance" "this_inst" {
 }
 
 
+data "aws_ami" "datablock-ami" {
+     name_regex       = "data"
+     owners =  ["self"] #search/filter from existing account or anyother account
+
+     filter {
+       name = "name"
+       values = ["data"]
+     }
+}
+
+
+
 output "ec2_outputs" {
   value = aws_instance.this_inst.public_ip
 }

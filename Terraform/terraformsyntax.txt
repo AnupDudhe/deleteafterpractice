@@ -32,6 +32,16 @@ output "name_of_your_outputblock" {
 }
 
 
+data "resource_Type" "name_of_your_datablock" {
+     name_regex       = "theresourceyoutosearch/filter"
+     owners =  ["self"] #search/filter from existing account or anyother account
+
+     filter {
+       name = "name"
+       values = ["theresourceyoutosearch/filter"]
+     }
+}
+
 
 
 expression - 
