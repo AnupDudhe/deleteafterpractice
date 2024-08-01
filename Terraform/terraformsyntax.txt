@@ -26,6 +26,10 @@ string "character" , number (int) , boolean (true or false , yes or no , 0 or 1)
 map , dictionary , list , tuple , set
 
 
+outputblock -
+output "name_of_your_outputblock" {
+  value = "resource_Type.resource_name.attributereference"
+}
 
 
 
