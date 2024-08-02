@@ -30,6 +30,10 @@ variable "This_map" {
     }
 }
 
+variable "This_az" {
+      
+    }
+
 variable "This_list" {
     description = "for ec2 count"
     type = list
