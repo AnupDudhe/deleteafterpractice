@@ -9,7 +9,7 @@ resource "aws_instance" "this_inst" {
   count = var.This_list.1
   vpc_security_group_ids  = [var.This_list.2]
     tags = {
-      Name = var.this_tag   
+      Name = var.This_list.3
   }
  
 }
