@@ -38,11 +38,8 @@ variable "This_list" {
 
 variable "This_any" {
     description = "for ec2 count"
-    type = any
-    default = {
-       string = "t2.micro"
-
-       
-    }
 }
 
+variable "This_sg" {
+    
+}
