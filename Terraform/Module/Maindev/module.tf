@@ -1,4 +1,5 @@
 module "ec2_module" {
+        source = "/home/cloudshell-user/deleteafterpractice/Terraform/Module/resources/EC2"
         This_api_termination = true
         This_map = "anupnvdev"
         This_az  = "us-east-1a"
