@@ -22,8 +22,7 @@ variable "This_az" {
     }
 
 variable "This_list" {
-    description = "for ec2 count"
-    #default = ["ami-0427090fd1714168b",3,"default","webapp"]
+    description = "for ec2 count"   
 }
 
 variable "This_any" {
