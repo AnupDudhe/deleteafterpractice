@@ -10,16 +10,13 @@ variable "This_count" {
 
 }
 
-variable "This_map" {
-    description = "for ec2 count"
-   
-}
+
 
 variable "This_az" {
       
     }
 
-variable "This_list" {
+variable "This_key" {
     description = "for ec2 count"   
 }
 
