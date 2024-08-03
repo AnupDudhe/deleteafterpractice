@@ -1,22 +1,22 @@
-
-variable "This_api_termination" {
+ variable "this_vpc_cidr_block" {
+   type = string
 }
-
-variable "This_key" {   
+variable "this_vpc_cidr_tags" {
+   type = string
 }
-
-variable "This_az" {    
+variable "this_public_cidr_block" {
+    type = string
 
 }
+variable "this_public_tags" {
+    type = string
+} 
 
-variable "This_tag" {   
-}
+variable "this_public_map_pub" {
+    type = bool
+} 
 
-variable "This_inst" {    
-}
 
-variable "This_sg" {   
-}
 
-variable "This_ami" {    
-}
+
+

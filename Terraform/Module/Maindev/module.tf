@@ -10,3 +10,11 @@ module "ec2" {
 
 
 }
+
+module "vpc" {
+     
+
+
+
+
+}
