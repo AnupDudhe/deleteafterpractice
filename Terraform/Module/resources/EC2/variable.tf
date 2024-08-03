@@ -20,3 +20,9 @@ variable "This_sg" {
 
 variable "This_ami" {    
 }
+variable "this_aws_vpc_id" {
+    type = string
+}
+variable "this_aws_instance_subnet" {
+     type = string
+}
