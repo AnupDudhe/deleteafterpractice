@@ -1,4 +1,4 @@
-module "ec2_module" {
+module "ec2" {
         source = "/home/cloudshell-user/deleteafterpractice/Terraform/Module/resources/EC2"
         This_api_termination = true
         This_key = "anupnvdev"
