@@ -29,3 +29,7 @@ variable "This_any" {
 variable "This_sg" {
     type = string
 }
+
+variable "This_tag" {
+    type = string
+}
