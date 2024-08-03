@@ -13,7 +13,7 @@ module "ec2" {
 
 }
 
-module "vpc" {
+module "aws_vpc" {
         source = "/home/anup/deleteafterpractice/Terraform/Module/resources/VPC"
         this_vpc_cidr_block = "192.168.0.0/16"
         this_vpc_cidr_tags = "vpc"
