@@ -1,3 +1,8 @@
+provider "aws" {
+    region =  "us-east-1"
+    profile = "configs"
+}
+
 resource "aws_iam_user" "main_user1" {
     name =  var.aws_user_name[count.index]
     count = length(var.aws_user_name)
