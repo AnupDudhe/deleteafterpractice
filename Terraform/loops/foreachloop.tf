@@ -2,7 +2,7 @@
 resource "aws_instance" "this_aws_instance" {
     for_each = toset(var.aws_ami)
     ami = each.value
-    instance_type = "t2.micro"
+    instance_type = "t3.medium"
 
     
 } 
