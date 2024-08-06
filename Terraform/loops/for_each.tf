@@ -1,6 +1,4 @@
-provider "aws" {
-    profile = "configs"
-}
+
 
 resource "aws_iam_user" "main_user1" {
     name =  var.aws_user_name[count.index]

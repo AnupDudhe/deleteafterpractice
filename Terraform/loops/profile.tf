@@ -1,0 +1,4 @@
+provider "aws" {
+
+    profile = "configs"
+}
