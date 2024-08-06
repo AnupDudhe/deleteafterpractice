@@ -5,7 +5,6 @@ provider "aws" {
 resource "aws_instance" "this_aws_instance" {
     for_each = toset(var.aws_ami)
     ami = each.value
-    key_name = "mumbai-region"
     instance_type = "t2.micro"
 
     
