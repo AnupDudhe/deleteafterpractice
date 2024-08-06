@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "this_aws_instance" {
     for_each = toset(var.aws_ami)
     ami = each.value
-    vpc_security_group_ids = ["sg-081787a4571bd9c08"]
+    vpc_security_group_ids = ["sg-0075a848f8a07ade0"]
     key_name = "mumbai-region"
     instance_type = "t2.micro"
 
