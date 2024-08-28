@@ -22,7 +22,7 @@ RUN mv oxer-html/*  .
 EXPOSE 80
 
 #we are running a background process for our image
-CMD ["httpd" , "-DFOREGROUND"]
+CMD "httpd" "-DFOREGROUND"
 
 
 
