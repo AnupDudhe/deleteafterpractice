@@ -17,4 +17,4 @@ RUN mv oxer-html/* .
 #we are exposing our container to a port
 EXPOSE 80
 #we are providing container a processs 
-CMD ["apachectl", "D" ,"FOREGROUND"]
+CMD ["apachectl", "-D" ,"FOREGROUND"]
