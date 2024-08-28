@@ -4,7 +4,7 @@ FROM  ubuntu:latest
 LABEL DEVOPSENGG="ANUP"
 
 #we are installing few packages in our image
-#RUN apt update 
+RUN apt update 
 RUN apt install unzip apache2 -y
 RUN rm -rf /var/www/html/index.html
 
