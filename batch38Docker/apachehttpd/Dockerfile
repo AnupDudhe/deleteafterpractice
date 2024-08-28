@@ -1,5 +1,5 @@
 #we are attaching a base to our docker image
-FROM  ubuntu:20.04
+FROM  ubuntu:latest
 #we are giving naming and filtering keys and values to our image
 LABEL DEVOPSENGG="ANUP"
 
