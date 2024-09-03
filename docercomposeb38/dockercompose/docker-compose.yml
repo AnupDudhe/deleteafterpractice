@@ -1,7 +1,7 @@
 services:
       frontendmicro:  
         build: /opt/deleteafterpractice/docercomposeb38/
-        ports: - "80:80"
+        ports: - '80:80'
         volume:
               - myapp:/usr/share/nginx/html/
         network_mode:  
