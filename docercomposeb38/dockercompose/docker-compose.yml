@@ -9,7 +9,7 @@ services:          #default synxtax
     network_mode:   #providing network mode
         bridge
 
-volume: 
+volumes: 
       myapp
 
 
