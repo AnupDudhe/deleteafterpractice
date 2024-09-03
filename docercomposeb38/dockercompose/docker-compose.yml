@@ -1,6 +1,6 @@
 services:          #default synxtax
   frontendnginxfirst:        #naming convention for container
-    build: /root/Docker/nginxdocfile  #location of the docker file
+    build: /opt/deleteafterpractice/docercomposeb38/  #location of the docker file
     ports:     #port mapping my container to host port 
       - '80:80'  
     container_name: nginxfrontendcontfirst  #providing name to container
