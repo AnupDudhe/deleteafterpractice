@@ -1,6 +1,7 @@
 
 FROM ubuntu:latest
 LABEL ubuntu="latest"
+RUN apt update
 RUN apt install nginx -y
 RUN rm -rf /usr/share/nginx/html/index.html
 RUN apt install unzip -y
