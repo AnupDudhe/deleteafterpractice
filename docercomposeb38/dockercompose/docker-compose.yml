@@ -1,11 +1,13 @@
-services:
-      frontendmicro:  
-        build: /opt/deleteafterpractice/docercomposeb38/
-        ports: - '80:80'
-        volume:
-              - myapp:/usr/share/nginx/html/
-        network_mode:  
-              bridge
+services:          #default synxtax
+  frontendnginxfirst:        #naming convention for container
+    build: /root/Docker/nginxdocfile  #location of the docker file
+    ports:     #port mapping my container to host port 
+      - '80:80'  
+    container_name: nginxfrontendcontfirst  #providing name to container
+    volumes:   #mounting persistent volume of my host to container
+      - myapp:/usr/share/nginx/html/
+    network_mode:   #providing network mode
+        bridge
 
 volume: 
       myapp
