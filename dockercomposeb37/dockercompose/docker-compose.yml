@@ -11,7 +11,8 @@ source:  #source syntax comples the creation of cont from img via docfile , assi
       build: . 
       #ports: - "81:81"
       network_mode: host
-      volumes: - myapp2:/usr/share/nginx/html/ 
+      volumes: 
+        - myapp2:/usr/share/nginx/html/ 
       container_name: frontnend
 volumes:   # will create a volume for you.
       myapp:
