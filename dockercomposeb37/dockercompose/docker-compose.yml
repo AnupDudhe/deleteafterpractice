@@ -1,12 +1,12 @@
 source:  #source syntax comples the creation of cont from img via docfile , assigns network , assigns volumes as well.
   nginxfrontendconone:
       build: .
-      ports: - "81:81"
+      ports: - 81:81
       network_mode: bridge
       container_name: frontnend
       volumes: - myapp:/usr/share/nginx/html/ 
   nginxfrontendcontwo:
-      build: .
+      build: . 
       #ports: - "81:81"
       network_mode: host
       volumes: - myapp2:/usr/share/nginx/html/ 
