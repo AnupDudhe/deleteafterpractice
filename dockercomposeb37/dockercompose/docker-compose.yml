@@ -13,7 +13,7 @@ services:  #services syntax comples the creation of cont from img via docfile , 
       network_mode: host
       volumes: 
         - myapp2:/usr/share/nginx/html/ 
-      container_name: frontnend
+      container_name: frontnend2
 volumes:   # will create a volume for you.
       myapp:
       myapp2:
