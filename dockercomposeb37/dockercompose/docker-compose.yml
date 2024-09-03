@@ -1,4 +1,4 @@
-source:  #source syntax comples the creation of cont from img via docfile , assigns network , assigns volumes as well.
+services:  #services syntax comples the creation of cont from img via docfile , assigns network , assigns volumes as well.
   nginxfrontendconone:
       build: .
       ports: 
