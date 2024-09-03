@@ -10,7 +10,7 @@ services:          #default synxtax
         bridge
 
 volumes: 
-      myapp
+      myapp:
 
 
       
