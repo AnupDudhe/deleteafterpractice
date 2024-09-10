@@ -1,0 +1,14 @@
+apiVersion: v1 
+#its the manual of your object/manifes file , ensures everything is manged
+#as per the apiversion library , it ensures the creation of object as well.
+kind: Pod 
+metadata: 
+        "name": anup
+spec:
+    containers:
+          - image: nginx:latest
+            name: nginxpod
+            ports:  
+              -  name: http
+                 container: 80
+                 protocol: TCP 
