@@ -17,14 +17,14 @@ spec:
                  containerPort: 80
                  protocol: TCP
           - image: tomcat:latest
-            name: nginxpod
+            name: tomcatpod
             resources: 
                 requests:
                   cpu: "500m"
                   memory: "128Mi" 
             ports:  
               -  name: http
-                 containerPort: 80
+                 containerPort: 8080
                  protocol: TCP
                  
                  #1 core = 1000 milicores
