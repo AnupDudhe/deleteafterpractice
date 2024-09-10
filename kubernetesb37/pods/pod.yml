@@ -8,7 +8,24 @@ spec:
     containers:
           - image: nginx:latest
             name: nginxpod
+            resources: 
+                requests:
+                  cpu: "500m"
+                  memory: "128Mi" 
             ports:  
               -  name: http
-                 container: 80
-                 protocol: TCP 
+                 containerPort: 80
+                 protocol: TCP
+          - image: tomcat:latest
+            name: nginxpod
+            resources: 
+                requests:
+                  cpu: "500m"
+                  memory: "128Mi" 
+            ports:  
+              -  name: http
+                 containerPort: 80
+                 protocol: TCP
+                 
+                 #1 core = 1000 milicores
+                 #1gb = 1024 mb
