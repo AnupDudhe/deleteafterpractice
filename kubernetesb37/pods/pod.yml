@@ -10,8 +10,8 @@ spec:
             name: nginxpod
             resources: 
                 requests:
-                  cpu: "500m"
-                  memory: "128Mi" 
+                  cpu: "10m"
+                  memory: "12Mi" 
             ports:  
               -  name: http
                  containerPort: 80
@@ -20,8 +20,8 @@ spec:
             name: tomcatpod
             resources: 
                 requests:
-                  cpu: "500m"
-                  memory: "128Mi" 
+                  cpu: "10m"
+                  memory: "12Mi" 
             ports:  
               -  name: custom
                  containerPort: 8080
