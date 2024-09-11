@@ -14,5 +14,5 @@ spec:
                   memory: "12Mi" 
           ports:
               - protocol: TCP
-                port: 80
+                containerPort: 80
                 name: http
