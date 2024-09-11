@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: nginxapp4
+        labels:
+            app: nginxapp4
+spec:
+    containers:
+        - name: nginxcont4
+          image: nginx:latest
+          resources:
+              requests:
+                  cpu: "10m"
+                  memory: "12Mi" 
+          ports:
+              - protocol: TCP
+                containerPort: 80
+                name: http
