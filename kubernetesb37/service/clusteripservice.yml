@@ -1,1 +1,14 @@
+apiVersion: v1
+kind:  Service
+metadata:
+      name: clusterip
+spec:
+    selector:
+          app:  
+    type: ClusterIP
+    ports:
+      - port: 80
+        name: http
 
+         
+        
