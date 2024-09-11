@@ -4,7 +4,7 @@ metadata:
         name: nodeport1  #cluster 
 spec:
     selector:
-          app: mypod  
+          app: mypod1  
     type: NodePort
     ports:
     - protocol: TCP
