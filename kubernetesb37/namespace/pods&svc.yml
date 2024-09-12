@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: nginxappdev
+        namespace: devnamespacenginxapp
+        labels:
+            app: nginxappdev
+spec:
+    containers:
+        - name: nginxcontdev
+          image: nginx:latest
+          resources:
+              requests:
+                  cpu: "10m"
+                  memory: "12Mi" 
+          ports:
+              - protocol: TCP
+                containerPort: 80
+                name: http
+---                
+apiVersion: v1
+kind:  Service
+metadata:
+      name: nodeportdev
+spec:
+    selector:
+        app:  nginxappdev
+    type: NodePort
+    ports:
+      - port: 80
+        targetPort: 80
+        name: http
