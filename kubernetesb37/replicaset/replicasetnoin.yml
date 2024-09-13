@@ -1,0 +1,29 @@
+apiVersion: apps/v1  
+kind: ReplicaSet
+metadata: 
+      name: replicasetnotin
+      labels:
+            app: replicaset2
+spec:
+    replicas: 3  #specify number of pod's replica to be created. 
+    template:
+          #write here your pod's script from metadata and spec.
+      metadata:
+        name: replicaset2
+        labels:
+            app: replicaset2
+      spec:
+          containers:
+              - name: nginxcont2
+                image: nginx:latest
+                resources:
+                    requests:
+                        cpu: "10m"
+                        memory: "12Mi" 
+                ports:
+                    - protocol: TCP
+                      containerPort: 80
+                      name: http  
+    selector: 
+        matchExpressions:
+          - {key: app, operator: NotIn, values: [replicaset1 , replicaset3 , replicaset4]}                  
