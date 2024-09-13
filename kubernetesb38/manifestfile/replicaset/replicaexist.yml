@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind:  ReplicaSet
+metadata: 
+       name: webappreplica4
+       labels:
+            app: webappreplica4
+spec: 
+    replicas: 3  #how many replica's you want to create on the basis of template
+    template:
+      metadata:  #like a tag
+         labels: 
+            app: webappreplica4
+      spec:
+        containers:
+            - name: mypod-cont1
+              image: nginx:latest
+              resources: 
+                  requests:
+                    cpu: "50m"
+                    memory: "90Mi"        
+              ports:  
+                - name: http
+                  containerPort: 80
+                  protocol: TCP
+    selector: 
+          matchExpressions: 
+            # - {key: app, operator: NotIn, values: [webappreplica, webappreplica2]}
+            -  { key: app, operator: Exists}
