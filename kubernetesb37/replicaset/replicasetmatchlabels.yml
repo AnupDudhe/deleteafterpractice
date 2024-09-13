@@ -28,4 +28,4 @@ spec:
         # matchExpressions:
         #   - {key: app, operator: In, values: [replicaset1 , replicaset2]}  
         matchLabels:
-                key: replicaset4                
+                app: replicaset4                
