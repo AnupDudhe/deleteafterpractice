@@ -5,9 +5,9 @@ metadata:
       labels:
             app: replicaset1
 spec:
-   replicas: 3  #specify number of pod's replica to be created. 
-   template:
-        #write here your pod's script from metadata and spec.
+    replicas: 3  #specify number of pod's replica to be created. 
+    template:
+          #write here your pod's script from metadata and spec.
       metadata:
         name: replicaset1
         labels:
