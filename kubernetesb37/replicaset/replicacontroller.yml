@@ -1,0 +1,32 @@
+apiVersion: apps/v1  
+kind: ReplicaSet
+metadata: 
+      name: replicacontroller
+      labels:
+            app: replicaset5
+spec:
+    replicas: 3  #specify number of pod's replica to be created. 
+    template:
+          #write here your pod's script from metadata and spec.
+      metadata:
+        name: replicaset5
+        labels:
+            app: replicaset5
+      spec:
+          containers:
+              - name: nginxcont5
+                image: nginx:latest
+                resources:
+                    requests:
+                        cpu: "10m"
+                        memory: "12Mi" 
+                ports:
+                    - protocol: TCP
+                      containerPort: 80
+                      name: http  
+    selector: 
+        # matchExpressions:
+        #   - {key: app, operator: In, values: [replicaset1 , replicaset2]}  
+        # matchLabels:
+        #         app: replicaset4     
+        app: replicaset5           
