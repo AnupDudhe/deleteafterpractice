@@ -23,7 +23,7 @@ spec:
                     containers:
                         - name: http
                           image: nginx 
-                          tports:
+                          ports:
                               -name: http
                                containerPort: 80
                                protocol: TCP
