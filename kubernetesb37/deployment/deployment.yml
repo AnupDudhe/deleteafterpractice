@@ -1,0 +1,50 @@
+apiVersion:  apps/v1
+kind: Deployment
+metadata: 
+    name: nginxapp 
+    labels:
+          app: nginxapp
+spec:
+    stratergy: 
+          type: RollingUpdate
+          rollingUpdate:
+            maxSurge: 2   # Maximum number of pods that can be created over the desired replicas
+            maxUnavailable: 2  # Maximum number of pods that can be unavailable during the update 
+    selectors:
+          matchLabels:
+              app: nginxapp
+    template:
+          metadata: 
+                name: nginxapp 
+                labels:
+                      app: nginxapp 
+                spec:
+                    containers:
+                        -name: http
+                         image: nginx 
+                         ports:
+                              -name: http
+                               containerPort: 80
+                               protocol: TCP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
