@@ -5,6 +5,7 @@ metadata:
     labels:
           app: nginxapp
 spec:
+    replicas: 14
     stratergy: 
           type: RollingUpdate
           rollingUpdate:
