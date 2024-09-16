@@ -1,0 +1,26 @@
+apiVersion: v1
+kind:  ReplicationController
+metadata: 
+       name: webapprc
+       labels:
+            app: webapprc
+spec: 
+    replicas: 3  #how many replica's you want to create on the basis of template
+    template:
+      metadata:  #like a tag
+         labels: 
+            app: webapprc
+      spec:
+        containers:
+            - name: mypod-cont1
+              image: nginx:latest
+              resources: 
+                  requests:
+                    cpu: "50m"
+                    memory: "90Mi"        
+              ports:  
+                - name: http
+                  containerPort: 80
+                  protocol: TCP
+    selector:
+          app: webapprc
