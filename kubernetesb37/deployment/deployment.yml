@@ -21,9 +21,9 @@ spec:
                       app: nginxapp 
                 spec:
                     containers:
-                        -name: http
-                         image: nginx 
-                         ports:
+                        - name: http
+                          image: nginx 
+                          tports:
                               -name: http
                                containerPort: 80
                                protocol: TCP
