@@ -12,15 +12,15 @@ spec:
           metadata:  #like a tag
               labels: 
                   app: daemonset 
-            spec:
-              containers:
-                  - name: mypod-cont1
-                    image: nginx:latest
-                    resources: 
-                        requests:
-                          cpu: "50m"
-                          memory: "90Mi"        
-                    ports:  
-                      - name: http
-                        containerPort: 80
-                        protocol: TCP            
+          spec:
+            containers:
+                - name: mypod-cont1
+                  image: nginx:latest
+                  resources: 
+                      requests:
+                        cpu: "50m"
+                        memory: "90Mi"        
+                  ports:  
+                    - name: http
+                      containerPort: 80
+                      protocol: TCP            
