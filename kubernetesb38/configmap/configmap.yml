@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: configMap
+metadata:
+    name: configmap1
+data: 
+    DB_USER: "Admin"
+    DB_PASSWORD: "1234"    
