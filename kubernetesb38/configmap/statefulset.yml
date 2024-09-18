@@ -28,12 +28,12 @@ spec:
                    valueFrom:
                           configMapKeyRef:
                               name: configmap1
-                              key:  DB_PASSWORD 
-                - name: MYSQL_USER_NAME
-                   valueFrom:
-                          configMapKeyRef:
-                              name: configmap1
-                              key:   DB_USER 
+                              key: DB_PASSWORD 
+                # - name: MYSQL_USER_NAME
+                #    valueFrom:
+                #           configMapKeyRef:
+                #               name: configmap1
+                #               key: DB_USER 
                           
     selector:
         matchLabels:
