@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployapp
+  labels:
+      app: deployapp
+spec:
+    replicas: 2     #desiredstate
+    strategy: 
+          type: RollingUpdate
+    selector: 
+          matchLabels:
+            app: deployapp
+    template: 
+        metadata: 
+            labels: 
+              app: deployapp   
+        spec: 
+          containers:
+             - name: frontendapp
+               image: anupdudhe/frontendrds
+               ports:
+                  - containerPort: 80
+                    protocol: TCP
+               resources:
+                  requests:
+                        memory: "64Mi"   #64mbs of intial memory is provide
+                        cpu: "125m"  #1core = 1000 millcores 125 millicore is initially provided to the pod
+                  limits:     
+                        memory: "128Mi"  #128mbs of max limit of memory is provide
+                        cpu: "250m"  #250 millicores is the max amount of limit this pod has.
+              command: ["sh", "-c"]
+              args:
+                - while [ 1 ]; do
+                  echo "Test";
+                  sleep 0.01;
+                  done
+---
+apiVersion: autoscaling/v2
+kind:  HorizontalPodAutoscaler 
+metadata:
+        name: hpa
+        label: 
+            app: hpa 
+spec:
+    scaleTargetRef:   # this parameter selects the deployment , of the pods sclaing is done by hpa using this para
+          apiVersion: apps/v1
+          kind: Deployment
+          name: deployapp
+     minReplicas: 1   #when threshold resource is low , then microservice scale down of pods will be 1  
+     maxReplicas: 4   #when threshold resourcce is high or it has touch the threshold point , the microservice scale will go upto 4 pods
+     metrics:
+          - type: Resource
+            resource:
+              name: cpu
+              target:
+                type: Utilization
+                averageUtilization: 50
