@@ -24,6 +24,6 @@ spec:
                         - name: http
                           containerPort: 8080
                           protocol: TCP      
-          selector:
-              matchLabels:
-                  app: studentapp
+    selector:
+        matchLabels:
+            app: studentapp
