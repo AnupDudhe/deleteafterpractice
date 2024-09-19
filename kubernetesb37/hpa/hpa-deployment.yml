@@ -25,7 +25,7 @@ spec:
                resources:
                   requests:
                         memory: "64Mi"   #64mbs of intial memory is provide
-                        cpu: "25m"  #1core = 1000 millcores 125 millicore is initially provided to the pod
+                        cpu: "20m"  #1core = 1000 millcores 125 millicore is initially provided to the pod
                   limits:     
                         memory: "128Mi"  #128mbs of max limit of memory is provide
                         cpu: "50m"  #250 millicores is the max amount of limit this pod has.
