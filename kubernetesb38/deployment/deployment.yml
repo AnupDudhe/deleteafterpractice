@@ -19,10 +19,10 @@ spec:
           spec:
               containers:
                   - name: http
-                    image: tomcat 
+                    image: nginx 
                     ports:
                         - name: http
-                          containerPort: 8080
+                          containerPort: 80
                           protocol: TCP      
     selector:
         matchLabels:
