@@ -25,10 +25,17 @@ spec:
                resources:
                   requests:
                         memory: "64Mi"
-                        cpu: "125m"
+                        cpu: "20m"
                   limits:     
                         memory: "128Mi"
-                        cpu: "250m"
+                        cpu: "50m"
+               command: ["sh", "-c"]
+               args:
+                  - while [ 1 ]; do
+                    echo "Test";
+                    sleep 0.01;
+                    done
+
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
