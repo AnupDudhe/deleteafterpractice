@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind:   Deployment
+metadata: 
+      name:  deploymentapp 
+      labels: 
+            app: deploymentapp
+spec:
+    replicas: 1   #desired state 
+    strategy: 
+        type: RollingUpdate
+    template:
+          metadata: 
+                name: deploymentapp 
+                labels:
+                      app: deploymentapp
+          spec:
+              containers:
+                  - name: http
+                    image: ubuntu:latest
+                    resources: 
+                        requests:    #starting point of our pod's resouce
+                          cpu: "25m"
+                          memory: "50Mi"
+                        limits:      #endpoint point of ours pod's resource
+                          cpu: "50m"
+                          memory: "100Mi"    
+                    ports:
+                        - name: http
+                          containerPort: 80
+                          protocol: TCP      
+    selector:
+        matchLabels:
+            app: deploymentapp
+---
+apiVersion:  autoscaling/v2
+kind:  HorizontalPodAutoscaler
+metadata:  
+    name: hpa1 
+    labels:
+        app: hpa1
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: deploymentapp
+  minReplicas: 1  #if below 50% scale down to 1
+  maxReplicas: 2  #if above 50% scale up to 2
+  metrics:  #data metrics parameter
+  - type: Resource
+    resource:
+      name: cpu  #the type of resource that to be monitored
+      target:
+        type: Utilization   #cpu utilization condition
+        averageUtilization: 50  #cpu utilization threshold in %
+        
+ 
