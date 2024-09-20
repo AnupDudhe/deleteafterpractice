@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-volume
+  labels:
+    type: pv
+spec:
+  storageClassName: standard     #storageclasstypeusedbypv
+  volumeMode:  Filesystem       #thetypeofvolumefilesystem
+  capacity:
+    storage: 10Gi    #your pv is getting 10GB of data from external storage
+  accessModes:
+    - ReadWriteOnce  #your providing permission to your pv , it can be rwm , rwo to attach pv on node level. 
+  persistentVolumeReclaimPolicy: Recycle  #policy to reuse your pv , either delete it after use or reuse it again on nodelevel
+  hostPath:
+    path: "/mnt/data"  #location of host path where data will be stored
+
+
+
+ #https://bluexp.netapp.com/blog/kubernetes-persistent-storage-why-where-and-how   

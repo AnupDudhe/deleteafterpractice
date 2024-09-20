@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:   #you mention the pvc that will be attaching to your pod
+        claimName: pv-claim    #your pvc name
+  containers:
+    - name: myfrontend
+      image: nginx
+      volumeMounts:  #this parameter provides the actual path of container where it will be mounted on your external storage.
+      - mountPath: "/share/local/nginx/"  #pathway of your data storage loc
+        name: mypd
+      ports:
+       - containerPort: 80
+         protocol: TCP

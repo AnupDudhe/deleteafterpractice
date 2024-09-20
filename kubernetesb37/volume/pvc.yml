@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pv-claim
+spec:
+  storageClassName: standard  
+  volumeMode:  Filesystem
+  accessModes:
+    - ReadWriteOnce  #the permission alloted to pvc to attach on pod level
+  resources:
+    requests:
+      storage: 3Gi  #max amount of storage this pvc can claim 
