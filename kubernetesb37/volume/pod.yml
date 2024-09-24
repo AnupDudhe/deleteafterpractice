@@ -4,7 +4,7 @@ metadata:
   name: mypod
 spec:
   volumes:
-    - name: mypd
+    - name: mypd #NAME of volume
       persistentVolumeClaim:   #you mention the pvc that will be attaching to your pod
         claimName: pv-claim    #your pvc name
   containers:
