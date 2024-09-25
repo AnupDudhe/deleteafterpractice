@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume 
+metadata:
+  name: pv-volume
+  labels:
+    type: pv    #app: #name type
+spec:
+    storageClassName: standard  #type of storage class to be used for pv.
+    volumeMode:  Filesystem  #filesystem 
+    capacity:
+        storage: 10Gi  #assigned storage capacity where your data at max can be transmitted to external storage 
+    accessModes:
+          - ReadWriteOnce 
+    persistentVolumeReclaimPolicy: Retain  #procedure to either recyle pv and volume , delete both or retain it.
+    hostPath:
+      path: "/mnt/data"    #your external storage path where data will be stored
