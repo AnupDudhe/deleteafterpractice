@@ -1,28 +1,28 @@
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: oneingress 
+  name: oneingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /  #for authentication and letting the ingress rule know your using nginx based ingress.
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx  #the class name of your ingress controller , will vary accordingly the type of ingress controller your using
+  ingressClassName: nginx
   rules:
-    - host: a5ff7a28718f1475a860473ad6cb800a-1163411906.ap-southeast-1.elb.amazonaws.com
-      http:  
-        paths:  
-          -  path: /    #will route you to the home page of your microservice
-              pathType: Prefix  
-              backend:   #here you will mention your service which is binded with home page pod
-                service: 
-                  name: frontendsrv   #mention your service name and its respective portno
-                  port:
-                    number: 80
-          -  path: /student
-              pathType: Prefix
-              backend:
-                service: 
-                  name: backendsrv
-                  port:
-                    number: 8080
-    
+  - host: a5ff7a28718f1475a860473ad6cb800a-1163411906.ap-southeast-1.elb.amazonaws.com
+    http:
+      paths:
+        
+         -  path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: frontendsrv
+                port:
+                  number: 80
+         -  path: /student
+            pathType: Prefix
+            backend:
+              service: 
+                name: backendsrv
+                port:
+                  number: 8080
+  
