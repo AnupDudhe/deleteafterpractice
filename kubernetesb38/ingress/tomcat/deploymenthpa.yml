@@ -1,0 +1,51 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployappback
+  labels:
+      app: deployappback
+spec:
+    replicas: 2     #desiredstate
+    strategy: 
+          type: RollingUpdate
+    selector: 
+          matchLabels:
+            app: deployappback
+    template: 
+        metadata: 
+            labels: 
+              app: deployappback   
+        spec: 
+          containers:
+             - name: backendapp
+               image: tomcat:latest
+               ports:
+                  - containerPort: 8080
+                    protocol: TCP
+               resources:
+                  requests:
+                        memory: "64Mi"
+                        cpu: "125m"
+                  limits:     
+                        memory: "128Mi"
+                        cpu: "250m"
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: deployappback
+  minReplicas: 1
+  maxReplicas: 4
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
