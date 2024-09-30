@@ -1,6 +1,6 @@
 pipeline {
       agent{
-        label 'dummy'    #mention the label of your webserver node provided in jenkins
+        label 'dummy'    //mention the label of your webserver node provided in jenkins
     }
     stages {
           stage('Pull') {
