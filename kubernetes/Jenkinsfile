@@ -1,0 +1,12 @@
+pipeline{
+ agent any
+ 
+ stages{
+    stage("Webhook-Pratical"){
+        steps{
+            git branch: "main", url: "https://github.com/AnupDudhe/deleteafterpractice.git"
+            echo "webhook"
+        }
+    }
+ } 
+} 
