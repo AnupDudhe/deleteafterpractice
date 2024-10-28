@@ -5,7 +5,7 @@ default_tags {
         }
   profile = "configs"
 }
-
+}
 
 resource "aws_iam_user" "iamusercbz1" {
 name = "cbz1"
