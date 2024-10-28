@@ -1,9 +1,11 @@
 provider "aws" {
+profile = "configs"
 default_tags {
       tags = {
               devopsenggname = "anup"
         }
-  profile = "configs"
+  
+  
 }
 }
 
