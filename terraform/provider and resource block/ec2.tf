@@ -5,7 +5,7 @@ resource "aws_instance" "this_ubuntu" {
     disable_api_termination = true  
     instance_type = "t2.micro" 
     #key_name=""
-    vpc_security_group_ids = ["sg-09d0f3b967811ad23"]
+    vpc_security_group_ids = ["sg-09d0f3b967811ad23" , ]
     count = 4  #loop 
     tags = {
       purpose = "webserver"

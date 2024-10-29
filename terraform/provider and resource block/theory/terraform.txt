@@ -100,3 +100,38 @@ blockname "<provider>_<resource_type/type>" "name" {
 }
 name = can be anything but must be unique and follow industry standards.
 
+
+what is variable block ?
+a variable block is variable passing block which is used to pass variables i.e attribute values to resource blocks 
+just to avoid any human errors that might occur during modifying / changing any attribute value directly from resource block.
+variable block supports following datatypes 
+string (for string based argument values) , float (for float based arguement values) , boolean (for bool based arg values) , int (for number based arg values )
+map (for key and value based arguements) , list (for list based arguements), any (you can pass all the above mentioned datatypes using any )
+
+data types in terraform - 
+tuples 
+set *
+list *
+map  *
+dictionaries 
+
+float *
+int  * 
+string  * 
+boolean  *
+
+variable syntax 
+
+variable "your_variableblockuniquename" {
+  type        =  "mention here the data type" 3 = number , true = boolean , "t2.micro"  = string 
+  description = "mention the value you want to pass" 3 , true , t2.micro 
+}
+ 
+instance_type = var.your_variableblockuniquename 
+"var" is default syntax for calling your varible block in your resource block's argument 
+
+variable "image_id" {
+  type        = string
+  description = "The id of the machine image (AMI) to use for the server."
+}
+ 
