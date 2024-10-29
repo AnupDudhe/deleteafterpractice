@@ -1,14 +1,14 @@
 resource "aws_instance" "this_ubuntu" {
 
-    ami = "ami-0325498274077fac5" 
+    ami = "ami-050cd642fd83388e4" 
     disable_api_stop  = true 
     disable_api_termination = true  
     instance_type = "t2.micro" 
-    key_name = "mumbaianupb38kp"
-    security_groups = [sg-0206fe395dc0f6d38]
+    #key_name=""
+    vpc_security_group_ids = ["sg-09d0f3b967811ad23"]
     count = 4  #loop 
     tags = {
-      purpose = "jenkins server"
+      purpose = "webserver"
     } 
     
 
