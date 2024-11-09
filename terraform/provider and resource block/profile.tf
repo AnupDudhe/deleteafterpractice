@@ -6,3 +6,4 @@ provider "aws" {
                 }
     }
 }
+#aws configure --profile configs
