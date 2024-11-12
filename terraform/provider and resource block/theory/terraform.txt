@@ -134,4 +134,49 @@ variable "image_id" {
   type        = string
   description = "The id of the machine image (AMI) to use for the server."
 }
+
+how to reference the data from variable block file to main.tf file 
+
+syntax of map variable - 
+
+variable "this_map" {
+    type = map  
+    default = {
+     purposeec2 = "webserver"   
+     termination = true 
+     count = 1
+    }     
+}
+
+how to call map variable ?
+var.this_map.purposeec2
+var.your_variableblockuniquename.map'skeyname
+
+  
+null -> its a data type but it means nothing or empty data 
+what is tuple ?
+
+
+.tfvar and auto.tfvar -> this extension files are very usefull in terraform since , theres no need to mention any data in variable block/variable file , instead you will data in .tfvar and auto.tfvars file , variable block will pick data from .tfvar extension files
+and reference in resource block. (.tfvar extension file requires command to direct variable block so that it can pick data from variable block
+where as auto.tfvar extension file doesnt require no such command) another advantage is using this files you create another layer of variable refrences so that , any human error will be reduced.
+
+Output Block  ->
+output block is used to extract the output data that is generated from the resource that is created on public cloud.
+
+output "outblockuniquename"  {
+    value = provider_resourcetype.uniquenameofresourceblock.attribute
+
+}
+
+ output "public_ip" {
+     value =  aws_instance.this_aws_instance.public_ip 
+} 
+ output "instance_id" {
+    value = 
+  
+}
+
+
+
  
