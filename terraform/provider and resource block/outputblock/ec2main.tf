@@ -14,3 +14,7 @@ resource "aws_instance" "this_ubuntu" {
     
 
 }    
+
+output "vpcsubnet_id" {
+    value = aws_subnet.this_subnet_pub.id 
+}
