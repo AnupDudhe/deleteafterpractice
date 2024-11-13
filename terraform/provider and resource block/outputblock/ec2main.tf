@@ -6,7 +6,7 @@ resource "aws_instance" "this_ubuntu" {
     #key_name=""
     vpc_security_group_ids = [var.this_vpc_security_group_ids]
       depends_on = [aws_subnet.this_subnet_pub]
-    subnet_id =  output.vpcsubnet_id.id
+    subnet_id =  aws_subnet.this_subnet_pub.id
     #count =    var.this_any.count   #var.this_count  #loop #var.this_list[1]
     tags = {
        purpose = var.this_map.purposeec2    #var.this_any.tags_map.purposeec2
@@ -35,7 +35,3 @@ resource "aws_subnet" "this_subnet_pub" {
 }
 
 
-
-output "vpcsubnet_id" {
-    value = aws_subnet.this_subnet_pub.id 
-}
