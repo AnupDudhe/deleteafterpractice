@@ -6,3 +6,7 @@ data "aws_ami" "this_aws_ami" {
     }
 
 }
+
+data "aws_security_group" "lb_sg" {
+  name = "default"  #var.vpc_security_group_ids[2]
+}

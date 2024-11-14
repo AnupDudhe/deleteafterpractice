@@ -14,3 +14,5 @@ resource "aws_instance" "this_ubuntu" {
     } 
     
 }  
+
+#data.aws_security_group.lb_sg.attribute
