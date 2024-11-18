@@ -7,7 +7,6 @@ variable "this_disable_api_stop" {
 }
 variable "this_disable_api_termination" {
     type = bool 
-    description = "this variable is used to pass bool data to api_termination" 
 }
 variable "this_count" {
     type = number 
@@ -36,16 +35,6 @@ variable "this_map" {
      
 }
 
-
-variable "this_any" {
-    type = string 
-    api_termination_ec2 = false
-}
-
-variable "this_any2" {
-    type = string 
-    api_stop_ec2 = false
-}
 
 variable "this_aws_instance_subnet" {
      type = string
