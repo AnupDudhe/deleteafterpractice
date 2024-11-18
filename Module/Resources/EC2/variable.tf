@@ -1,15 +1,12 @@
 variable "this_image_id" {
   type        = string
-  default = "ami-09b0a86a2c84101e1"
 }
 
 variable "this_disable_api_stop" {
-  type        = bool
-  default = false
+  type   = bool
 }
 variable "this_disable_api_termination" {
     type = bool 
-    default = false
     description = "this variable is used to pass bool data to api_termination" 
 }
 variable "this_count" {
@@ -25,7 +22,6 @@ variable "this_vpc_security_group_ids" {
 
 variable "this_list" {
     type = string
-    default = ["t2.micro" , "2" , "false"]
      
 }
 
