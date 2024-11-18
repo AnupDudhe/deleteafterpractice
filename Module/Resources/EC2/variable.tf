@@ -58,3 +58,7 @@ variable "this_any" {
 
     }
 }
+
+variable "this_aws_instance_subnet" {
+     type = string
+}
