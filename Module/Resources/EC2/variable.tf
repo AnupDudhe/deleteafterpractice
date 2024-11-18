@@ -2,12 +2,7 @@ variable "this_image_id" {
   type        = string
 }
 
-variable "this_disable_api_stop" {
-  type   = bool
-}
-variable "this_disable_api_termination" {
-    type = bool 
-}
+
 variable "this_count" {
     type = number 
     default = 2
