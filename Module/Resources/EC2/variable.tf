@@ -31,6 +31,3 @@ variable "this_map" {
 }
 
 
-variable "this_aws_instance_subnet" {
-     type = string
-}
