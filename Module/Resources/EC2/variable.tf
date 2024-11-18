@@ -24,7 +24,7 @@ variable "this_vpc_security_group_ids" {
 }
 
 variable "this_list" {
-    type = list 
+    type = string
     default = ["t2.micro" , "2" , "false"]
      
 }
@@ -42,21 +42,13 @@ variable "this_map" {
 
 
 variable "this_any" {
-    type = any 
-    default = {
-        count = 1
-        api_termination_ec2 = false
-        api_stop_ec2 = false 
-        ami_ec2 = "ami-03753afda9b8ba740" 
-        instance_type_list = ["t2.micro" , "t3.small" , "t3.large"]
-        tags_map = {
-           purposeec2 = "webserver" 
+    type = string 
+    api_termination_ec2 = false
+}
 
-        }
-
-
-
-    }
+variable "this_any2" {
+    type = string 
+    api_stop_ec2 = false
 }
 
 variable "this_aws_instance_subnet" {
