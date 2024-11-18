@@ -2,8 +2,6 @@
 module "ec2" {
     source = "/home/cloudshell-user/deleteafterpractice/Module/Resources/EC2"
     this_image_id = "ami-09b0a86a2c84101e1"
-    #this_disable_api_stop = true
-    #this_disable_api_termination = true
     this_list = "t2.micro"
     #this_vpc_security_group_ids = "sg-0505874879e7ce6cd"
    
