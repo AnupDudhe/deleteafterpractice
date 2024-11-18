@@ -4,7 +4,7 @@
 
 
 module "ec2" {
-    source = "/mnt/c/Users/Anup/Desktop/B24Module/Resources/EC2"
+    source = "/home/cloudshell-user/deleteafterpractice/Module/Resources/EC2"
     this_image_id = "ami-09b0a86a2c84101e1"
     this_disable_api_stop = false
     this_disable_api_termination = false
