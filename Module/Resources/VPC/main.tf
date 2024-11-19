@@ -8,7 +8,7 @@ resource "aws_vpc" "this_vpc" {
 
 resource "aws_subnet" "this_subnet_pub" {
   vpc_id     = aws_vpc.this_vpc.id  #referedresourceblock'sProvider_referedresourceblock'sresourcetype.referedresourceblocksuniqueresourceblockname.attributeofresource
-  availability_zone = "ap-south-1a"
+  availability_zone =  var.this_vpc_az  #"ap-south-1a"
   cidr_block = var.this_subnet_pub_cidr_block      //"12.11.0.0/17"  
   map_public_ip_on_launch = var.this_subnet_pub_map_ip //true
   tags = {

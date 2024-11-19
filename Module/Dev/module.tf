@@ -18,6 +18,7 @@ module "vpc" {
      this_subnet_pub_cidr_block = "12.11.0.0/17"
      this_subnet_pub_map_ip  = true 
      this_subnet_pub_tags = "pub_subnet"
+     this_vpc_az = "us-east-1a"
 
 
 

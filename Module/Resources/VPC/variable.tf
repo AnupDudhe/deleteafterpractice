@@ -14,3 +14,8 @@ variable "this_subnet_pub_map_ip" {
 variable "this_subnet_pub_tags" {
     type = string
 }
+
+variable "this_vpc_az" {
+  type = string
+
+}
