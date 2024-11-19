@@ -10,3 +10,16 @@ module "ec2" {
     #this_sg_vpc_id = module.vpc.vpc_id
     //this_aws_vpc_id = module.aws_vpc.aws_vpc_id
 }
+
+module "vpc" {
+     source = "/home/anup/terraform/deleteafterpractice/Module/Resources/VPC"
+     this_vpc_cidr_block = "12.11.0.0/16"
+     this_vpc_tags = "this_vpc"
+     this_subnet_pub_cidr_block = "12.11.0.0/17"
+     this_subnet_pub_map_ip  = true 
+     this_subnet_pub_tags = "pub_subnet"
+
+
+
+
+}
