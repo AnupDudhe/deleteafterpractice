@@ -19,15 +19,13 @@ variable "this_list" {
      
 }
 
-variable "this_map" {
-    type = map  
-    default = {
-     purposeec2 = "webserver"   
-     termination = true 
-     count = 1
+variable "this_disable_api_stop" {
+     type = bool
 
-    }
-     
 }
 
+variable "this_disable_api_termination" {
+  type = bool
+
+}
 
