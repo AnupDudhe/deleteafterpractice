@@ -1,7 +1,7 @@
 
 module "ec2" {
     source = "/home/anup/terraform/deleteafterpractice/Module/Resources/EC2"
-    this_image_id = "ami-09b0a86a2c84101e1"
+    this_image_id = "ami-012967cc5a8c9f891"
     this_list = "t2.micro"
     this_disable_api_stop = false
     this_disable_api_termination = false
