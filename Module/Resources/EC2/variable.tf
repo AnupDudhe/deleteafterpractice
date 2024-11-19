@@ -29,3 +29,7 @@ variable "this_disable_api_termination" {
 
 }
 
+variable "this_aws_instance_subnet" {
+   type = string
+
+}
