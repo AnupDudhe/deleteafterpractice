@@ -8,7 +8,7 @@ provider "aws" {
 #LockID
 terraform {
     backend "s3" {
-        bucket = "cbzanup"
+        bucket = "cbzanup1"
         key = "terraform.tfstate"
         dynamodb_table = "cbz38"
         region = "us-east-1"
