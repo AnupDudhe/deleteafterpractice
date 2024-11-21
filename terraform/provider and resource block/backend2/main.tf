@@ -1,7 +1,7 @@
 provider "aws" {
       region = "us-east-1"
       profile = "configs"
-      shared_credentials_files = "~/.aws/credentials"
+      shared_credentials_files = ["~/.aws/credentials"]
     
 }
 
@@ -13,7 +13,7 @@ terraform {
         dynamodb_table = "cbz38"
         region = "us-east-1"
         profile = "configs"
-        shared_credentials_files = "~/.aws/credentials"
+        shared_credentials_files = ["~/.aws/credentials"]
     }
 }
 
