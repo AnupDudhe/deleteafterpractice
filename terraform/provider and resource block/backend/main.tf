@@ -19,7 +19,7 @@ terraform {
 
 
 resource "aws_instance" "ths_instance" {
-  ami = "ami-0a38c1c38a15fed74"
+  ami = "ami-012967cc5a8c9f891"
   //key_name = "anupdel"
   instance_type = "t2.micro"
   //security_groups = ["sg-02582bf615cdb71bb"]
