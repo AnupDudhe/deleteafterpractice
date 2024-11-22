@@ -1,11 +1,4 @@
-provider "aws" {
-   profile = "configs"
-    default_tags {
-                tags = {
-                    name = "aws"
-                }
-    }
-}
+
 
 
 resource "aws_instance" "this_aws_instance" {
