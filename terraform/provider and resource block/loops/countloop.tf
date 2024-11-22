@@ -13,7 +13,7 @@ resource "aws_iam_user" "this_aws_iam_user" {
     name = var.users_list[count.index]
 }  
 resource "aws_iam_user" "this_aws_iam_user_2" { 
-    name = "neo.${count.index}"   neo
+    name = "neo.${count.index}"   #neo
     count = 3 
 }  
 
