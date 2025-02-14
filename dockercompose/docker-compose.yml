@@ -1,0 +1,10 @@
+services:
+  nginxwebsever:
+        build: .
+        ports:
+            - "80:80"
+        container_name: nginxwebsever 
+        volumes:
+            - ./html:/usr/share/nginx/html
+        network_mode: "host" 
+        #restart: always
