@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+      name: webapp 
+      labels:
+        app: myapp 
+spec:
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 1  #at a time out of 10 pods only 1 pod will be unavailable
+        maxSurge: 1  #at a time 1 extra pod will be created
+    replicas: 10
+    selector:
+      matchLabels:
+        app: myapp 
+    template: 
+       metadata:
+         labels:
+           app: myapp
+       spec: 
+          containers:
+          - name: mycontainer
+            image: nginx:latest
+            ports:
+              - containerPort: 80
