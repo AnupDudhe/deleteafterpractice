@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+metadata:
+  name: hpadaemon
+  labels:
+    app: hpadaemon
+kind: Deployment
+spec:
+  replicas: 2 #desiredstate
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: deployapp
+  template:
+    metadata:
+      labels:
+        app: deployapp
+    spec:
+      containers:
+      - name: frontendapp
+        image: anupdudhe/frontendrds
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "125m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: hpadaemon
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 95
+
+#        - type: Resource
+#          resource:
+#            name: memory
+#            targetAverageUtilization: 50                    
+
