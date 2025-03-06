@@ -54,3 +54,7 @@ spec:
 #            name: memory
 #            targetAverageUtilization: 50                    
 
+#kubectl exec -i -t hpadaemon-9d867fc4-nk795 --container frontendapp -- /bin/bash 
+
+
+#timeout 300 sh -c "while :; do :; done"
