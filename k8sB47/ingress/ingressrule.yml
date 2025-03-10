@@ -25,4 +25,5 @@ spec:
                 name: backendsrv
                 port:
                   number: 8080
-  
+  #https://docs.nginx.com/nginx-ingress-controller/installation/installing-nic/installation-with-helm/
+  #https://helm.sh/docs/intro/install/
