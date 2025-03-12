@@ -6,5 +6,6 @@ resource "aws_instance" "ec2webserver" {
   tags = {
     name = "webserver"
   }
-  subnet_id = "subnet-0ff38141a792616f5"
+  #subnet_id = "subnet-0ff38141a792616f5"
+  availability_zone = "ap-south-1c"
 }
