@@ -7,7 +7,7 @@ resource "aws_instance" "ec2webserver" {
     name = "webserver"
   }
   #subnet_id = "subnet-0ff38141a792616f5"
-  availability_zone = "ap-south-1c"
+  #availability_zone = "ap-south-1c"
 
   user_data     = <<-EOF
                     #!/bin/bash
