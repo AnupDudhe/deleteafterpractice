@@ -21,7 +21,7 @@ variable "this_tags" {
 
 
 variable "this_count" {
-    type = int 
+    type =  number 
     default = 2
 }
 
