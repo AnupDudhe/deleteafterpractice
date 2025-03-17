@@ -1,15 +1,15 @@
 variable "this_instancetype" {
-    type = "string"
+    type = string
     default = "t2.micro"
 }
 
 variable "this_ami_id" {
-    type = "string"
+    type = string
     default = "ami-05c179eced2eb9b5b"
 }
 
 variable "this_keyname" {
-    type = "string"
+    type = string
     default = "b25"  
 
 }
