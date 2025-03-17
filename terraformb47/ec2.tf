@@ -1,13 +1,15 @@
 resource "aws_instance" "ec2webserver" {
-  ami =  "ami-05c179eced2eb9b5b"
-  instance_type  = "t2.micro"
-  vpc_security_group_ids = ["sg-0b1e8061bdcc3b242"]
-  key_name = "b25"
+  ami =  var.this_ami_id
+  instance_type  = var.this_instancetype
+  #vpc_security_group_ids = ["sg-0b1e8061bdcc3b242"]
+  key_name = var.this_keyname
   tags = {
-    name = "webserver"
+    name = var.this_tags
   }
+  user_data_base64 = var.this_user_data_base64
+  count = var.this_count
   #subnet_id = "subnet-0ff38141a792616f5"
-  #availability_zone = "ap-south-1c"
+  availability_zone = var.this_availability_zone
 
   user_data     = <<-EOF
                     #!/bin/bash
