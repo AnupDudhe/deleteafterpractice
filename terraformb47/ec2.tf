@@ -11,10 +11,7 @@ resource "aws_instance" "ec2webserver" {
   #subnet_id = "subnet-0ff38141a792616f5"
   availability_zone = var.this_availability_zone
 
-  user_data     = <<-EOF
-                    #!/bin/bash
-                    echo "Hello, World!" > /tmp/hello.txt
-                  EOF
+
 }
 
 resource "aws_security_group" "webserversg" {
