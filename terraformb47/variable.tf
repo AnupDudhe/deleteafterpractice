@@ -30,7 +30,7 @@ variable "this_availability_zone" {
    default = "ap-south-1b"
 }
 
-variable "this_user_data_base64" {
+variable "this_b64" {
    type = bool
    default = true
 
