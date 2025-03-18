@@ -3,6 +3,7 @@ resource "aws_lb" "test" {
   internal           = var.internal["key"]
   load_balancer_type = var.this_lbtype[0]
   security_groups    = [var.this_sg]
-  enable_deletion_protection = var.this_dp
+  enable_deletion_protection = var.this_dp 	
+  subnets            = [subnet-0ff38141a792616f5] 
 
 }
