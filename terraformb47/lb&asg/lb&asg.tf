@@ -6,4 +6,10 @@ resource "aws_lb" "test" {
   enable_deletion_protection = var.this_dp 	
   subnets            = ["subnet-0ff38141a792616f5" , "subnet-042374d63a6989a76"] 
 
+} 
+
+output "lb_output" {
+
+     description = "dns of lb"
+     value       = aws_lb.test.dns_name
 }
