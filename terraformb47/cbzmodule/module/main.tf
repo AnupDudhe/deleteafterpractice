@@ -8,7 +8,7 @@ module  "ec2" {
         #This_sg  = ["sg-09d5d9601120f72dd"]
         This_ami = "ami-05c179eced2eb9b5b"
         this_aws_vpc_id = module.aws_vpc.aws_vpc_id
-        this_aws_instance_subnet = module.aws_vpc.aws_subnet_this_public
+        this_aws_instance_subnet = module.aws_vpc.subnet_id
 }
 
 module "aws_vpc" {
