@@ -1,5 +1,5 @@
 module  "ec2" {
-    source = "./ec2"
+    source = "/root/deleteafterpractice/terraformb47/cbzmodule/resource/EC2"
       This_api_termination = true
         This_key = "b25"
         This_az  = "ap-south-1c"
@@ -12,7 +12,7 @@ module  "ec2" {
 }
 
 module "aws_vpc" {
-        source = "/home/anup/deleteafterpractice/Terraform/Module/resources/VPC"
+        source = "/root/deleteafterpractice/terraformb47/cbzmodule/resource/VPC"
         this_vpc_cidr_block = "192.168.0.0/16"
         this_vpc_cidr_tags = "vpc"
         this_public_cidr_block  = "192.168.0.0/17"
