@@ -1,12 +1,12 @@
 module  "ec2" {
     source = "./ec2"
       This_api_termination = true
-        This_key = "ami-05c179eced2eb9b5b"
+        This_key = "b25"
         This_az  = "ap-south-1c"
         This_tag =  "webapp"
         This_inst = "t2.micro"
         #This_sg  = ["sg-09d5d9601120f72dd"]
-        This_ami = ""
+        This_ami = "ami-05c179eced2eb9b5b"
         this_aws_vpc_id = module.aws_vpc.aws_vpc_id
         this_aws_instance_subnet = module.aws_vpc.aws_subnet_this_public
 }
