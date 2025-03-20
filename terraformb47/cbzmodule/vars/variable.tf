@@ -1,0 +1,2 @@
+variable "this_instancetype" {
+}
