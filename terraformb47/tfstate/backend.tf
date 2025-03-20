@@ -5,13 +5,13 @@ provider "aws" {
     
 }
 
-#LockID
+#Partitionkey = LockID
 terraform {
     backend "s3" {
-        bucket = "cbzbatch"
+        bucket = "cbzbatchb47"
         key = "terraform.tfstate"
         dynamodb_table = "cbz24"
-        region = "us-west-2"
+        region = "us-east-1"
         profile = "configs"
         shared_credentials_files = ["/home/anup/.aws/credentials"]
     }
@@ -19,10 +19,10 @@ terraform {
 
 
 resource "aws_instance" "ths_instance" {
-  ami = "ami-0a38c1c38a15fed74"
-  //key_name = "anupdel"
+  ami = "ami-04b4f1a9cf54c11d0"
+  //key_name = ""
   instance_type = "t2.micro"
-  //security_groups = ["sg-02582bf615cdb71bb"]
+  //security_groups = [""]
   count = 1
   
   
