@@ -10,7 +10,7 @@ resource "aws_instance" "this_aws_instance" {
     //vpc_security_group_ids = ["sg-032e1a4a1685a03be"]
     //key_name = "delete_oregon_anup"
     instance_type = "t2.micro"
-    count = 2
+    //count = 2
 }   
 
 resource "aws_iam_user" "this_aws_iam_user" { 
