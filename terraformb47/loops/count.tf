@@ -6,7 +6,7 @@ provider "aws" {
  
 
 resource "aws_instance" "this_aws_instance" {
-    ami = "ami-05c179eced2eb9b5b "
+    ami = "ami-05c179eced2eb9b5b"
     //vpc_security_group_ids = ["sg-032e1a4a1685a03be"]
     //key_name = "delete_oregon_anup"
     instance_type = "t2.micro"
@@ -30,7 +30,7 @@ variable "users_list" {
 
  
 variable "instance_ami" {
-  default = ["ami-094b5b539e1023ba3 " , "ami-0e35ddab05955cf57"]
+  default = ["ami-094b5b539e1023ba3" , "ami-0e35ddab05955cf57"]
 
 }
 
