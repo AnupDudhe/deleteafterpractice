@@ -1,6 +1,6 @@
 
 provider "aws" {
-    region =  "us-west-2"
+    region =  "ap-south-1"
     profile = "configs"
 }
  
@@ -35,7 +35,7 @@ variable "instance_ami" {
 }
 
 resource "aws_instance" "this_aws_instance_var" {
-    count = length(varinstance_ami)
+    count = length(var.instance_ami)
     ami = var.instance_ami[count.index]
     //vpc_security_group_ids = ["sg-032e1a4a1685a03be"]
     //key_name = "delete_oregon_anup"
