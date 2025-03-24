@@ -21,7 +21,7 @@
     connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = "b25"
+    private_key = "b25.pem"
     host     = self.public_ip
   }
 
