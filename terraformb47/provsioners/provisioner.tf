@@ -1,8 +1,14 @@
  
+ provider "aws" {
+    region =  ""
+    //access_key = ""
+    //secret_key = ""
+    profile = "configs"
+}
   resource "aws_instance" "this_aws_instance" {
     //for_each = toset(var.imageid)
-    ami = each.value
-    vpc_security_group_ids = [""]
+    ami = "ami-05c179eced2eb9b5b"
+    vpc_security_group_ids = ["sg-09ae24b53482e0b20"]
     key_name = ""
     instance_type = "t2.micro"
      provisioner "file" {
@@ -15,7 +21,7 @@
     connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = "ec2-private"
+    private_key = "b25"
     host     = self.public_ip
   }
 
