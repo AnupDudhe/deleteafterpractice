@@ -1,3 +1,8 @@
+provider "aws" {
+  region = "ap-south-1" # Change to your desired region
+  profile = "configs"
+}
+
 resource "aws_instance" "ec2webserver" {
   ami =  var.this_ami_id
   instance_type  = var.this_instancetype
