@@ -15,7 +15,7 @@ resource "aws_subnet" "eks_subnet" {
   count = 2
   vpc_id            = aws_vpc.eks_vpc.id
   cidr_block        = "10.0.${count.index}.0/24"
-  availability_zone = element(["us-east-1a", "us-east-1b"], count.index)
+  availability_zone = element(["ap-south-1a", "ap-south-1b"], count.index)
 
   tags = {
     Name = "eks-subnet-${count.index}"
