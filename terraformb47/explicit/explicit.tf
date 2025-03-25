@@ -20,14 +20,14 @@ resource "aws_instance" "ec2webserver" {
 }
 
 resource "aws_security_group" "webserversg" {
-    dependson = [aws_instance.ec2webserver]
+    depends_on = [aws_instance.ec2webserver]
       ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
+
     ingress {
     from_port   = 8080
     to_port     = 8080
@@ -45,6 +45,7 @@ resource "aws_security_group" "webserversg" {
 
 }
 
+
 variable "this_instancetype" {
     type = string
     default = "t2.micro"
@@ -57,7 +58,7 @@ variable "this_ami_id" {
 
 variable "this_keyname" {
     type = string
-    default = "b25"  
+    default = "b25"
 
 }
 
@@ -68,24 +69,16 @@ variable "this_tags" {
 
 
 variable "this_count" {
-    type =  number 
+    type =  number
     default = 2
 }
 
 variable "this_availability_zone" {
-   type = string 
+   type = string
    default = "ap-south-1b"
 }
 
 variable "this_b64" {
    type = bool
    default = true
-
 }
-
-
- 
-
-
-
-
