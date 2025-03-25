@@ -3,22 +3,14 @@ provider "aws" {
   profile = "configs"
 }
 
-resource "aws_vpc" "eks_vpc" {
-  cidr_block = "10.0.0.0/16"
-
-  tags = {
-    Name = "eks-vpc"
-  }
+data "aws_vpc" "default" {
+  default = true
 }
 
-resource "aws_subnet" "eks_subnet" {
-  count = 2
-  vpc_id            = aws_vpc.eks_vpc.id
-  cidr_block        = "10.0.${count.index}.0/24"
-  availability_zone = element(["ap-south-1a", "ap-south-1b"], count.index)
-
-  tags = {
-    Name = "eks-subnet-${count.index}"
+data "aws_subnet" "default_subnet" {
+  filter {
+    name   = "availability-zone"
+    values = ["ap-south-1c"]
   }
 }
 
@@ -47,7 +39,7 @@ resource "aws_eks_cluster" "eks" {
   role_arn = aws_iam_role.eks_role.arn
 
   vpc_config {
-    subnet_ids = aws_subnet.eks_subnet[*].id
+    subnet_ids = [data.aws_subnet.default_subnet.id]
   }
 
   depends_on = [aws_iam_role_policy_attachment.eks_policy_attachment]
@@ -87,7 +79,7 @@ resource "aws_eks_node_group" "eks_nodes" {
   cluster_name    = aws_eks_cluster.eks.name
   node_group_name = "eks-node-group"
   node_role_arn   = aws_iam_role.eks_node_role.arn
-  subnet_ids      = aws_subnet.eks_subnet[*].id
+  subnet_ids      = [data.aws_subnet.default_subnet.id]
   instance_types  = ["t3.medium"]
   scaling_config {
     desired_size = 2
