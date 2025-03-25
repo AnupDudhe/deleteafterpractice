@@ -20,7 +20,7 @@ resource "aws_instance" "ec2webserver" {
 }
 
 resource "aws_security_group" "webserversg" {
-    dependson [aws_instance.ec2webserver]
+    dependson = [aws_instance.ec2webserver]
       ingress {
     from_port   = 80
     to_port     = 80
