@@ -8,3 +8,8 @@ services:
             #- ./html:/opt/apache-tomcat-9.0.106/webapps
         #network_mode: "host" 
         #restart: always 
+  tomcatwebseveremp:
+        build: /mnt/
+        ports:
+            - "81:8080"
+        container_name: tomcatwebseveremp
