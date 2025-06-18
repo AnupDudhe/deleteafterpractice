@@ -4,7 +4,7 @@ services:
         ports:
             - "8080:8080"
         container_name: tomcatwebsever 
-        volumes:
-            - ./html:/opt/apache-tomcat-9.0.106/webapps
-        network_mode: "host" 
+        #volumes:
+            #- ./html:/opt/apache-tomcat-9.0.106/webapps
+        #network_mode: "host" 
         #restart: always 
