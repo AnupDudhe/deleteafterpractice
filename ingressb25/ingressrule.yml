@@ -31,4 +31,4 @@ spec:
               service: 
                 name: mobilesrv
                 port:
-                  number: 81
+                  number: 80
