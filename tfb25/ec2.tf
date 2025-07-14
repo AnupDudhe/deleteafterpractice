@@ -1,6 +1,6 @@
 resource "aws_instance" "this" {
    ami = var.this_image_id
-   instance_type = var.this_any.instance_type_list[0]
+   instance_type =    t2.micro       #var.this_any.instance_type_list[0]
    vpc_security_group_ids = [var.this_map.secgroup]
    root_block_device {
     volume_size = var.this_volsize
@@ -8,10 +8,10 @@ resource "aws_instance" "this" {
     delete_on_termination = var.this_deleteont
 }
 
-  tags = {
-    Name = var.this_any.tags_map.name
-    purpose =  var.this_any.tags_map.purposeec2
-  }
+ tags = {
+   Name = webserver  #var.this_any.tags_map.name
+     purpose = webserver #var.this_any.tags_map.purposeec2
+   }
 
 }
 
