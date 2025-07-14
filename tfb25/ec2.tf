@@ -10,7 +10,7 @@ resource "aws_instance" "this" {
 
  tags = {
      Name =  var.this_any.tags_map.name
-     purpose = webserver.var.this_any.tags_map.purposeec2
+     purpose = var.this_any.tags_map.purposeec2
    }
 
 }
