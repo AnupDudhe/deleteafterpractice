@@ -9,7 +9,7 @@ variable "this_volsize" {
 }
 
 variable "this_deleteont {
-  type = float
+  type = bool
   default = false 
 
 }
@@ -23,7 +23,7 @@ variable "this_map" {
     type = map 
     
     default = {
-        voltype = "gp3" ,
+        voltype = "gp3" 
         secgroup = "sg-0243699f25e16090b"
         name = "webserver"
     }
