@@ -42,6 +42,6 @@ resource "aws_security_group" "webserversg" {
 }
 
 output "this_pubip" {
-  pubip =  this.public_ip
+  value =  this.public_ip
 
 }
