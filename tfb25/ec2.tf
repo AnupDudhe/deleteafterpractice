@@ -1,7 +1,7 @@
 resource "aws_instance" "this" {
    ami = var.this_image_id
    instance_type =   var.this_any.instance_type_list[0]
-   vpc_security_group_ids = [var.this_map.secgroup]
+   vpc_security_group_ids = [var.this_map.secgroup ]
    root_block_device {
     volume_size = var.this_volsize
     volume_type = var.this_list[0] 
@@ -42,6 +42,6 @@ resource "aws_security_group" "webserversg" {
 }
 
 output "this_pubip" {
-  value =  this.public_ip
+  value =  aws_instance.this.public_ip
 
 }
