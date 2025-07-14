@@ -1,16 +1,42 @@
 resource "aws_instance" "this" {
-   ami = "ami-05ee755be0cd7555c"
-   instance_type = "t2.micro"
-   vpc_security_group_ids = ["sg-0243699f25e16090b"]
+   ami = var.this_image_id
+   instance_type = var.this_any.instance_type_list[0]
+   vpc_security_group_ids = [var.this_map.secgroup]
    root_block_device {
-    volume_size = 10
-    volume_type = "gp3"
-    delete_on_termination = false
+    volume_size = var.this_volsize
+    volume_type = var.this_list[0] 
+    delete_on_termination = var.this_deleteont
 }
 
   tags = {
-    Name = "webserver"
-    purpose = "webserverinstalled"
+    Name = var.this_any.tags_map.name
+    purpose =  var.this_any.tags_map.purposeec2
+  }
+
+}
+
+
+resource "aws_security_group" "webserversg" {
+      ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+    ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+   egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
 }
