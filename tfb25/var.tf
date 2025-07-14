@@ -4,11 +4,11 @@ variable "this_image_id" {
 }
 
 variable "this_volsize" {
-  type        = number
+  type  = number
   default = 10 
 }
 
-variable "this_deleteont {
+variable "this_deleteont" {
   type = bool
   default = false 
 
