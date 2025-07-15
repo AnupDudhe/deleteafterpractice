@@ -1,7 +1,7 @@
 resource "aws_instance" "this" {
    ami = var.this_image_id
    instance_type =   var.this_any.instance_type_list[0]
-   vpc_security_group_ids = [var.this_map.secgroup , aws_security_group.webserversg.id ]
+   vpc_security_group_ids = [var.this_map.secgroup , aws_security_group.webserversg.id , data.aws_security_group.lb_sg.id ]
    root_block_device {
     volume_size = var.this_volsize
     volume_type = var.this_list[0] 
@@ -55,4 +55,8 @@ resource "aws_security_group" "webserversg" {
 output "this_pubip" {
   value =  aws_instance.this.public_ip
 
+}
+
+data "aws_security_group" "lb_sg" {
+  name = "k8s-elb-ac320dc34b76c4f8ba0bb40a4896768f"  #var.vpc_security_group_ids[2]
 }
