@@ -1,7 +1,7 @@
 resource "aws_instance" "this" {
    ami = var.this_image_id
    instance_type =   var.this_any.instance_type_list[0]
-   vpc_security_group_ids = [var.this_map.secgroup ]
+   vpc_security_group_ids = [var.this_map.secgroup , aws_security_group.webserversg.id ]
    root_block_device {
     volume_size = var.this_volsize
     volume_type = var.this_list[0] 
@@ -12,6 +12,17 @@ resource "aws_instance" "this" {
      Name =  var.this_any.tags_map.name
      purpose = var.this_any.tags_map.purposeec2
    }
+user_data = <<-EOF
+      #!/bin/sh
+      sudo -i
+      yum install nginx -y
+      systemctl start nginx
+      systemctl enable nginx
+      systemctl start mariadb
+      systemctl enable mariadb
+      bash /root/apache-tomcat-8.5.97/bin/catalina.sh start
+      EOF
+
 
 }
 
