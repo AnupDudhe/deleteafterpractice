@@ -1,6 +1,6 @@
 module "ec2" {
    source = "/root/deleteafterpractice/tfb25/tfmodule/resource/EC2"
-   this_image_id = "ami-05ee755be0cd7555c"
+   this_image_id = "ami-0be5f59fbc80d980c"
    this_volsize = 10 
    this_deleteont = false 
    instance_type_list = "t2.micro"
