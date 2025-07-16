@@ -1,7 +1,7 @@
 resource "aws_instance" "this" {
    ami = var.this_image_id
    instance_type =   var.instance_type_list
-   vpc_security_group_ids = [aws_security_group.webserversg.id ]
+   #vpc_security_group_ids = [aws_security_group.webserversg.id ]
    subnet_id = var.this_aws_instance_subnet 
    root_block_device {
     volume_size = var.this_volsize
