@@ -19,10 +19,10 @@ terraform {
 
 
 resource "aws_instance" "ths_instance" {
-  ami = "ami-0be5f59fbc80d980c"
+  ami = var.this_aws_ami
   //key_name = ""
-  instance_type = "t2.micro"
-  count = 1
+  instance_type = var.this_aws_instance_instance_type
+  count = var.this_aws_instance_count
   
   
   user_data = <<-EOF
