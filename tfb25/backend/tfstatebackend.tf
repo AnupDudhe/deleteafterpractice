@@ -1,5 +1,5 @@
 provider "aws" {
-      region = "us-east-1"
+      region = "us-west-2"
       profile = "configs"
       shared_credentials_files = ["/home/anup/.aws/credentials"]
     
@@ -8,10 +8,10 @@ provider "aws" {
 #Partitionkey = LockID
 terraform {
     backend "s3" {
-        bucket = "cbzbatchb25"
+        bucket = "cbzbatchb25new"
         key = "terraform.tfstate"
         dynamodb_table = "cbz25"
-        region = "us-east-1"
+        region = "us-west-2"
         profile = "configs"
         shared_credentials_files = ["/home/anup/.aws/credentials"]
     }
@@ -19,10 +19,9 @@ terraform {
 
 
 resource "aws_instance" "ths_instance" {
-  ami = "ami-0150ccaf51ab55a51"
+  ami = "ami-0be5f59fbc80d980c"
   //key_name = ""
   instance_type = "t2.micro"
-  //security_groups = [""]
   count = 1
   
   
