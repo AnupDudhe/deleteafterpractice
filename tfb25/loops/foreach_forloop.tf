@@ -27,3 +27,10 @@ variable "main_user_name" {
    
     default = ["ubuntu","centos","redhat"]
 }
+
+output "aws_ec2" {
+  value = [
+    for amiid in var.imageid:
+        aws_instance.this_aws_instancenew[amiid].public_ip
+  ]
+}
