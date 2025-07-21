@@ -33,3 +33,8 @@ resource "aws_iam_user" "this_aws_iam_user" {
 variable "users_list" {
     default = ["virat" , "rohit" , "raina"]
 }      
+
+resource "aws_iam_user" "this_aws_iam_user_2" { 
+    name = "user.${count.index}"
+    count = 3
+} 
