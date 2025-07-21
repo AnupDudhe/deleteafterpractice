@@ -1,4 +1,4 @@
-resource "aws_instance" "this_aws_instance" {
+resource "aws_instance" "this_aws_instancenew" {
     for_each = toset(var.imageid)
     ami = each.value
    // vpc_security_group_ids = ["sg-032e1a4a1685a03be"]
