@@ -7,7 +7,7 @@ resource "aws_instance" "this_aws_instancenew" {
     tags = {
         name = "webserver"
     }
-    name = webserver
+    name = "webserver"
     
 }
 
