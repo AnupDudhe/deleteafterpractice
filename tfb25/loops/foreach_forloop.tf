@@ -5,7 +5,7 @@ resource "aws_instance" "this_aws_instancenew" {
    // key_name = "delete_oregon_anup"
     instance_type = "t2.micro"
     tags = {
-        name = webserver
+        name = "webserver"
     }
     
 }
