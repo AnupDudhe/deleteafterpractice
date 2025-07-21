@@ -25,3 +25,11 @@ resource "aws_instance" "this_aws_instance_var" {
     instance_type = "t2.medium"
    
 } 
+
+resource "aws_iam_user" "this_aws_iam_user" { 
+    count = length(var.users_list)
+    name = var.users_list[count.index]
+}  
+variable "users_list" {
+    default = ["virat" , "rohit" , "raina"]
+}      
