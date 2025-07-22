@@ -21,7 +21,7 @@ resource "aws_instance" "this_aws_instance" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("${path.module}/tf")
+    private_key = file("${path.module}/tf.pem")
     host        = self.public_ip
   }
 
