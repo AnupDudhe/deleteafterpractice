@@ -53,12 +53,12 @@ variable "this_instancetype" {
 
 variable "this_ami_id" {
     type = string
-    default = "ami-05c179eced2eb9b5b"
+    default = "ami-04158184f60ea8b5e"
 }
 
 variable "this_keyname" {
     type = string
-    default = "b25"
+    default = "tf"
 
 }
 
@@ -75,7 +75,7 @@ variable "this_count" {
 
 variable "this_availability_zone" {
    type = string
-   default = "ap-south-1b"
+   default = "us-west-2b"
 }
 
 variable "this_b64" {
