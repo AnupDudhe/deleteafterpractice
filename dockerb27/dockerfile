@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 LABEL maintainer="devopsb27"
-RUN apt updadte && \ 
+RUN apt update && \ 
     apt install nginx -y \  
     echo "hello world" > /usr/share/nginx/html/index.html
 #COPY index.html /usr/share/nginx/html/index.html
