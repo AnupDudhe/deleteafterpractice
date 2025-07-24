@@ -1,8 +1,9 @@
 FROM ubuntu:20.04
 LABEL maintainer="devopsb27"
 RUN apt update && \ 
-    apt install nginx -y    
-RUN echo "hello world" > /usr/share/nginx/html/index.html
+    apt install nginx -y
+RUN echo "hello world" > /var/www/html/index.nginx-debian.html    
+#RUN  /usr/share/nginx/html/index.html
 #COPY index.html /usr/share/nginx/html/index.html
 
 EXPOSE 80
