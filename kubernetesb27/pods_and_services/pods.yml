@@ -20,6 +20,6 @@ spec:
     app: my-pod
   ports:
   - protocol: TCP
-    port: 80
-    #targetPort: 80
-  type: ClusterIP
+    port: 80  #container port
+    targetPort: 80 #port on the pod
+  type: NodePort
