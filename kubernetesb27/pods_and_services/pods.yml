@@ -22,4 +22,4 @@ spec:
   - protocol: TCP
     port: 80  #container port
     targetPort: 80 #port on the pod
-  type: NodePort
+  type: LoadBalancer  #NodePort service type #ClusterIP is default 
