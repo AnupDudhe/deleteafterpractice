@@ -1,0 +1,24 @@
+apapiVersion: apps/v1
+kind:  StatefulSet
+metadata: 
+  name: statefulset
+  labels:
+    app: newapp 
+spec: 
+  selector: 
+    matchLabels: 
+      app: newapp
+    replicas: 4 
+    template: 
+       metadata: 
+         labels: 
+           app: newapp 
+       spec:
+          containers: 
+          - name: db-container
+            image: mysql
+            ports:
+            - containerPort: 3306
+            env: 
+              - name: MYSQL_ROOT_PASSWORD
+                value: "1234"
