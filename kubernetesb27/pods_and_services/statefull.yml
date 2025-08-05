@@ -5,20 +5,20 @@ metadata:
   labels:
     app: newapp 
 spec: 
+  replicas: 4
   selector: 
     matchLabels: 
-      app: newapp
-    replicas: 4 
-    template: 
+      app: newapp  
+  template: 
        metadata: 
          labels: 
            app: newapp 
        spec:
           containers: 
-          - name: db-container
-            image: mysql
-            ports:
-            - containerPort: 3306
-            env: 
-              - name: MYSQL_ROOT_PASSWORD
-                value: "1234"
+            - name: db-container
+              image: mysql
+              ports:
+              - containerPort: 3306
+              env: 
+                - name: MYSQL_ROOT_PASSWORD
+                  value: "1234"  
