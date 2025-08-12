@@ -43,7 +43,7 @@ metadata:
     name: hpa1 
     labels:
         app: hpa1 
-    spec:
+spec:
       scaleTargetRef:
           apiVersion: apps/v1
           kind: Deployment
