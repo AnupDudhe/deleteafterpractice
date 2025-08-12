@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind:  Deployment
+metadata: 
+  name: deploy
+  labels:
+    app: depapp
+spec:
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+            maxSurge: 1     # Maximum number of pods that can be created over the desired replicas
+            maxUnavailable: 1  # Maximum number of pods that can be unavailable during the update
+    selector: 
+      #matchExpressions:      
+         #  -  { key: app, operator: In , values: [rsapp,  new-app]}
+         #   -  { key: app, operator: Exists}
+      matchLabels: 
+          app: depapp
+    replicas: 1   #desiredstate 
+    template:
+      metadata:
+        labels:
+          name: nginxapp
+          app: depapp
+      spec:
+        containers:
+          - name: nginxapp
+            image: nginx:latest
+            resources:
+              requests:
+                memory: "64Mi"
+                cpu: "250m"          #vertical autoscaling parameters.
+              limits:
+                memory: "128Mi"
+                cpu: "500m" 
+            ports:
+                - containerPort: 80
+                  protocol: TCP
+--- 
+apiVersion:  autoscaling/v2
+kind:  HorizontalPodAutoscaler
+metadata:  
+    name: hpa1 
+    labels:
+        app: hpa1 
+    spec:
+      scaleTargetRef:
+          apiVersion: apps/v1
+          kind: Deployment
+          name: deploy
+      minReplicas: 1
+      maxReplicas: 2 
+      metrics:
+        - type: Resource
+          resource:
+            name: cpu
+            target:
+              type: Utilization
+              averageUtilization: 50  # Target CPU utilization percentage for scaling
+
+
+#https://www.apwide.com/8-deployment-strategies-explained-and-compared/
+#https://spacelift.io/blog/kubernetes-deployment-strategies
+#https://spot.io/resources/kubernetes-autoscaling/8-kubernetes-deployment-strategies/
