@@ -56,7 +56,7 @@ spec:
             name: cpu
             target:
               type: Utilization
-              averageUtilization: 50  # Target CPU utilization percentage for scaling
+              averageUtilization: 95  # Target CPU utilization percentage for scaling
 
 
 #https://www.apwide.com/8-deployment-strategies-explained-and-compared/
