@@ -22,6 +22,6 @@ spec:
             pathType: Prefix
             backend:
               service: 
-                name: deployapptomcat
+                name: tomcatsrv
                 port:
                   number: 8080
