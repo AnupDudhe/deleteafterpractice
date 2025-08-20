@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: oneingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: a8e82e845c5bd413e8660b5a3a7beeb3-905485213.ap-southeast-1.elb.amazonaws.com
+    http:
+      paths:
+        
+         -  path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: nginxsrv
+                port:
+                  number: 80
+         -  path: /tomcat
+            pathType: Prefix
+            backend:
+              service: 
+                name: deployapptomcat
+                port:
+                  number: 8080
