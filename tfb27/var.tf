@@ -3,9 +3,9 @@ variable "this_ami" {
 }
 
 
-variable "this_count" {
-    default = 1 
-}
+#variable "this_count" {
+    #default = 1 
+#}
 
 
 variable "this_instance_type" {

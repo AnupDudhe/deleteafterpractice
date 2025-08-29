@@ -12,7 +12,7 @@ resource "aws_instance" "webserverresourceblock" {
     tags = {
         Name = var.this_instance_name
     }
-    count = var.this_count
+    #count = var.this_count
 } 
 
 
