@@ -45,3 +45,11 @@ resource "aws_security_group" "webserver_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+
+
+
+output "webserver_pubip" {
+  value =  aws_instance.webserverresourceblock.public_ip
+
+}
