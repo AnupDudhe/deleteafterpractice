@@ -4,7 +4,7 @@ variable "this_ami" {
 
 
 variable "this_count" {
-    default = 2 
+    default = 1 
 }
 
 
