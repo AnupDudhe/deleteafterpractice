@@ -4,7 +4,7 @@ module  "ec2" {
         This_key = "anrandive"
         This_az  = "ap-south-1c"
         This_tag =  "webapp"
-        This_inst = "t2.micro"
+        This_inst = "t3.micro"
         This_ami = "ami-0861f4e788f5069dd"
         this_aws_vpc_id = module.aws_vpc.aws_vpc_id
         this_aws_instance_subnet = module.aws_vpc.subnet_id
