@@ -8,9 +8,9 @@ provider "aws" {
 #Partitionkey = LockID
 terraform {
     backend "s3" {
-        bucket = "cbzbatchb25new"
+        bucket = "cbzbatchb27new"
         key = "terraform.tfstate"
-        dynamodb_table = "cbz25"
+        dynamodb_table = "cbz27"
         region = "us-west-2"
         profile = "configs"
         shared_credentials_files = ["/home/anup/.aws/credentials"]
