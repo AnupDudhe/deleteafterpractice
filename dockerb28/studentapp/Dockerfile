@@ -6,8 +6,8 @@ LABEL DEV="anup"
 
 
 #downloading java dependencies for your project 11
-RUN apt update && \
-    apt install unzip  openjdk-11-jdk -y     
+RUN apt-get update -y && \
+    apt-get install unzip openjdk-11-jdk -y     
 
 ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.108/bin/apache-tomcat-9.0.108.zip /opt/ 
 
