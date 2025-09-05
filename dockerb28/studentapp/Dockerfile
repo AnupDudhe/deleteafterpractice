@@ -1,5 +1,5 @@
 #Base image selection
-FROM ubuntu:20.04 
+FROM ubuntu:20.04.6 
 
 #Tag given to your container 
 LABEL DEV="anup"
