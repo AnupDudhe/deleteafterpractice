@@ -10,13 +10,13 @@ resource "aws_instance" "this_aws_instance" {
   key_name               = "tf"
   instance_type          = "t2.micro"
 
-  provisioner "file" {
+ provisioner "file" {
     source      = "hello.txt"
     destination = "/home/ec2-user/aws/"
   }
- provisioner "local-exec" {
-  command = "echo ${self.private_ip} >> private_ips.txt"
-
+  provisioner "local-exec" {
+    command = "echo ${self.private_ip} >> private_ips.txt"
+  }
   connection {
     type        = "ssh"
     user        = "ec2-user"
@@ -24,9 +24,7 @@ resource "aws_instance" "this_aws_instance" {
     host        = self.public_ip
   }
 
- }
-
-    provisioner "remote-exec" {
+  provisioner "remote-exec" {
     inline = [
 
       "sudo yum install httpd -y",
