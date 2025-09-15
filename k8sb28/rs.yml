@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind:  ReplicaSet
+metadata: 
+       name: webappreplica
+       labels:
+            app: webappreplica
+spec: 
+    replicas: 3  #how many replica's you want to create on the basis of template
+    template:
+      metadata:  #like a tag
+         labels: 
+            app: webappreplica
+      spec:
+        containers:
+            - name: mypod-cont1
+              image: nginx:latest       
+              ports:  
+                - name: http
+                  containerPort: 80
+                  protocol: TCP
+    selector:
+          matchLabels:
+                app: webappreplica
