@@ -10,8 +10,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "we are building webserver in this stage"
-                sh '''mkdir build
-                mkdir webdirec
+                sh '''
+                mvn clean package
                 '''
             }
         }
