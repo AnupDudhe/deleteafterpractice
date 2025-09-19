@@ -17,6 +17,6 @@ spec:
               - containerPort: 80
                 name: metrics
                 protocol: TCP      
-  selectors: 
+  selector: 
     matchLabels: 
         app: daemonset
