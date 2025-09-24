@@ -19,11 +19,11 @@ spec:
                     image: ubuntu:latest
                     resources: 
                         requests:
-                            cpu: "50m"   #1000millicore = 1 core ,  starting resource point for pod 
-                            memory: "50Mi"
+                            cpu: "100m"   #1000millicore = 1 core ,  starting resource point for pod 
+                            memory: "125Mi"
                         limits:
-                            cpu: "100m"    #ending resource point for pod
-                            memory: "100Mi"
+                            cpu: "200m"    #ending resource point for pod
+                            memory: "225Mi"
                     ports:
                          - name: http
                            containerPort: 80
