@@ -16,7 +16,7 @@ spec:
           spec:
               containers:
                   - name: http
-                    image: ubuntu:latest
+                    image:  nginx:latest
                     resources: 
                         requests:
                             cpu: "100m"   #1000millicore = 1 core ,  starting resource point for pod 
