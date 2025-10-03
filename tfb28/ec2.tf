@@ -11,13 +11,13 @@ resource "aws_instance" "webserver" {
 
 user_data = <<-EOF
                  #!/bin/sh
-      sudo -i
-      yum install nginx -y
-      systemctl start nginx
-      systemctl enable nginx
-      systemctl start mariadb
-      systemctl enable mariadb
-      bash /root/apache-tomcat-8.5.97/bin/catalina.sh start
+                  sudo -i
+                  yum install nginx -y
+                  systemctl start nginx
+                  systemctl enable nginx
+                  systemctl start mariadb
+                  systemctl enable mariadb
+                  bash /root/apache-tomcat-8.5.97/bin/catalina.sh start
                 
                 EOF
 }
