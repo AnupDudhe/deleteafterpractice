@@ -5,10 +5,11 @@ provider "aws" {
 
 
 resource "aws_instance" "webserver" {
-    ami = "ami-08982f1c5bf93d976" 
-    instance_type = "t2.micro"
+    ami =  var.webserver_ami
+    instance_type = var.webserver_instance_type
     vpc_security_group_ids = ["sg-0d1eccf2d4ec11307" , aws_security_group.sg-webserver.id ]
-
+    disable_api_termination = var.webserver_api_termination
+    count = var.webserver_copy  #loop count.
 user_data = <<-EOF
                  #!/bin/sh
                   sudo -i
@@ -18,7 +19,6 @@ user_data = <<-EOF
                   systemctl start mariadb
                   systemctl enable mariadb
                   bash /root/apache-tomcat-8.5.97/bin/catalina.sh start
-                
                 EOF
 }
 
