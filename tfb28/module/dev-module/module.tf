@@ -10,7 +10,7 @@ module "ec2" {
 
 module "vpc" {
     source = "ubuntu/deleteafterpractice/tfb28/module/resources/vpc"
-    vpc_cidr = "192.168.0.0/16" 
+    this_vpc_cidr = "192.168.0.0/16" 
     this_vpc_cidr_subnet =  "192.168.0.0/17" 
     this_map_public_ip_on_launch = true 
     this_public_tags = "webserver-public-subnet"
