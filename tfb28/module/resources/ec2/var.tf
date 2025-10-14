@@ -15,10 +15,10 @@ variable "webserver_copy" {
    type = number
 }
 
-variable "webserver_defaulsgroup" {
-   type = string
+#variable "webserver_defaulsgroup" {
+  # type = string
   
-}
+#}
 
 variable "ec2_instance_subnet" {
    type = string

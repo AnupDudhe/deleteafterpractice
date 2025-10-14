@@ -4,7 +4,7 @@ module "ec2" {
   webserver_instance_type = "t2.micro" 
   webserver_api_termination = false
   webserver_copy = 2 
-  webserver_defaulsgroup = "sg-0d1eccf2d4ec11307"
+  #webserver_defaulsgroup = "sg-0d1eccf2d4ec11307"
   ec2_instance_subnet = module.vpc.subnet_id
 }
 

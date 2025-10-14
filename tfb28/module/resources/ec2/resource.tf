@@ -1,7 +1,7 @@
 resource "aws_instance" "webserver" {
     ami =  var.webserver_ami
     instance_type = var.webserver_instance_type
-    vpc_security_group_ids = [ var.webserver_defaulsgroup , aws_security_group.sg-webserver.id , data.aws_security_group.aws_sg.id ]
+    #vpc_security_group_ids = [ var.webserver_defaulsgroup , aws_security_group.sg-webserver.id , data.aws_security_group.aws_sg.id ]
     disable_api_termination = var.webserver_api_termination
     count = var.webserver_copy  #loop count.
     subnet_id = var.ec2_instance_subnet
