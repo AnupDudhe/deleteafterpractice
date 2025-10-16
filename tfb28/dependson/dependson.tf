@@ -97,7 +97,7 @@ variable "this_count" {
 
 variable "this_availability_zone" {
    type = string
-   default = "us-west-2b"
+   default = "us-east-1a"
 }
 
 variable "this_b64" {
