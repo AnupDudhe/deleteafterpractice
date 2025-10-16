@@ -14,7 +14,7 @@ resource "aws_instance" "this_aws_instance" {
 }   
 
 variable "instance_ami" {
-  default = ["ami-08982f1c5bf93d976" , "ami-0360c520857e3138f "]
+  default = ["ami-08982f1c5bf93d976" , "ami-0360c520857e3138f"]
 }                  #0                     #1
 
 resource "aws_instance" "this_aws_instance_loop" {
