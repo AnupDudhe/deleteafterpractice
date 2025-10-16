@@ -21,7 +21,7 @@ resource "aws_instance" "ec2webserver" {
 resource "aws_instance" "ec2webserver2" {
   ami =  var.this_ami_id.ami_idaws
   instance_type  = var.this_instancetype[0]
-  key_name = var.this_any. 
+  key_name = var.this_any.this_keyname
   tags = {
     name = var.this_tags
   }
