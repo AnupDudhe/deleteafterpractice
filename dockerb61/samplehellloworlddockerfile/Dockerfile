@@ -10,7 +10,7 @@ RUN apt-get update && \
     rm /var/www/html/index.html 
 
 #downloaded and add the zip file to the specified location
-ADD https://templatemo.com/download/templatemo_562_space_dynamic   /var/www/html/ 
+ADD https://templatemo.com/download/templatemo_562_space_dynamic   /var/www/html/templatemo_562_space_dynamic.zip 
 
 #switched working directory to the specified location
 WORKDIR /var/www/html  
