@@ -17,7 +17,7 @@ WORKDIR /var/www/html
 
 #unzip the file and move the contents to the specified location
 RUN unzip *.zip && \
-    mv templatemo_562_space_dynamic/templatemo_562_space_dynamic/* .  
+    mv templatemo_562_space_dynamic/templatemo_562_space_dynamic/* /var/www/html/
 
 
 #exposed port for the container
