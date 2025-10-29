@@ -6,7 +6,7 @@ LABEL dev="anup"
 
 #executed commands in the dockerfile
 RUN apt-get update httpd unzip -y \
-    rm -rf /var/www/html/* 
+    rm /var/www/html/index.html 
 
 #downloaded and add the zip file to the specified location
 ADD https://templatemo.com/download/templatemo_562_space_dynamic   /var/www/html/ 
