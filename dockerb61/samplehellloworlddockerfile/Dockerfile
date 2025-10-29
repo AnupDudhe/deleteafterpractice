@@ -16,7 +16,7 @@ ADD https://templatemo.com/download/templatemo_562_space_dynamic   /var/www/html
 WORKDIR /var/www/html  
 
 #unzip the file and move the contents to the specified location
-RUN unzip templatemo_562_space_dynamic && \
+RUN unzip templatemo_562_space_dynamic.zip && \
     mv templatemo_562_space_dynamic/templatemo_562_space_dynamic/* /var/www/html/
 
 
