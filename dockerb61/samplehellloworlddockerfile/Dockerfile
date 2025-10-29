@@ -6,7 +6,7 @@ LABEL dev="anup"
 
 #executed commands in the dockerfile
 RUN apt-get update httpd unzip -y && \
-    apt-get install httpd unzip -y   \
+    apt-get install httpd unzip -y  && \
     rm /var/www/html/index.html 
 
 #downloaded and add the zip file to the specified location
