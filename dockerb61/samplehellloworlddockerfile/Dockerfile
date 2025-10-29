@@ -5,7 +5,7 @@ LABEL dev="anup"
 #keyvalue tags and labels 
 
 #executed commands in the dockerfile
-RUN apt-get update httpd unzip -y && \
+RUN apt-get update && \
     apt-get install httpd unzip -y  && \
     rm /var/www/html/index.html 
 
