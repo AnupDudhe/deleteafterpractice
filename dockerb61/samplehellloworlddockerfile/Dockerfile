@@ -24,7 +24,7 @@ RUN unzip templatemo_562_space_dynamic.zip && \
 EXPOSE 80 
 
 #command to run the apache server in foreground mode
-CMD ["apachectl", "D" ,"FOREGROUND"]
+CMD ["httpd-foreground"]
 
 
 
