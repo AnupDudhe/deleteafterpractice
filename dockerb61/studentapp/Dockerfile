@@ -27,4 +27,4 @@ RUN chmod +x catalina.sh
 
 EXPOSE 8080 
 
-CMD [ "/opt/apache-tomcat-9.0.111/bin/catalina.sh","run" ]
+CMD ["/opt/apache-tomcat-9.0.111/bin/catalina.sh","run"]
