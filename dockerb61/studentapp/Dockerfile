@@ -15,7 +15,7 @@ RUN unzip /opt/apache-tomcat-9.0.111.zip
 #ran unzip command 
 
 
-WORKDIR /opt/apache-tomcat-9.0.111/bin
+#WORKDIR /opt/apache-tomcat-9.0.111/bin
 #changing working directory  
 COPY context.xml apache-tomcat-9.0.111/conf/ 
 #LOCALly copying context.xml to conf folder of tomcat
@@ -23,7 +23,7 @@ ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war /opt/apache-to
 ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar /opt/apache-tomcat-9.0.111/lib/mysql-connector.jar
 #remote copy of war file and mysql-connector jar file
 #USER root
-#RUN chmod +x catalina.sh
+RUN chmod +x /opt/apache-tomcat-9.0.111/bin/catalina.sh
 
 
 EXPOSE 8080 
