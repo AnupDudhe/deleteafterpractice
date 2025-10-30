@@ -11,11 +11,12 @@ RUN apt-get update -y && \
 
 ADD  https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.111/bin/apache-tomcat-9.0.111.zip   /opt/ 
 
-RUN unzip /opt/apache-tomcat-9.0.111.zip  
+ 
 #ran unzip command 
 
 
-#WORKDIR /opt/apache-tomcat-9.0.111/bin
+WORKDIR /opt/
+RUN unzip apache-tomcat-9.0.111.zip 
 #changing working directory  
 COPY context.xml apache-tomcat-9.0.111/conf/ 
 #LOCALly copying context.xml to conf folder of tomcat
