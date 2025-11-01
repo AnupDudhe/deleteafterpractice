@@ -1,0 +1,17 @@
+services: 
+        studentapp: 
+            build: .
+            ports:
+                - "8080:8080" 
+            #volumes:
+                #- .:/app
+            #networks:
+                #- host 
+        #todsapp:
+            #build: ../todsapp
+            #ports:
+                #- "9090:9090" 
+            #volumes:
+                #- ../todsapp:/app
+            #networks:
+                #- host        
