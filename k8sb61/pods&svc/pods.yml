@@ -1,6 +1,6 @@
 apiVerson: v1  #apiversion for pod 
 kind: Pod  #uniqune kind for pod
-Metadata:
+metadata:
   name: my-podci  #tag for the created pod 
 spec: #specification of the pod
   containers:
