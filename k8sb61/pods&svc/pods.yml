@@ -1,0 +1,11 @@
+apiVerson: v1  #apiversion for pod 
+kind: Pod  #uniqune kind for pod
+Metadata:
+  name: my-podci  #tag for the created pod 
+spec: #specification of the pod
+  containers:
+    - name: my-podci #container name inside the pod
+      image: nginx:latest  #image to be used for the container
+      ports:
+          - containerPort: 80 #port to be used inside the container
+      
