@@ -1,4 +1,4 @@
-apiVerson: v1  #apiversion for pod 
+apiVersion: v1  #apiversion for pod 
 kind: Pod  #uniqune kind for pod
 metadata:
   name: my-podci  #tag for the created pod 
