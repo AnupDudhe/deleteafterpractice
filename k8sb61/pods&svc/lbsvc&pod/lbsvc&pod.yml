@@ -1,0 +1,27 @@
+apiVersion: v1  #apiversion for pod 
+kind: Pod  #uniqune kind for pod
+metadata:
+  name: my-podlb  #tag for the created pod
+  labels:
+    app: my-podlb
+spec: #specification of the pod
+  containers:
+    - name: my-podlb #container name inside the pod
+      image: nginx:latest  #image to be used for the container
+      ports:
+          - containerPort: 80 #port to be used inside the container
+      
+--- 
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: my-svclb
+spec: 
+    selector:
+      app: my-podlb
+    type: LoadBalancer
+    ports:
+      - protocol: TCP 
+        port: 80 
+        targetPort: 80
+        
