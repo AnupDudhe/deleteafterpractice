@@ -1,0 +1,26 @@
+apiVersion: v1  #apiversion for pod 
+kind: Pod  #uniqune kind for pod
+metadata:
+  name: my-podci  #tag for the created pod
+  labels:
+    app: my-podci
+spec: #specification of the pod
+  containers:
+    - name: my-podci #container name inside the pod
+      image: nginx:latest  #image to be used for the container
+      ports:
+          - containerPort: 80 #port to be used inside the container
+      
+--- 
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: my-svcci
+  spec: 
+    selector:
+      app: my-podci
+    type: ClusterIP 
+    ports:
+      - protocol: TCP 
+        port: 80 
+        targetPort: 80
