@@ -4,7 +4,10 @@ metadata:
    name: node-logs-collector
    labels:
      app: node-logs-collector
-spec: 
+spec:
+  selector:
+    matchLabels:
+      app: node-logs-collector 
   template:
      metadata:
        labels:
