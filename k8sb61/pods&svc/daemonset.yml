@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: 
+   name: node-logs-collector
+   labels:
+     app: node-logs-collector
+spec: 
+  template:
+     metadata:
+       labels:
+         app: node-logs-collector
+     spec: 
+          containers:
+            - name: log-collector-cont 
+              image: amazon/cloudwatch-agent
+              ports:
+                - containerPort: 80
