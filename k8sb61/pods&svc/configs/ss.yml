@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind:  StatefulSet
+metadata: 
+  name: my-statefulsetconfig
+  labels:  
+    app: my-statefulsetconfig 
+spec: 
+    selector: 
+      matchLabels: 
+        app: my-statefulsetconfig
+    replicas: 5
+    template: 
+      metadata: 
+        labels: 
+          app: my-statefulsetconfig 
+      spec: 
+        containers: 
+          - name: my-statefulset-container
+            image: mysql:latest
+            ports: 
+              - containerPort: 3306
+            env:
+              - name: MYSQL_ROOT_PASSWORD
+                valueFrom:
+                      configMapKeyRef:
+                        name: configs
+                        key: db1keyconfig
