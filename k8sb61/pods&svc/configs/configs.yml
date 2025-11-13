@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Config 
+metadata:
+   name: configs 
+   labels:
+     app: configs 
+data: 
+      db1keyconfig: "12345678" #dev
