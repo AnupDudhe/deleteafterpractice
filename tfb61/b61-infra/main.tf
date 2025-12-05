@@ -68,9 +68,24 @@ data "aws_security_group" "data_webserver_sg" {
 
 }
 
-data "aws_ami" "ami" {
-  name = "Amazon Linux 2023 kernel-6.1"
+data "aws_ami" "data_webserver_ami" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["Amazon Linux 2023 kernel-6.1 AMI"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = [ "813592692089"] # Amazon
+
 }
+
+
 data "aws_instance" "data_webserver_instance" {
   instance_id = "i-030fca051e65814ff"
 
