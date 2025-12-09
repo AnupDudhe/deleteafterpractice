@@ -5,7 +5,7 @@ module "ec2" {
   webserver_key_name = "30july"
   webserver_disable_api_termination = false 
   webserver_subnetA = module.vpc.subnet_id
-  webserver_sg =  [module.vpc.webserver_sg ]
+  webserver_sg =  module.vpc.webserver_sg
 }
 
 module "vpc" {
