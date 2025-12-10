@@ -1,6 +1,6 @@
 #EC2 vairables
   webserver_ami = "ami-0fa3fe0fa7920f68e" 
-  webserver_instance_type = "t3.micro" 
+  webserver_instance_type = "t2.micro" 
   webserver_key_name = "30july"
   webserver_disable_api_termination = false 
   webserver_subnetA = module.vpc.subnet_id
