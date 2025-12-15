@@ -11,7 +11,7 @@ ADD https://templatemo.com/download/templatemo_603_nexaverse /var/www/html/templ
 
 RUN rm -rf /var/www/html/index.html && \
     unzip /var/www/html/templatemo_603_nexaverse.zip -d /var/www/html  && \
-    mv /var/www/html/templatemo_603_nexaverse/* /var/www/html/
+    mv /var/www/html/templatemo_603_nexaverse/* /var/www/html/ 
 #in here we have removed the default index.html file of apache server and unzipped the downloaded webapp 
 #and moved all the content to apache server root directory
 #WORKDIR   /var/www/html 
