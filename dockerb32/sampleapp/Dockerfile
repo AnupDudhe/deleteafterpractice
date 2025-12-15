@@ -6,7 +6,7 @@ RUN apt-get update  && \
     apt-get install apache2 unzip -y 
 #we are updating the image , installing apache2 server and unzip utility   
 
-ADD https://templatemo.com/download/templatemo_603_nexaverse /var/www/html/
+ADD https://templatemo.com/download/templatemo_603_nexaverse /var/www/html/templatemo_603_nexaverse.zip
 #in here we have downloaded a sample webapp from internet and added to our apache server root directory
 
 RUN rm -rf /var/www/html/index.html && \
