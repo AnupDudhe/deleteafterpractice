@@ -1,4 +1,4 @@
-FROM ubuntu:22.0.4 
+FROM ubuntu:22.04 
 #baseimage
 
 LABEL name="devops_enggr"
