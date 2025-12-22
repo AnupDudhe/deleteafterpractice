@@ -1,0 +1,22 @@
+services:
+  studentapp:
+    build: .
+    #docker build -t studentapp_image .
+    container_name: studentapp_container
+    ports:
+      - 8080:8080
+    #docker run -d -p 8080:8080 --name studentapp_container studentapp_image
+    #network_mode: "host"
+    #we are using host networking to avoid port mapping issues
+    #docker network create studentapp_network
+    #docker run -d -p 8080:8080 --name studentapp_container --network host studentapp_image
+    #volumes:
+      #- vol1:webapps/ 
+    #docker create volume vol1
+    #docker run -d -p 8080:8080 --name studentapp_container -v vol1:/usr/local/tomcat/webapps/ studentapp_image
+    #we are using a volume to persist data 
+  #todos: 
+    #build: ../todos/
+    #ports: 
+      #- 8090:8090
+    #container_name: todos_container
