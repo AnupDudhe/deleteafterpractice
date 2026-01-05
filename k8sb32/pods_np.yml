@@ -1,7 +1,7 @@
 apiVersion: v1 
 metadata: 
      name: np-pod 
-     labels::
+     labels:
          app: podnp  #tags     
 kind:  Pod
 spec: 
