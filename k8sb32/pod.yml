@@ -5,6 +5,6 @@ kind:  Pod
 spec: 
      containers:
       - name: nginx-container 
-        image: nginx-latest 
+        image: nginx
         ports:
           - containerPort: 80
