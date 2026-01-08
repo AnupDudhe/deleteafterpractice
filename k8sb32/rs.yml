@@ -5,7 +5,7 @@ metadata:
    labels:
        app: myapp
 spec: 
-  replicas: 3 
+  replicas: 4
   template:
     metadata: 
      name: np-pod 
