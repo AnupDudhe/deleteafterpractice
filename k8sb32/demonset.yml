@@ -6,6 +6,7 @@ metadata:
       app: daemonset
 spec:
   selector: 
+    matchLabels:
       app: daemonset 
   template:
     metadata: 
