@@ -1,0 +1,25 @@
+apiVersion: apps/v1                           
+kind: Deployment
+metadata:
+  name: my-deployment 
+  labels:
+    app: my-app
+spec: 
+  replicas: 4 
+  selector:
+    matchLabels:
+      app: my-app
+  strategy:
+    typeL: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1  #number of pods that can be created above the desired number of pods in short newly updated new app version pods created at a time
+      maxUnavailable: 1  #number of pods that can be unavailable during the update process in short old app version pods terminated at a time
+  template:
+    metadata: 
+     name: nginx-pod
+    spec: 
+      containers:
+        - name: nginx-container 
+          image: nginx      #v1
+          ports:
+            - containerPort: 80
