@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: my-app
   strategy:
-    typeL: RollingUpdate
+    type: RollingUpdate
     rollingUpdate:
       maxSurge: 1  #number of pods that can be created above the desired number of pods in short newly updated new app version pods created at a time
       maxUnavailable: 1  #number of pods that can be unavailable during the update process in short old app version pods terminated at a time
