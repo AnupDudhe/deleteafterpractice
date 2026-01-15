@@ -13,7 +13,7 @@ spec:
     metadata:
       name: ssdb2 
       labels:
-        app: ssdb
+        app: ssdb2
     spec:
       containers:
       - name: ssdbcont2
