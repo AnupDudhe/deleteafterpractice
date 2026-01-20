@@ -1,0 +1,15 @@
+apivesrion:  v1 
+kind: PersistentVolumeClaim
+metadata: 
+   name: pv-claim
+   labels:
+      app: pv-claim
+spec:
+    storageClassName: standard 
+    volumeMode: Filesystem
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+         storage: 14Gi
+    
