@@ -12,6 +12,6 @@ spec:
     storageClassName: standard #matches with pvc and depends on the type of external volume
     volumeMode: Filesystem #since ebs is used we use this volume mode
     persistentVolumeReclaimPolicy: Retain #data will be retained even after pv is deleted
-    hostPath: /mnt/data/nginxvol1 
+    hostPath: "/mnt/data/nginxvol1" 
 
     #ensure accessModes, storageClassName and volumeMode matches with pvc
