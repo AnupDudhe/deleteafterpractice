@@ -53,4 +53,8 @@ spec:
            name: cpu
            target:
               type: Utilization
-              averageUtilization: 10   #horizontal autoscaling based on cpu utilization
+              averageUtilization: 10   #horizontal autoscaling based on cpu utilization 
+
+
+
+              #kubectl exec -it <pod-name> -- /bin/sh -c 'for i in 1 2 3 4; do while : ; do : ; done & done'
