@@ -24,4 +24,11 @@ spec:
                 name: ci-tomcatappservice
                 port:
                   number: 8080
+                    - path: /httpd
+          - pathType: Prefix
+            backend:
+              service:
+                name: ci-httpdappservice
+                port:
+                  number: 81
               
