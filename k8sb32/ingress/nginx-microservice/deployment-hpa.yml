@@ -1,0 +1,60 @@
+apiVersion: apps/v1                           
+kind: Deployment
+metadata:
+  name: my-nginxdeployment 
+  labels:
+    app: my-nginxapp
+spec: 
+  replicas: 1  #desired state 
+  selector:
+    matchLabels:
+      app: my-nginxapp
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1  #number of pods that can be created above the desired number of pods in short newly updated new app version pods created at a time
+      maxUnavailable: 1  #number of pods that can be unavailable during the update process in short old app version pods terminated at a time
+  template:
+    metadata: 
+     name: nginx-pod
+     labels:
+       app: my-nginxapp
+     
+    spec: 
+      containers:
+        - name: nginx-container 
+          image: httpd:latest     #v1
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "1000m"
+              memory: "512Mi"    #vertical autoscaling minimum resources 
+            limits:
+              cpu: "2000m"
+              memory: "1024Mi"  #vertical autoscaling maximum resources 
+--- 
+apiVersion:   autoscaling/v2 
+kind: HorizontalPodAutoscaler
+metadata: 
+   name: my-nginxhpa
+   labels:
+      app: my-nginxapp
+spec: 
+    scaleTargetRef: 
+       apiVersion: apps/v1
+       kind: Deployment
+       name: my-nginxdeployment 
+    minReplicas: 1 
+    maxReplicas: 2 
+    metrics: 
+      - type: Resource
+        resource: 
+           name: cpu
+           target:
+              type: Utilization
+              averageUtilization: 10   #horizontal autoscaling based on cpu utilization 
+
+
+
+              #kubectl exec -it <pod-name> -- /bin/sh -c 'for i in 1 2 3 4; do while : ; do : ; done & done'

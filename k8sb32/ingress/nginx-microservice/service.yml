@@ -1,0 +1,13 @@
+apiVersion: v1
+metadata: 
+    name: ci-nginxappservice
+kind: Service
+spec: 
+    selector:
+        app: my-nginxapp
+    type: ClusterIP
+    ports:
+      - protocol: TCP 
+        port: 80 
+        targetPort: 80
+        
