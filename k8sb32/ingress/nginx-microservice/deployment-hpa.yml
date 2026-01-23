@@ -23,7 +23,7 @@ spec:
     spec: 
       containers:
         - name: nginx-container 
-          image: httpd:latest     #v1
+          image: nginx:latest     #v1
           ports:
             - containerPort: 80
           resources:
