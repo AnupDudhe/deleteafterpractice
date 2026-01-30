@@ -1,9 +1,9 @@
 resource "aws_instance" "webserver" {
   #arguements
-  ami                    = "ami-0b6c6ebed2801a5cb"
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-07f4a1e0551a112e8" , aws_security_group.webserversg.id] #cloudprovider_tfresourcegame.uniqueblockname.attribute
-  key_name               = "ubuntu"
+  ami                    =  var.instanceami
+  instance_type          = var.instancetype
+  vpc_security_group_ids = [ var.sg, aws_security_group.webserversg.id] #cloudprovider_tfresourcegame.uniqueblockname.attribute
+  key_name               = var.keyname
 
   tags = {
     Name    = "webserver-instance"
