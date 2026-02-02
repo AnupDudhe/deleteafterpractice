@@ -6,7 +6,7 @@ LABEL dev="anup"
 
 
 RUN apt-get update && \
-    apt-get unzip -y && \
+    apt-get install unzip -y && \
     apt install apache2 -y
 #we are running linux commands using run arg 
 
