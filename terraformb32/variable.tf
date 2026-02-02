@@ -12,4 +12,18 @@ variable "keyname" {
 
 variable "sg" {
     default = "sg-07f4a1e0551a112e8"
+} 
+variable "api_termination" {
+  default = true
+} 
+
+variable "nosofinstances" {
+  default = 2
 }
+
+
+#data types 
+#  1    =   number 
+#  "anup", "1" = string 
+#  true  = boolean 
+#  2.1 = float  

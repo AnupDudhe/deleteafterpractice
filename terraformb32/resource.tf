@@ -2,9 +2,10 @@ resource "aws_instance" "webserver" {
   #arguements
   ami                    =  var.instanceami
   instance_type          = var.instancetype
-  vpc_security_group_ids = [ var.sg, aws_security_group.webserversg.id] #cloudprovider_tfresourcegame.uniqueblockname.attribute
+  vpc_security_group_ids = [ var.sg, aws_security_group.webserversg.id , data.aws_security_group.sg_gui.id ] #cloudprovider_tfresourcegame.uniqueblockname.attribute
   key_name               = var.keyname
-
+  count = var.nosofinstances
+  disable_api_termination = var.api_termination
   tags = {
     Name    = "webserver-instance"
     purpose = "learning-terraform"
@@ -41,4 +42,8 @@ resource "aws_security_group"  "webserversg" {
         cidr_blocks = ["0.0.0.0/0"]
       }
 
+}
+
+data "aws_security_group" "sg_gui" {
+   name = "rdssecurity"
 }
