@@ -29,7 +29,7 @@
  
 }
 
-resource "aws_lb" "aap_lb" {
+resource "aws_lb" "app_lb" {
     name =  "simple-alb"
     internal = false
     load_balancer_type = "application" 
@@ -49,7 +49,7 @@ resource "aws_lb_target_group" "tg" {
 
 resource "aws_lb_listener" "listener" {
     load_balancer_arn = aws_lb.app_lb.arn 
-    port = "80" 
+    port =  80
     protocol = "HTTP" 
 
     default_action {
@@ -68,7 +68,7 @@ resource "aws_launch_template" "example" {
       security_groups = [aws_security_group.web_sg.id]
     }
 
-   user_data = base64decode(<<-EOF
+   user_data = base64encode(<<-EOF
          #!/bin/bash 
          yum update -y 
          yum install -y httpd 
