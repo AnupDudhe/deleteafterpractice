@@ -1,0 +1,16 @@
+services:
+  studentapp:
+    build: .
+    ports: 
+      - "8080:8080"
+    container_name: studentapp
+    volumes:
+      - .:/opt/apache-tomcat-9.0.115/webapps
+    network_mode: "host"
+  #attendanceapp: 
+     #build: ../attendanceapp/ 
+     #ports: 
+        #- "8081:8080"
+     #container_name: attendanceapp
+
+    
