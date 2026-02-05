@@ -1,4 +1,4 @@
-resource "aws_instance" "webserer" {
+resource "aws_instance" "webserver" {
      ami = var.webserver_ami
      instance_type = var.webserver_instance_type
      key_name = var.webserver_keyname
