@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get install apache2 unzip -y && \ 
     rm -rf /var/www/html/index.html 
 
-ADD https://templatemo.com/download/templatemo_578_first_portfolio  /var/www/html/https://templatemo.com/download/templatemo_578_first_portfolio.zip
+ADD https://templatemo.com/download/templatemo_578_first_portfolio  /var/www/html/templatemo_578_first_portfolio.zip
 
 WORKDIR /var/www/html 
 
