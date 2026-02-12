@@ -1,3 +1,10 @@
+provider "aws" {
+  region     = "us-east-1"
+  profile = "configs2" #masking
+}
+
+
+
 #scenarios create 3 ec2 instances having different ami. (ubuntu amazon linux windows)
 resource "aws_instance" "webserver" {
     for_each = toset(var.aws_ami)
