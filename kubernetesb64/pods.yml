@@ -1,10 +1,10 @@
-apiVersion:  v1  #default library and dependency for pod
-kind: Pod  # default unique identity of the object
+apiVersion:  v1  
+kind: Pod  
 metadata: 
-  name: nginx  #name for the pod 
+  name: nginx  
   labels:
-	  app: nginx #label which will be referenced by the selector
-spec: #provides specifications of the object that you are creating
+	  app: nginx 
+spec: 
   containers:
   - name: nginx 
     image: nginx:latest
