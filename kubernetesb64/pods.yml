@@ -1,9 +1,9 @@
 apiVersion:  v1  #default library and dependency for pod
 kind: Pod  # default unique identity of the object
 metadata: 
-  name: nginxcipod  #name for the pod 
+  name: nginx  #name for the pod 
   labels:
-	  app: nginxcipod #label which will be referenced by the selector
+	  app: nginx #label which will be referenced by the selector
 spec: #provides specifications of the object that you are creating
   containers:
   - name: nginx 
