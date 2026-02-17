@@ -1,0 +1,22 @@
+apiVersion:  apps/v1 
+kind: ReplicaSet
+metadata: 
+   name: rs-notin
+   labels:
+      app: rs-notin
+spec:
+  selector:
+    matchExpressions:
+        -  { key: app, operator: NotIn, values: [rsapp,  new-app , nginx-in]}
+  replicas: 3
+  template:
+      metadata: 
+        name: nginx  
+        labels: 
+          app: nginx-notin
+      spec: 
+        containers:
+        - name: nginx 
+          image: nginx:latest
+          ports:
+          - containerPort: 80
