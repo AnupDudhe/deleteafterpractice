@@ -8,10 +8,10 @@ spec:
    selector:
       app: cwatchagent
    template:
-       metadata: 
+      metadata: 
         name: cwatchagent 
         labels: 
-        app: cwatchagent
+          app: cwatchagent
       spec: 
         containers:
         - name: nginx 
