@@ -5,8 +5,8 @@ metadata:
   labels:
     app:  ds 
 spec:
-   selector:
-      app: cwatchagent
+   #selector:
+      #app: cwatchagent
    template:
       metadata: 
         name: cwatchagent 
