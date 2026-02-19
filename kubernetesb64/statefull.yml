@@ -5,15 +5,15 @@ metadata:
    labels:
         app: mysqlstateful
 spec: 
+    replicas: 3 
     selector:
       matchLabels:
           app: mysqlstateful
-      replicas: 3 
     template:
         metadata: 
           name: mysqlstateful
           labels: 
-          app: mysqlstateful
+            app: mysqlstateful
         spec: 
           containers:
           - name: mysqlstateful
