@@ -1,0 +1,26 @@
+apiVersion: apps/v1   
+kind: Deployment
+metadata:
+    name: nginxdeployment
+    labels: 
+        app: nginxdeployment
+spec:
+    replicas: 3
+    strategy:
+        type: RollingUpdate #your desried deployment strategy
+        rollingUpdate:
+          maxUnavailable:  1  #at a tine only 1 pod will be unavailable during the update process and 1 will be availabkle
+          maxSurge: 1
+    selector:
+        matchLabels:
+            app: nginxdeployment
+    template:
+        metadata:
+            labels:
+                app: nginxdeployment
+        spec:
+            containers:
+            - name: nginx
+              image: nginx:latest
+              ports:
+              - containerPort: 80
