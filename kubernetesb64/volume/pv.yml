@@ -11,7 +11,8 @@ spec:
     - ReadWriteOnce #your data will be mounted as read-write by a single node
   capacity:
     storage: 6Gi  #max volume size that can be bound to a PVC and taken from external storage 
-  hostPath: "/mnt"
+  hostPath:
+      path: "/mnt/data"  
   reclaimPolicy: Retain  #data will not be deleted when PV is released, it can be reused by another PVC
                          #if delete is used, the data will be deleted when PV is released
                          #if recycle is used, the data will be deleted and PV will be made available again when PV is released
