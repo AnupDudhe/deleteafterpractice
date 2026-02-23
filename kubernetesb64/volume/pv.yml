@@ -1,0 +1,17 @@
+apiVersion: v1
+kind:   PersistentVolume
+metadata: 
+  name: pv
+  labels: 
+   app: pv
+spec: 
+  storageClassName: standard #depends on the external storage provisioner, it is used to dynamically provision PVs(self)
+  volumeMode: Filesystem #depends on storaga type currently using block storage self hosted on instance
+  accessModes:
+    - ReadWriteOnce #your data will be mounted as read-write by a single node
+  capacity:
+    storage: 6Gi  #max volume size that can be bound to a PVC and taken from external storage 
+  hostPath: /mnt
+  reclaimPolicy: Retain  #data will not be deleted when PV is released, it can be reused by another PVC
+                         #if delete is used, the data will be deleted when PV is released
+                         #if recycle is used, the data will be deleted and PV will be made available again when PV is released
