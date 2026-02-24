@@ -1,9 +1,9 @@
-apiVersion: v1
-kind: Pod
+apiVersion: v1  #apiVersion specifies the version of the Kubernetes API that you are using to create this object. In this case, it's "v1", which is the core API version for basic Kubernetes objects like Pods, Services, etc. and also gets the api libraries of the objects 
+kind: Pod #kind specifies the unique type of object ur creating. 
 metadata: 
-  name: nginxwebserver
-spec: 
-   containers:
+  name: nginxwebserver #metadata is the naming convention for object
+spec:  #details that required to create the object
+   containers:  
      - name: nginx 
        image: nginx:latest
        ports:
