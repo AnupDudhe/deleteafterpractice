@@ -27,10 +27,10 @@ spec:
               resources: #resource management for the container
                     requests: #starting resource allocation for the container
                         cpu: 300m
-                        ram: 300Mi
+                        memory: 300Mi
                     limits:  #maximum resource allocation for the container
                         cpu: 600m
-                        ram: 600Mi
+                        memory: 600Mi
 ---
 apiVersion:  autoscaling/v2 
 kind:   HorizontalPodAutoscaler
