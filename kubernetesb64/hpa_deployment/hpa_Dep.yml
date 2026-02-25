@@ -24,7 +24,7 @@ spec:
               image: nginx:latest
               ports:
               - containerPort: 80
-                resources: #resource management for the container
+              resources: #resource management for the container
                     requests: #starting resource allocation for the container
                         cpu: 300m
                         ram: 300Mi
