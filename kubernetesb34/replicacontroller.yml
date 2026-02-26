@@ -1,0 +1,21 @@
+apiVersion: v1
+kind:  ReplicationController
+metadata:
+   name: rc 
+   labels:
+      app: rc
+spec:
+   replicas: 3
+   selector: 
+      app: rc
+   template:
+      metadata: 
+        name: nginxwebserver #metadata is the naming convention for object
+        labels:
+          app: rc       
+      spec:  #details that required to create the object
+        containers:  
+          - name: nginx 
+            image: nginx:latest
+            ports:
+                - containerPort: 80
