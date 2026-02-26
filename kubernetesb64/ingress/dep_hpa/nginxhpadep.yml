@@ -1,0 +1,58 @@
+apiVersion: apps/v1   
+kind: Deployment
+metadata:
+    name: nginx
+    labels: 
+        app: nginx
+spec:
+    replicas: 1 #initial cold started replica count for the deployment
+    strategy:
+        type: RollingUpdate #your desried deployment strategy
+        rollingUpdate:
+          maxUnavailable:  1  #at a tine only 1 pod will be unavailable during the update process and 1 will be availabkle
+          maxSurge: 1
+    selector:
+        matchLabels:
+            app: nginx
+    template:
+        metadata:
+            labels:
+                app: nginx
+        spec:
+            containers:
+            - name: nginx
+              image: nginx:latest
+              ports:
+              - containerPort: 80
+              resources: #resource management for the container
+                    requests: #starting resource allocation for the container
+                        cpu: 300m
+                        memory: 300Mi
+                    limits:  #maximum resource allocation for the container
+                        cpu: 600m
+                        memory: 600Mi
+---
+apiVersion:  autoscaling/v2 
+kind:   HorizontalPodAutoscaler
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec: 
+  scaleTargetRef:
+    apiVersion: apps/v1   
+    kind: Deployment
+    name: nginx
+  minReplicas: 1 #minimum number of replicas for the deployment
+  maxReplicas: 2 #maximum number of replicas for the deployment
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 5 #target average CPU utilization percentage for scaling
+    
+  
+                   
+                  

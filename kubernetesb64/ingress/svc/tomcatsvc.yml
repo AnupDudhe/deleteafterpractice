@@ -1,0 +1,14 @@
+apiVersion:  v1 
+kind: Service
+metadata:
+   name: tcci
+   labels:
+     app: tcci
+spec:
+    selector:
+         app: tomcat 
+    ports:
+       - protocol: TCP
+         port: 8080
+    type: ClusterIP
+    

@@ -1,0 +1,27 @@
+apiVersion:  networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: / #annotation to rewrite the incoming request path to the backend service path and for authencation
+spec: 
+   ingressClassName: nginx  #specifies the ingress controller to be used for this ingress resource
+   rules: 
+      - host:  
+        http:
+          paths:
+            - paths:
+              - path: / #/ will be the path to access the nginx application
+                pathType: Prefix  #
+                backend:
+                    service:
+                      name: npci
+                      port:
+                        number: 80   
+              - path: /tomcat
+                pathType: Prefix #/tomcat will be the path to access the tomcat application
+                backend:
+                    service:
+                      name: tcci
+                      port:
+                        number: 8080    
