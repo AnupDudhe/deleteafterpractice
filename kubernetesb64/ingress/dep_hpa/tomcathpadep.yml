@@ -26,11 +26,11 @@ spec:
               - containerPort: 8080
               resources: #resource management for the container
                     requests: #starting resource allocation for the container
-                        cpu: 300m
-                        memory: 300Mi
+                        cpu: 450m
+                        memory: 700Mi
                     limits:  #maximum resource allocation for the container
-                        cpu: 600m
-                        memory: 600Mi
+                        cpu: 600mm
+                        memory: 900Mi
 ---
 apiVersion:  autoscaling/v2 
 kind:   HorizontalPodAutoscaler
