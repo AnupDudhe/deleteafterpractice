@@ -1,14 +1,15 @@
 apiVersion:  v1 
 kind: Service
 metadata:
-   name: npci
+   name: tcci
    labels:
-     app: npci
+     app: tcci
 spec:
     selector:
-         app: nginx 
+         app: tomcat 
     ports:
        - protocol: TCP
-         port: 80
+         port: 8080
+         targetPort: 8080
     type: ClusterIP
     

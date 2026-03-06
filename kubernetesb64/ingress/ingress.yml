@@ -7,10 +7,9 @@ metadata:
 spec: 
    ingressClassName: nginx  #specifies the ingress controller to be used for this ingress resource
    rules: 
-      - host:  
+      - host:  a4678d9f683cf4c4f8f76a1ad03d7c4b-377237074.us-east-1.elb.amazonaws.com 
         http:
           paths:
-            - paths:
               - path: / #/ will be the path to access the nginx application
                 pathType: Prefix  #
                 backend:
