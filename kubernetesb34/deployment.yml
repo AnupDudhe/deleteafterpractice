@@ -1,0 +1,27 @@
+apiVersion: 
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: app-deployment
+spec:
+  replicas: 2 
+  stratergy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxSurge: 1 #at a time only 1 new pod will be created during the update process
+      maxUnavailable: 1  #at a time only 1 pod will be unavailable during the update process
+  selector:
+    matchLabels:
+      app: app-deployment
+  template:
+    metadata: 
+     name: app-deployment #metadata is the naming convention for object
+     labels:
+        app: app-deployment
+    spec:  #details that required to create the object
+      containers:  
+        - name: nginx 
+          image: nginx:latest
+          ports:
+              - containerPort: 80
