@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: app-deployment
+spec:
+  replicas: 1 #desired state
+  stratergy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxSurge: 1 #at a time only 1 new pod will be created during the update process
+      maxUnavailable: 1  #at a time only 1 pod will be unavailable during the update process
+  selector:
+    matchLabels:
+      app: app-deployment
+  template:
+    metadata: 
+     name: app-deployment #metadata is the naming convention for object
+     labels:
+        app: app-deployment
+    spec:  #details that required to create the object
+      containers:  
+        - name: nginx 
+          image: nginx:latest
+          ports:
+              - containerPort: 80 
+          resources:
+            requests: 
+              cpu: 100m
+              memory: 128Mi
+            limits:            #vertical scaling
+              cpu: 200m
+              memory: 256Mi
+--- 
+apiVersion: autoscaling/v2 
+kind: HorizontalPodAutoscaler    #horizontal scaling
+metadata:
+  name: hpa 
+spec:
+  scaleTargetRef:
+     apiVersion: apps/v1
+     kind: Deployment
+     name: app-deployment
+  minReplicas: 1
+  maxReplicas: 2 
+  metrics: 
+    - type: Resource 
+      resource:
+       name: cpu 
+       target:
+          type: Utilization 
+          averageUtilization: 50 
+  
