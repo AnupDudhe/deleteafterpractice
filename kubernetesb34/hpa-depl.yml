@@ -6,7 +6,7 @@ metadata:
     app: app-deployment
 spec:
   replicas: 1 #desired state
-  stratergy:
+  strategy:
     type: RollingUpdate 
     rollingUpdate:
       maxSurge: 1 #at a time only 1 new pod will be created during the update process
