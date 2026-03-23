@@ -21,13 +21,13 @@ variable "this_instancetype" {
 resource "aws_instance" "example" {
     count = 3
     instance_type = "t3.micro"
-    ami = var.imageid
+    ami = var.imageid[0]
     key_name = "ohiokey"
    vpc_security_group_ids = ["sg-0aecda28a625e1a5d"]   
 }
 
 variable "imageid" {
-    default = "ami-0b0b78dcacbab728f"
+    default = ["ami-0b0b78dcacbab728f"]
 }
 
 output "aws_ec2" {
