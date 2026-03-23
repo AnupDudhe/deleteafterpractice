@@ -9,5 +9,5 @@ resource "aws_instance" "example" {
     ami = var.this_map.amiws
     key_name = var.this_any.wskeymaps.kp1
    vpc_security_group_ids = [ "sg-0aecda28a625e1a5d" ]
-   count = var.this_any.wscountlist[0]
+   count = var.this_any.wscountlist[0]  #count loop for identical resource creation.
 }
