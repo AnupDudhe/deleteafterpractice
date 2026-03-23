@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
-    for_each = toset.(var.this_instancetype)
+    for_each = toset(var.this_instancetype)
     instance_type = each.value
     ami = "ami-0b0b78dcacbab728f"
     key_name = "ohiokey"
