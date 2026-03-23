@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
-   instance_type = var.this_list.[0]
+   instance_type = var.this_list[0]
     ami = var.this_map.amiws
     key_name = var.this_any.wskeymaps.kp1
    vpc_security_group_ids = [ "sg-0aecda28a625e1a5d" ]
