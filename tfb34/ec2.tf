@@ -8,8 +8,8 @@
 #blockname  "blockuniquename" { #arguments}
 
 provider "aws" {
-    secret_key = "" 
-    access_key = ""
+    secret_key =  
+    access_key = 
     region = "us-east-1"
 
 }
@@ -22,6 +22,33 @@ resource  "aws_instance" "webserver" {
     instance_type =  var.this_inst 
     key_name = var.this_key
     disable_api_termination =  var.this_api
-    vpc_security_group_ids = [var.this_sg]
+    vpc_security_group_ids = [var.this_sg , aws_security_group.ws.id , data.aws_security_groups.datasg.id]
     count = var.this_count
+}
+
+resource "aws_security_group" "ws" {
+    name = "webserver_sg"
+    description = "Allow HTTP and SSH traffic"
+
+
+    ingress {
+        from_port = 80
+        to_port = 80
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+}
+
+
+data "aws_security_groups" "datasg" {
+        filter {
+        name = "launch-wizard-6"
+        values = ["launch-wizard-6"]
+    }
 }
