@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'webserver'
+    }
     stages {
         stage('pull') {
             steps {
@@ -10,7 +12,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'this is pull stage'
-                sh 'echo right now we are in build stage'
+                sh 'mvn clean package'
             }
         }
         stage('test') {
