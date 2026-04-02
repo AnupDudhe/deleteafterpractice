@@ -22,7 +22,7 @@ resource  "aws_instance" "webserver" {
     key_name = var.this_key
     disable_api_termination =  var.this_api
     vpc_security_group_ids = [var.this_sg , aws_security_group.ws.id , data.aws_security_group.datasg.id]
-    count = var.this_count
+    #count = var.this_count
 }
 
 resource "aws_security_group" "ws" {
@@ -48,4 +48,12 @@ resource "aws_security_group" "ws" {
 data "aws_security_group" "datasg" {
         name = "launch-wizard-6"
 
+}
+
+output "instance_ip" { 
+    value = aws_instance.webserver.public_ip
+}
+
+output "public_dns" { 
+    value = aws_instance.webserver.public_dns 
 }

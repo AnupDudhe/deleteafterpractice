@@ -27,6 +27,4 @@ variable "this_sg" {
     default = "sg-033f2559c156114d8"
 }
 
-variable "this_count" {
-    default = 1
-}
+#variable "this_count" {default = 1}
