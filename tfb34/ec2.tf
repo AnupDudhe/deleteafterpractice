@@ -21,7 +21,7 @@ resource  "aws_instance" "webserver" {
     instance_type =  var.this_inst 
     key_name = var.this_key
     disable_api_termination =  var.this_api
-    vpc_security_group_ids = [var.this_sg , aws_security_group.ws.id , data.aws_security_groups.datasg.id]
+    vpc_security_group_ids = [var.this_sg , aws_security_group.ws.id , data.aws_security_group.datasg.id]
     count = var.this_count
 }
 
