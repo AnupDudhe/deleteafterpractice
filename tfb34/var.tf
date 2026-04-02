@@ -16,7 +16,7 @@ variable "this_inst" {
 }
 
 variable "this_key" {
-    default = "b34"
+    default = "sample"
 }
 
 variable "this_api" {
@@ -24,7 +24,7 @@ variable "this_api" {
 }
 
 variable "this_sg" {
-    default = "sg-02a862f1a1dab84e5"
+    default = "sg-0ae3d2f367ebf0641"
 }
 
 variable "this_count" {

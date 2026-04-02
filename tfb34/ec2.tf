@@ -8,8 +8,7 @@
 #blockname  "blockuniquename" { #arguments}
 
 provider "aws" {
-    secret_key =  
-    access_key = 
+    profile = "configs"  #masking 
     region = "us-east-1"
 
 }
@@ -46,9 +45,7 @@ resource "aws_security_group" "ws" {
 }
 
 
-data "aws_security_groups" "datasg" {
-        filter {
+data "aws_security_group" "datasg" {
         name = "launch-wizard-6"
-        values = ["launch-wizard-6"]
-    }
+
 }
