@@ -8,7 +8,7 @@
 # 5.4 -> float 
 
 variable "this_ami" {
-  default = "ami-0c3389a4fa5bddaad"
+  default = "ami-01b14b7ad41e17ba4"
 }
 
 variable "this_inst" {
@@ -24,7 +24,7 @@ variable "this_api" {
 }
 
 variable "this_sg" {
-    default = "sg-0ae3d2f367ebf0641"
+    default = "sg-033f2559c156114d8"
 }
 
 variable "this_count" {
