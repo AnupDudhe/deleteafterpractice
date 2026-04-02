@@ -16,7 +16,7 @@ variable "this_inst" {
 }
 
 variable "this_key" {
-    default = "sample"
+    default = "b34"
 }
 
 variable "this_api" {
