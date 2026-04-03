@@ -1,0 +1,7 @@
+variable "cidrbloc" {
+    
+}
+
+variable "subnetbloc" {
+     
+}
