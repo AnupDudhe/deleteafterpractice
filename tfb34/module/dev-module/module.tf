@@ -4,7 +4,7 @@ module "ec2" {
      this_inst = "t3.micro"
      this_key = "b34"
      this_api = false
-     this_sg = "sg-033f2559c156114d8"
+     #this_sg = "sg-033f2559c156114d8"
      subnetid = module.vpc.subnetid
      vpc_id = module.vpc.vpc_id
  }
