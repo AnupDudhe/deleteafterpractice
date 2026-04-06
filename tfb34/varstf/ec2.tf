@@ -18,7 +18,7 @@ resource  "aws_instance" "webserver" {
 }
 
 resource "aws_security_group" "ws" {
-    name = "webserver_sg"
+    name = "webserver_sg2"
     description = "Allow HTTP and SSH traffic"
 
 
