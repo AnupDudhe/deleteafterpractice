@@ -22,3 +22,5 @@ resource "aws_instance" "example" {
     key_name = "LinuxKey"
    vpc_security_group_ids = [ "sg-0eca60a5007bc8188" ]
 }
+
+#LockID
