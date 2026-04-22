@@ -1,0 +1,56 @@
+ 13  docker ps
+   14  docker run nginx
+   15  clear
+   16  docker ps
+   17  docker ps -a
+   18  docker ps -aq
+   19  docker run -d nginx 
+   20  docker ps
+   21  docker ps -a
+   22  docker ps
+   23  docker stop 1bf93fc6c046
+   24  docker ps
+   25  docker ps -a
+   26  docker start 1bf93fc6c046
+   27  docker ps
+   28  clear
+   29  docker pull nginx
+   30  docker images -a
+   31  docker ps
+   32  docker create 7f0adca1fc6c
+   33  docker ps
+   34  docker ps -a
+   35  docker start 16b2c84b3ab6 
+   36  docker ps
+   37  clear
+   38  ls
+   39  docker ps
+   40  docker delete 16b2c84b3ab6
+   41  docker rm 16b2c84b3ab6
+   42  docker rm -f 16b2c84b3ab6
+   43  docker ps
+   44  clear
+   45  docker run -n webserver -d nginx 
+   46  docker run -name webserver -d nginx 
+   47  docker run   -d nginx  -name webserver
+   48  docker ps
+   49  docker run   -d   -name webserver nginx
+   50  docker run   -d   --name webserver nginx
+   51  docker ps
+   52  clear
+   53  docker ps
+   54  docker exec -it webserver --bash
+   55  docker exec -it webserver bash
+   56  docker exec webserver mkdir /tmp/sample
+   57  docker exec webserver ls /tmp
+   58  docker exec -it webserver bash
+   59  docker ps
+   60  docker rename 1bf93fc6c046 ws2
+   61  docker ps
+   62  clear
+   63  history
+   64  docker ps
+   65  clear
+   66  docker ps
+   67  docker logs 6b3de55c968c
+   68  docker top 6b3de55c968c
