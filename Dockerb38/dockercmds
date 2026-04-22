@@ -55,6 +55,8 @@
    67  docker logs 6b3de55c968c
    68  docker top 6b3de55c968c
 
+   docker run -d -p 80:80 nginx:latest
+
    docker inspect containerid 
 
    docker pull imagename 
@@ -63,3 +65,13 @@
    docker tag imageid anupdudhe/nginxb38:latest 
    docker login
    docker push 
+
+docker networking 
+
+docker volume 
+
+docker file 
+
+three tier project
+
+docker compose
