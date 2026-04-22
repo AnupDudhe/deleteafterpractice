@@ -54,3 +54,12 @@
    66  docker ps
    67  docker logs 6b3de55c968c
    68  docker top 6b3de55c968c
+
+   docker inspect containerid 
+
+   docker pull imagename 
+   docker image -a 
+   docker tag  imageid dockerhubusername/uniquereponame:tag 
+   docker tag imageid anupdudhe/nginxb38:latest 
+   docker login
+   docker push 
