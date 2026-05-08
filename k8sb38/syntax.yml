@@ -1,0 +1,27 @@
+key: value 
+
+
+name: Anup 
+
+key: value
+
+key:  value
+
+address: pune       |
+kothrudh , shirin garden | 
+maharashtra  
+
+fruits: 
+       - apple 
+       - mango 
+       - watermelon
+
+key and value syntax and rules 
+
+address: 
+  apartname: shirin garden (value)  
+
+
+  data sets 
+ 
+  fruits = ["apple" , "mango" , "watermelon"]
