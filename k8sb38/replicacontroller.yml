@@ -5,7 +5,7 @@ metadata:
     labels: 
       app: rc 
 spec:
-  replicas: 3 
+  replicas: 3  #desired
   template: 
     metadata: 
       name: nginx-pod
