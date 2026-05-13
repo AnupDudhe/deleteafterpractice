@@ -25,3 +25,16 @@ address:
   data sets 
  
   fruits = ["apple" , "mango" , "watermelon"]
+
+
+objects:
+
+pods - smalled entity in k8s cluster , contains container and its app deployed with them 
+service - used to exposing pods to the internet 
+lb - used for balancing traffic towrds pods 
+ci - to provided static ip to your pods 
+nodeport - to portman nodes port with pods ports 
+replicaset - used to create replicas of your pods using set based selector (MatchLabels)
+repliacontroller - used to create replicas of your pods using equality based selector 
+deamonset - create indvidual pods in each nodes that are present in the cluster means nos of nodes = nos of pods.
+deploymentset - 
