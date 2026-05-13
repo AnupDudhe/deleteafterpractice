@@ -1,0 +1,22 @@
+apiVersion:  apps/v1 
+kind:  DaemonSet
+metadata:
+   name: daemonset
+   labels:
+      app: ds 
+spec:
+   template:
+      metadata: 
+        name: cw-pod
+        labels:
+          app: cw-pod
+      spec: 
+          containers:
+             - image: amazon/cloudwatch-agent
+               ports:
+                 - containerPort: 80
+               name: cwcont
+   selectors:
+       matchLabels:
+            app: cw-pod
+            
