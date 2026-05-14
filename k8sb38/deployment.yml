@@ -22,5 +22,6 @@ spec:
        app: app1 
   strategy: 
        type: RollingUpdate #type of stragery
-       maxSurge: 1 #nos of newly updates pods created at time 
-       maxUnavailable: 1 #nos of old pods deleted at time
+       rollingUpdate:
+        maxSurge: 1 #nos of newly updates pods created at time 
+        maxUnavailable: 1 #nos of old pods deleted at time
