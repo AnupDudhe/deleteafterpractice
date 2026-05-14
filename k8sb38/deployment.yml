@@ -20,7 +20,7 @@ spec:
   selector:
     matchLabels:
        app: app1 
-  stratergy: 
+  strategy: 
        type: RollingUpdate #type of stragery
        maxSurge: 1 #nos of newly updates pods created at time 
        maxUnavailable: 1 #nos of old pods deleted at time
