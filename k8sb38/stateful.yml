@@ -14,7 +14,7 @@ spec:
       spec:
          containers:
             - name:  ssdb 
-              image:  mysql: latest   
+              image:  mysql:latest   
               ports:
                 - containerPort: 3306
                   protocol: TCP 
