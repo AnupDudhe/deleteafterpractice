@@ -1,0 +1,11 @@
+apiVersion: v1 
+kind: ConfigMap
+metadata:  
+    name: mysqldb-config
+    labels:
+       app: mysqldb-config 
+data:
+    root_pw2: "123456"
+
+
+    
