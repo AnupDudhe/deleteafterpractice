@@ -1,19 +1,19 @@
 apiVersion: apps/v1 
 kind:  StatefulSet 
 metadata: 
-    name: ssdb
+    name: ssdb2
     labels:
-       app: ssdb
+       app: ssdb2
 spec:
   replicas: 3 
   template:
       metadata: 
-          name: ssdb
+          name: ssdb2
           labels:
-              app: ssdb
+              app: ssdb2
       spec:
          containers:
-            - name:  ssdb 
+            - name:  ssdb2 
               image:  mysql:latest   
               ports:
                 - containerPort: 3306
@@ -26,5 +26,5 @@ spec:
                         key: root_pw2
   selector:
     matchLabels: 
-      app: ssdb    
+      app: ssdb2    
               #docker run -d -P -e "MYSQL_ROOT_PASSWORD"="1234"
