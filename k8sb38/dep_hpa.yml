@@ -21,7 +21,7 @@ spec:
                 requests:   #lower limit of our pod
                   cpu: "1000m"
                   memory: "800Mi"
-                limimts:    #upper limit of our pod
+                limits:    #upper limit of our pod
                   cpu: "1100m" 
                   memory: "900Mi"
   selector:
