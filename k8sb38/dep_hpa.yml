@@ -19,11 +19,11 @@ spec:
                 - containerPort: 80
               resources:
                 requests:   #lower limit of our pod
-                  cpu: "1000m"
-                  memory: "1024Mi"
+                  cpu: "100m"
+                  memory: "256Mi"
                 limits:    #upper limit of our pod
-                  cpu: "1400m" 
-                  memory: "1500Mi"
+                  cpu: "500m" 
+                  memory: "512Mi"
   selector:
     matchLabels:
        app: app1 
