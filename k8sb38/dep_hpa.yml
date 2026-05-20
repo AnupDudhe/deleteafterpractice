@@ -1,0 +1,55 @@
+apiVersion: apps/v1                            
+kind: Deployment
+metadata:
+    name: mydeployment
+    labels:
+       app: my-app
+spec:
+  replicas: 1   #initial desired state when this script is ran
+  template: 
+      metadata: 
+          name: app1 
+          labels:
+              app: app1 
+      spec:
+         containers:
+            - name:  appcont1 
+              image: httpd:latest  #v1 
+              ports:
+                - containerPort: 80
+              resources:
+                requests:   #lower limit of our pod
+                  cpu: "100m"
+                  memory: "216Mi"
+                limimts:    #upper limit of our pod
+                  cpu: "150m" 
+                  memory: "280Mi"
+  selector:
+    matchLabels:
+       app: app1 
+  strategy: 
+       type: RollingUpdate #type of stragery
+       rollingUpdate:
+        maxSurge: 1 #nos of newly updates pods created at time 
+        maxUnavailable: 1 #nos of old pods deleted at time
+--- 
+apiVersion:  autoscaling/v2  
+kind:  HorizontalPodAutoscaler
+metadata: 
+  name: my-hpa 
+  labels: 
+     app: my-hpa 
+spec: 
+  scaleTargetRef:
+      apiVersion: apps/v1                            
+      kind: Deployment
+      name: mydeployment 
+  minReplicas: 1
+  maxReplicas: 2 
+  metrics:
+    - type: Resource 
+      resource:
+         name: cpu 
+         target:
+            type: Utilization 
+            averageUtilization: 10
