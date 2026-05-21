@@ -53,3 +53,6 @@ spec:
          target:
             type: Utilization 
             averageUtilization: 10
+
+#kubectl exec mydeployment-7d9fcc6c6c-r8ttn -- /bin/sh -c "while true; do :; done"
+
