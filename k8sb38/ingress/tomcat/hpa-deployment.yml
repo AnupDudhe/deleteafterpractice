@@ -1,0 +1,58 @@
+apiVersion: apps/v1                            
+kind: Deployment
+metadata:
+    name: tomcatapp
+    labels:
+       app: tomcatapp
+spec:
+  replicas: 1   #initial desired state when this script is ran
+  template: 
+      metadata: 
+          name: tomcatapp 
+          labels:
+              app: tomcatapp
+      spec:
+         containers:
+            - name:  tomcatapp 
+              image: tomcat:latest  #v1 
+              ports:
+                - containerPort: 8080
+              resources:
+                requests:   #lower limit of our pod
+                  cpu: "100m"
+                  memory: "256Mi"
+                limits:    #upper limit of our pod
+                  cpu: "500m" 
+                  memory: "512Mi"
+  selector:
+    matchLabels:
+       app: tomcatapp 
+  strategy: 
+       type: RollingUpdate #type of stragery
+       rollingUpdate:
+        maxSurge: 1 #nos of newly updates pods created at time 
+        maxUnavailable: 1 #nos of old pods deleted at time
+--- 
+apiVersion:  autoscaling/v2  
+kind:  HorizontalPodAutoscaler
+metadata: 
+  name: tomcatapp-hpa 
+  labels: 
+     app: tomcatapp-hpa 
+spec: 
+  scaleTargetRef:
+      apiVersion: apps/v1                            
+      kind: Deployment
+      name: tomcatapp 
+  minReplicas: 1
+  maxReplicas: 2 
+  metrics:
+    - type: Resource 
+      resource:
+         name: cpu 
+         target:
+            type: Utilization 
+            averageUtilization: 10
+
+#kubectl exec mydeployment-7d9fcc6c6c-r8ttn -- /bin/sh -c "while true; do :; done"
+
