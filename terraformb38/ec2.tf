@@ -9,7 +9,7 @@ resource "aws_instance" "webserver" {
    ami = var.this_ami 
    instance_type = var.This_instance_type
    vpc_security_group_ids = [var.This_vpc_security_group_ids]
-   count = var.this_count]
+   count = var.this_count
    tags = {
     Name = "Webserver"
   }
