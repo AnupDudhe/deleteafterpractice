@@ -1,4 +1,4 @@
-varibale "this_key_name" {
+variable "this_key_name" {
    default = "abhijeet" 
 
 }
@@ -16,7 +16,7 @@ variable "This_vpc_security_group_ids" {
    default = "sg-0e924451d7773195c"
 }
 
-variable "this_count]" {
+variable "this_count" {
     default = 4
 }
 
