@@ -51,3 +51,54 @@ resource "aws_instance" "webserver" {
 }
 
 
+variables block - 
+
+
+  key_name = "abhijeet"
+   ami = "ami-078f95be0757084a3" 
+   instance_type = var.this_instype  var.uniqueblocname
+   vpc_security_group_ids = ["sg-0e924451d7773195c"]
+   tags = {
+    Name = "Webserver" 
+
+  key_name = "abhijeet"
+   ami = "ami-078f95be0757084a3" 
+   instance_type = "t3.micro" 
+   vpc_security_group_ids = ["sg-0e924451d7773195c"]
+   count = var.this_instnos
+   tags = {
+    Name = "Webserver"
+  }
+
+
+
+
+variable "uniqueblocname" {
+
+} 
+
+variable "this_instype" {
+    default = "t3.micro" 
+}
+
+data types 
+
+"two" , "2"  , "t3.micro"  = string 
+ 2 , 6 , 7 = number int 
+ 3.4 , 5.4 = float 
+ true or flase = boolean 
+
+
+variable "this_instnos" {
+  default = 4
+}
+
+complex 
+
+list    ["2" , 2 , true , ] 
+map   = {
+   key: value 
+   ec2instance: "t3.micro" 
+}
+tuple 
+dictory  {}
