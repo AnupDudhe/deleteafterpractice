@@ -14,11 +14,11 @@ resource "aws_instance" "webserver" {
    
    disable_api_termination = var.this_disable_api_termination
 
-   user_data = <<-EOF 
-               #!/bin/bash 
-               sudo -i 
-               apt install apache2 -y 
-               systemctl start apache2
+user_data = <<-EOF 
+                  #!/bin/bash 
+                  sudo -i 
+                  apt install apache2 -y 
+                  systemctl start apache2
                EOF
   tags = {
     Name = "Webserver"
