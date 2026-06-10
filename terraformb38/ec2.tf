@@ -11,9 +11,7 @@ resource "aws_instance" "webserver" {
    instance_type = var.This_instance_type
    vpc_security_group_ids = [var.This_vpc_security_group_ids , aws_security_group.webserversg.id , data.aws_security_groups.defaultsg_search.id ]
    #count = var.this_count
-   tags = {
-    Name = "Webserver"
-  }
+   
    disable_api_termination = var.this_disable_api_termination
 
    user_data = <<-EOF 
@@ -22,6 +20,10 @@ resource "aws_instance" "webserver" {
                apt install apache2 -y 
                systemctl start apache2
                EOF
+  tags = {
+    Name = "Webserver"
+  }
+
 }
 
 resource "aws_security_group" "webserversg" {
