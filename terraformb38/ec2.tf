@@ -9,7 +9,7 @@ resource "aws_instance" "webserver" {
    key_name = var.this_key_name
    ami = var.this_ami 
    instance_type = var.This_instance_type
-   vpc_security_group_ids = [var.This_vpc_security_group_ids , aws_security_group.webserversg.id , data.aws_security_groups.defaultsg_search.id ]
+   vpc_security_group_ids = [ aws_security_group.webserversg.id , data.aws_security_groups.defaultsg_search.id ]
    #count = var.this_count
    
    disable_api_termination = var.this_disable_api_termination
@@ -84,3 +84,4 @@ data "aws_security_group" "defaultsg_search" {
 
 #aws configure --profile=configs 
 #disable_api_termination = true
+#var.This_vpc_security_group_ids

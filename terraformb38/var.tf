@@ -1,5 +1,5 @@
 variable "this_key_name" {
-   default = "ohiophk" 
+   default = "" 
 
 }
 
@@ -12,9 +12,7 @@ variable "This_instance_type" {
     default  = "t3.micro"
 }
 
-variable "This_vpc_security_group_ids" {
-   default = "sg-0efc868be83f601ce"
-}
+#variable "This_vpc_security_group_ids" {default = ""}
 
 variable "this_count" {
     default = 4
