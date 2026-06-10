@@ -92,7 +92,7 @@ data types
 variable "this_instnos" {
   default = 4
 }
-
+var.uniqueblocname
 complex 
 
 list    ["2" , 2 , true , ] 
@@ -113,3 +113,20 @@ output "instanceip" {
 
 implicit = 
 explicit = depends_on = []
+
+data block ? 
+ec2 how to write script using userdata 
+
+data block !!!
+existing infrastucture which is not created using terraform !!! 
+we have to add such existing infra to our tf based infra 
+
+data "unique_resource_name" "uniqueblockname" {
+
+} 
+
+data "aws_security_groups" "defaultsg-search" {
+   name = "default"
+}
+
+data.unique_resource_name.uniqueblockname

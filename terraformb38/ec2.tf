@@ -9,12 +9,19 @@ resource "aws_instance" "webserver" {
    key_name = var.this_key_name
    ami = var.this_ami 
    instance_type = var.This_instance_type
-   vpc_security_group_ids = [var.This_vpc_security_group_ids , aws_security_group.webserversg.id ]
+   vpc_security_group_ids = [var.This_vpc_security_group_ids , aws_security_group.webserversg.id , data.aws_security_groups.defaultsg_search.id ]
    #count = var.this_count
    tags = {
     Name = "Webserver"
   }
    disable_api_termination = var.this_disable_api_termination
+
+   user_data = <<-EOF 
+               #!/bin/bash 
+               sudo -i 
+               apt install apache2 -y 
+               systemctl start apache2
+               EOF
 }
 
 resource "aws_security_group" "webserversg" {
@@ -60,6 +67,14 @@ output "instanceid" {
   value = aws_instance.webserver.id 
 }
 
+
+data "aws_security_groups" "defaultsg_search" {
+   name = "default"
+}
+
+#data "aws_ami" "searchami" {
+  #name = ""
+#}
 
 #access_key = "my-access-key"
 #secret_key = "my-secret-key" 
