@@ -12,7 +12,7 @@ variable "This_instance_type" {
     default  = "t3.micro"
 }
 
-#variable "This_vpc_security_group_ids" {default = ""}
+variable "This_vpc_security_group_ids" {default = "sg-0efc868be83f601ce"}
 
 variable "this_count" {
     default = 4
