@@ -71,8 +71,8 @@ output "instanceid" {
 }
 
 
-data "aws_security_groups" "defaultsg_search" {
-   name = "default"
+data "aws_security_group" "defaultsg_search" {
+   name = "launch-wizard-1"
 }
 
 #data "aws_ami" "searchami" {
