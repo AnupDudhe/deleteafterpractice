@@ -1,7 +1,7 @@
 
-docker ps 
-docker ps -a 
-docker ps -aq 
+docker ps - listing a cont 
+docker ps -a - listing a dead or running cont 
+docker ps -aq - list a dead or running cont id
 docker run nginx:latest
 docker run  -d nginx:latest - running 
 docker stop contid - stop 
@@ -11,9 +11,9 @@ docker create image name - create
 docker run -d imagename - create + start 
 docker run  --name nginxcon -d  nginx:latest 
 
-docker top 8bbeef8b6faf
-docker logs 8bbeef8b6faf 
-docker run -d -p 8080:8080 tomcat:latest 
+docker top 8bbeef8b6faf  - getting running process 
+docker logs 8bbeef8b6faf   - getting latest cont logs 
+docker run -d -p 8080:8080 tomcat:latest  - portmapping a cont 
 
 docker run -d -p 80:80 nginx:latest 
 
