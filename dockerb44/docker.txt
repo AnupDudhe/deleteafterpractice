@@ -1,1 +1,20 @@
 
+docker ps 
+docker ps -a 
+docker ps -aq 
+docker run nginx:latest
+docker run  -d nginx:latest - running 
+docker stop contid - stop 
+docker rm -f conid - delete 
+docker start conid - starting 
+docker create image name - create 
+docker run -d imagename - create + start 
+docker run  --name nginxcon -d  nginx:latest 
+
+docker top 8bbeef8b6faf
+docker logs 8bbeef8b6faf 
+docker run -d -p 8080:8080 tomcat:latest 
+
+docker run -d -p 80:80 nginx:latest 
+
+docker run -d -P httpd:latest (80)  - 32768 - 60999
