@@ -8,8 +8,7 @@ variable "this_ami" {
 variable "This_instance_type" {
 }
 
-variable "This_vpc_security_group_ids" {
-}
+#variable "This_vpc_security_group_ids" {}
 
 variable "this_count" {
  
