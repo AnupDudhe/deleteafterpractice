@@ -130,3 +130,18 @@ data "aws_security_groups" "defaultsg-search" {
 }
 
 data.unique_resource_name.uniqueblockname
+
+
+
+module "ec2" {
+   key = value 
+}
+
+module "vpc" {
+
+}
+
+
+module "R53" {
+
+}
