@@ -1,0 +1,11 @@
+
+
+user - actual person/human that is working on the operating systems. 
+shell - to provide enviornment ,cli interface so that user can run / execute 
+any commands/app/tool on that interface. (only understands alpha numerical langs)
+kernel - kernel is a birdge of communication between your hardware and your user and shell interface ,
+its function is to understand the input , excute the input translate the input into binary to the hardware 
+and , then the output provided by the hardware is then restranslated into alpha numerical lang from hardware 
+which is orginally in binary format. and provide that output to the shell user interface 
+hardware - is the acutall physical component that runs the whole system or compute or server ,
+various hardwares are ram , cpu , gpu , motherboard , ssd hdds. 
