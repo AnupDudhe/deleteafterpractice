@@ -1,4 +1,5 @@
 
+![alt text](image.png)
 
 user - actual person/human that is working on the operating systems. 
 shell - to provide enviornment ,cli interface so that user can run / execute 
