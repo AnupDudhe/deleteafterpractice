@@ -18,3 +18,28 @@ docker run -d -p 8080:8080 tomcat:latest  - portmapping a cont
 docker run -d -p 80:80 nginx:latest 
 
 docker run -d -P httpd:latest (80)  - 32768 - 60999
+
+
+
+docker run --name my-mysql-container -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=studentapp -p 3306:3306 -d mysql:latest
+/var/lib/mysql/
+vol2
+
+docker volume create vol2
+docker run --name my-mysql-container -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=studentapp -p 3306:3306 -v vol2:/var/lib/mysql/ -d mysql:latest
+
+docker volume ls
+ docker volume create vol1
+ docker run -d -p 80:80 -v vol1:/usr/share/nginx/html  nginx:latest
+
+
+ /var/lib/docker/volume
+
+customise vol
+ docker run -d \
+  --name my-nginx \
+  -p 80:80 \
+  --mount 'type=volume,source=mnt_shortcut,target=/usr/share/nginx/html,volume-driver=local,volume-opt=type=none,volume-opt=o=bind,volume-opt=device=/mnt' \
+  nginx
+
+
