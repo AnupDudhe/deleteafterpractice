@@ -18,7 +18,7 @@ variable "anyds" {
     default = {
         sg = "sg-09a2158a0b22cc46e"  #string , 
         instcount = 1 
-        apiterm = [True , False]
+        apiterm = [true , false]
         keymap = {
             key1 = "sample" ,
             key2 = "sample2" 

@@ -11,7 +11,7 @@ resource "aws_instance" "webserver" {
    instance_type =  var.instancetype.instanceypemicro 
    vpc_security_group_ids = [ var.anyds.sg ]
    count = var.anyds.instcount 
-   disable_api_termination = var.anyds.apiterm.[1]
+   disable_api_termination = var.anyds.apiterm[1]
 
    user_data = <<-EOF
     #!/bin/bash
