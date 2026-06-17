@@ -144,4 +144,44 @@ module "vpc" {
 
 module "R53" {
 
+} 
+
+string = "data"
+number = 1 
+float = 1.2 
+bool = true  
+
+compelex data types 
+
+terraform 
+list 
+map 
+any 
+
+----------------
+tuples 
+sets 
+dictionary 
+
+list = [ "data" , 1 , 1.2 , true ] 
+           0      1    2     3
+map = { key: value  }
+
+map = { 
+  amiid = "dsfdsgfgregrs" ,
+  securitygp = "sg-12213212142"
+  count = 1 
+  bool = true
+}
+
+any = {
+list = [ "data" , 1 , 1.2 , true ]  , 
+map = { 
+  amiid = "dsfdsgfgregrs" ,
+  securitygp = "sg-12213212142"
+  count = 1 
+  bool = true
+}
+
+
 }
