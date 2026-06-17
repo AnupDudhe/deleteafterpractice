@@ -16,3 +16,60 @@ servers : are nothing but high end compute machines (Computers) only
 difference between a pc and a server is this that it has high end of ram , 
 cpu , gpu and storage ssd hdd , these servers are used to host various 
 webapps , ai's , databases , big data , and majorly these servers are used  or operated on linux based os.
+
+system info commands 
+free -h
+lsblk
+df -ht
+cat /etc/os-release
+date 
+cal -3 
+cal
+
+command manuals  
+man ls 
+whatis ls 
+ls --help
+
+eg 
+
+command syntax 
+
+command -options 
+ls - listing of file and folders(directories)
+ls -a
+cd - change directory 
+
+cd / - changing directory to "/" 
+/ -  linux  system  main directory
+
+mkdir - make directory to create folder / directory
+
+mkdir fodername 
+mkdir b48
+
+rmdir - remove directory 
+to delete the directory 
+rmdir b48 
+
+pwd - present working directory 
+
+cat filename - to read a file 
+
+touch filename 
+
+touch b48.txt 
+
+rm - to delete a file 
+
+rm -rf - remove the file recusrive and forcefull 
+
+cd ../ 
+
+cd ../../ 
+
+cd ~ - changes the direcotry postion to users home directory 
+
+
+home - local user home directory 
+root - root user home directory 
