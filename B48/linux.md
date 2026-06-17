@@ -18,6 +18,7 @@ cpu , gpu and storage ssd hdd , these servers are used to host various
 webapps , ai's , databases , big data , and majorly these servers are used  or operated on linux based os.
 
 system info commands 
+```
 free -h
 lsblk
 df -ht
@@ -25,7 +26,7 @@ cat /etc/os-release
 date 
 cal -3 
 cal
-
+```
 command manuals  
 man ls 
 whatis ls 
