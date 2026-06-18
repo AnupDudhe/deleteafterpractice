@@ -74,3 +74,24 @@ cd ~ - changes the direcotry postion to users home directory
 
 home - local user home directory 
 root - root user home directory 
+
+
+lib - for app supporting 32 lib files are stored here
+lib64 - for app supporting 64 lib files are stored here 
+etc - linux complete configurations files are stored 
+bin - has commands / binaries which are accesible to both root and local user 
+sbin - has sensitive commands / binares which are only accesible to root user (super user)
+media - external usbs will be visibile here  
+home - local users home directory (root user can access this directory) 
+root - root user home directory ( only root can access this directory)
+boot - all the booting related files are stored here 
+var - all the linux servers log activities are stored in the location in the form of logs 
+dev - locations partitions and terminals 
+temp - has linux temp cache files stored 
+mnt - to mount additional partitions 
+usr - has secondary back of bin  sbin lib lib64 
+proc - has process related files and info files of cpu disk etc 
+sys - has sytemrelated files like kernel , firmware 
+run -  has temp files (runner files)
+srv - service files are stored here 
+
