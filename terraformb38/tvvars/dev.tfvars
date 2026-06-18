@@ -4,3 +4,6 @@ instancetype = "t3.small"
 sg  = "sg-0aadcd16826e5982f"
 instcount = 1
 apiterm = false
+
+
+#terraform apply -var-file="production.tfvars"

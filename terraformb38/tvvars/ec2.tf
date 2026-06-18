@@ -9,7 +9,7 @@ resource "aws_instance" "webserver" {
    key_name = var.keymap
    ami = var.amiid
    instance_type =   var.instancetype
-   vpc_security_group_ids = var.sg
+   vpc_security_group_ids = [var.sg]
    count = var.instcount
    disable_api_termination = var.apiterm
 
