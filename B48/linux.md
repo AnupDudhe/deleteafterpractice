@@ -119,3 +119,24 @@ more /etc/sudoers
 cat /etc/passwd
 echo "hello"
 
+
+
+desktop os -
+macos catalina , sonoma { , windows11 , 10 , 8 } ,  
+linux based ubuntu , kali 
+GUI 
+day to day use , notepad , ppt , finance , gaming , coding.
+no need expertise 
+apart from linux based os , every desktop os is licensed 
+
+server os -  
+centos , redhat , suse , ubuntu server  , debian , alpine , oracle linux 
+windows 2019 , 2022 , 2025 
+
+CLI 
+tech , ai/ml , db server , webservers , appservers mobile server 
+expertise and have admin certification , prior knowledge linux and mcsa
+apart from windows server os , majority of linux based os are free non licnese. 
+
+
+
