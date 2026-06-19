@@ -95,3 +95,27 @@ sys - has sytemrelated files like kernel , firmware
 run -  has temp files (runner files)
 srv - service files are stored here 
 
+sudo -i    - switches from local to root 
+touch /mnt/sample.txt
+cp sourcefile destination
+cp sample.txt /tmp 
+
+cp /mnt/sample.txt  /var/
+
+mkdir sample
+cp -r sample  /tmp
+
+
+mv sample sampleb44   - rename directories or can be used to move directories 
+mv  sampleb44 /tmp
+
+head /etc/passwd
+ head -25 /etc/passwd 
+
+tail /etc/passwd
+tail -5 /etc/passwd 
+tail /etc/passwd 
+more /etc/sudoers
+cat /etc/passwd
+echo "hello"
+
