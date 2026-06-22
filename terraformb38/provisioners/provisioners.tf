@@ -12,7 +12,7 @@ resource "aws_instance" "webserver" {
    
    provisioner "file" {
     source      = "sample.txt"
-    destination = "/home/ec2-user/sample.txt/"
+    destination = "/home/ec2-user/sample/"
   }
   provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
