@@ -138,5 +138,57 @@ tech , ai/ml , db server , webservers , appservers mobile server
 expertise and have admin certification , prior knowledge linux and mcsa
 apart from windows server os , majority of linux based os are free non licnese. 
 
+VIM
+Modes
+command
+insert
+visual 
+execution
+
+command - to execute commands
+left right top bottom arrows - navigation 
+h , j , k , l -> navigation
+GG - cursor will go from up to down 
+gg - cursor will go from down to up 
+p - paste lines
+esc - mode escape.
+
+yy - single line copy 
+nyy   - multiple lines copy
+        n = number of lines copy 4yy
+yw  - single word copy
+nyw  - multiple words copy   , 3yw
+
+dd  - single line is deleted
+ndd - multiple lines delete  for eg - 4dd
+dw - single word will be delete 
+ndw - multiple words will be deleted 3dw
 
 
+
+cc  - single line is cut   when cut command is used to also go inside insertmode
+ncc - multiple lines cut 
+cw - cut single word 
+ncw - cut multiple word 3cw
+
+:!ls / 
+:!mkdir /new 
+
+Insert - to add texts
+i - insert mode 
+I - insermode 
+esc - escape the insert mode 
+O - creates space above the present cursoer and insert mode 
+o - insertmode and o charter will be insert 
+s - insertmode with s inserted 
+S - WHOLE line is deleted and insert mode is enabled 
+a - insert mode and one line cursor is pushed 
+A - inset mode and A is transferred to the end.
+
+
+Execution mode 
+
+
+
+
+Visual mode 
