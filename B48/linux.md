@@ -144,7 +144,7 @@ command
 insert
 visual 
 execution
-
+```
 command - to execute commands
 left right top bottom arrows - navigation 
 h , j , k , l -> navigation
@@ -171,9 +171,11 @@ ncc - multiple lines cut
 cw - cut single word 
 ncw - cut multiple word 3cw
 
+u - undo the unnesary edits.
 :!ls / 
 :!mkdir /new 
-
+```
+```
 Insert - to add texts
 i - insert mode 
 I - insermode 
@@ -184,9 +186,20 @@ s - insertmode with s inserted
 S - WHOLE line is deleted and insert mode is enabled 
 a - insert mode and one line cursor is pushed 
 A - inset mode and A is transferred to the end.
-
-
-Execution mode 
+```
+```
+Execution mode  -  to save , execute , quit file , filter out words ,
+:   - enter into the execution 
+:/root - word can be search and filtering after that if u press
+n -> cursor will scroll to that filtered word.   - highlighting
+:set nu - numbering to each and every line
+19gg - will jump to that particular line in the file
+nohl - removes filteration and highlighting
+:%s/system/b48/g  -  to replace system word with b48 -we use this command
+q - quit
+wq! - save and quit forcefully
+x - save and quit
+```
 
 
 
