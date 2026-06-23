@@ -200,8 +200,12 @@ q - quit
 wq! - save and quit forcefully
 x - save and quit
 ```
-
-
-
-
+```
 Visual mode 
+v  - enter the visual mode
+top down bottom left arrow - select the lines u want
+c  - cut the selected line
+p -paste
+y - copy the selected line
+d - delete the selected line
+```
