@@ -208,4 +208,57 @@ c  - cut the selected line
 p -paste
 y - copy the selected line
 d - delete the selected line
+
+
+
+
+
 ```
+
+```
+linux user management
+root user - UID - 0 - root user 
+local user multiples - UID 1000 above  
+system user multiples (are not human login , users that are specifically made for system/app/packages and os operations) - UID - 1 - 999
+
+user management configuration files
+users meta data available
+
+cat /etc/passwd
+dev1:x:1004:1004:,,,:/home/dev1:/bin/bash
+ 1   2   3   4    5      6        7
+1   - username
+2  - link of encrypted p/w
+3  - uid user id 
+4 - gid groupd id 
+5 - comments
+6 - user home directory
+7 - user shell type
+
+ ls -a /etc/skel 
+when a user is created following files and directories are affected in linux:-
+/etc/passwd
+/etc/shadow
+/etc/group
+/etc/gshadow
+home directory /home
+/etc/skel -> skeleton copt user home directory /home
+
+adduser dev1 - a dev1 user is created.
+passwd username - password reset of user.
+usermod -l developer1 dev1  -  rename the username.
+usermod -c "this is dev user"  developer1 - give comment
+usermod -s /bin/zsh developer1
+usermod -m -d /mnt   developer1  - change user's home directory
+usermod -u 1008 developer1
+usermod -g 1003 developer1
+
+cat /etc/shadow
+
+cat /etc/group
+cat /etc/gshadow
+
+4 engineers -> linux server access -> user1 user2 user3 user4
+
+
+ 
