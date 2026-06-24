@@ -1,0 +1,17 @@
+services: 
+  staticapp: 
+      build:  .              #docker build
+      ports:                 #docker run 
+           - "80:80"
+      container_name: staticwebserver
+      volumes: 
+          -  ./var/www/index.html
+      network_mode: "host"
+#  productapp: 
+   #   build:  ./productappservice/              #docker build
+   #   ports:                 #docker run 
+   #        - "8081:8081"
+   #   container_name: productapp
+   #   volumes: 
+   #       -  ./var/www/index.html
+   #   network_mode: "none"
