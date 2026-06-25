@@ -275,15 +275,46 @@ chage -d 2026-6-24  b48
 chage -I 2  b48
 chage -E 33  b48
 
- 30  passwd -M
-   31  passwd -x 33 b48
-   32  passwd -n 31 b48
-   33  passwd -i 2 b48
-   35  passwd -e  b48
-   36  passwd -w  33 b48
+passwd -M
+passwd -x 33 b48
+passwd -n 31 b48
+passwd -i 2 b48
+passwd -e  b48
+passwd -w  33 b48
+
 cat /etc/group
+1  2    3  4    
+dev:x:1002:dev2,dev1
+1  - groupname
+2 - link of encrpted pass of group
+3 - gid
+4 - group members
+
+
+    groupadd dev
+    groupadd dev - create a group
+    adduser dev1
+    adduser dev2
+    gpasswd -a dev1 dev  - add users to the group 
+    gpasswd dev  - change password of group
+    groupdmod -n devloper dev  - change the nae of the group 
+    groupmod -n devloper dev
+    cat /etc/group
+    groupmod -g 1004 devloper  - change gid of the group
+    groupmod -g 1005 devloper
+
+
 
 cat /etc/gshadow
+1                     2                                                                                            3    4 
+devloper:$6$3TNAjANMOESZUmrI$mpxTzJ6FghXF.chOs1x150OxwEflWKEuPSvwU8wQqWRbKFJzj3RN577.ZBFICx26Jen/.LNzHfqKn1qWKtL0p0::dev2,dev1
+1 - name of the group
+2 - password of the group
+3 - admin of the group
+4 - users list of the group
+
+gpasswd -A root devloper 
+gpasswd -A "" devloper
 
 4 engineers -> linux server access -> user1 user2 user3 user4
 
