@@ -255,6 +255,25 @@ usermod -g 1003 developer1
 userdel -f username - user will be deleted.
 
 cat /etc/shadow
+1             2                                                               3     4  5   6  7 8 
+b48:$y$j9T$sWT4LplhkOH70lOSKdseN.$6q6QXWUSWHe6uPbpePcb.u5pbFBBzqfTSRyk8Zb3zYC:20629:0:99999:7: : :
+
+1 - username
+2 - encrypted password 
+3 - last time since password
+4 - minimum password age 20 
+5 - maximum password age 30 
+6 - Warning day - 28
+7 - Inactive days 31
+8 - expiry day 32
+9 - for future usecase  
+
+chage -M 30 b48
+chage -m 16 b48
+chage -W 25  b48
+chage -d 2026-6-24  b48
+chage -I 2  b48
+chage -E 33  b48
 
 cat /etc/group
 cat /etc/gshadow
