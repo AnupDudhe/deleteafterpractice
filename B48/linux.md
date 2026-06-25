@@ -319,4 +319,17 @@ gpasswd -A "" devloper
 4 engineers -> linux server access -> user1 user2 user3 user4
 
 
- 
+
+redirectors
+
+>  -  echo "hello"  > file.txt   - word will be added in file.txt but it will be overwritten if same command is used again 
+>>  - echo "hello anup" > file.txt - word will not be overidded and word will be added as well
+
+lt / 2> error.txt  - to add the error but it will overwrite previous one 
+lw / 2>> error.txt  - to append the error 
+
+&>  - to add error or output in a file but the error or ouput will be overwritten  
+lt &> new.txt
+&>>  - to add error or output in a file and it will be appended
+echo "new" &>> new.txt 
+
