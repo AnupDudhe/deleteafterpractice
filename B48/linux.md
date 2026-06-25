@@ -275,7 +275,14 @@ chage -d 2026-6-24  b48
 chage -I 2  b48
 chage -E 33  b48
 
+ 30  passwd -M
+   31  passwd -x 33 b48
+   32  passwd -n 31 b48
+   33  passwd -i 2 b48
+   35  passwd -e  b48
+   36  passwd -w  33 b48
 cat /etc/group
+
 cat /etc/gshadow
 
 4 engineers -> linux server access -> user1 user2 user3 user4
