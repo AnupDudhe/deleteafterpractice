@@ -252,6 +252,7 @@ usermod -s /bin/zsh developer1
 usermod -m -d /mnt   developer1  - change user's home directory
 usermod -u 1008 developer1
 usermod -g 1003 developer1
+userdel -f username - user will be deleted.
 
 cat /etc/shadow
 
