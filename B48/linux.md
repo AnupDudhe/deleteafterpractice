@@ -333,3 +333,57 @@ lt &> new.txt
 &>>  - to add error or output in a file and it will be appended
 echo "new" &>> new.txt 
 
+
+system defined files vs user defined files 
+
+system defined files 
+are those files which are basically used for system usecases , created for os , and its neccessary processes , 
+usually created systems , not for normal users.
+
+character files - writes the char by char data in system 
+block type file - writes the data in the actual physical drive and partitio
+pipe files  - used in intercommunication between two process 
+fifo files 
+
+
+user defined files 
+
+normal text files -  
+hardlink - 
+softlink - 
+
+vim new.txt 
+
+two commands two different process 
+
+vim -> 1 
+text file -> 2 
+
+echo "helllo" > new.txt  
+
+a unique symbolic number assigned to a file - link count 
+
+
+hardlink vs softlink 
+soflinks -
+ln -s orginalfilepathwath softlinke_filepathway
+softlink can be created of both files and directory 
+if oringal file is deleted softlink will be corrupt 
+
+hardlink 
+
+ln orginalfilepathwath hardlink_filepathway
+hardlink can be created of only files 
+if orignal file is deleted hardlink will not be corrupted
+
+
+chmod 777 filename.txt
+4 - read
+2 - write
+1 - excute
+
+chmod u=rw filename
+chmod u=rw,g=w,o=rwx filename
+
+ls -l
+ll        - metadata of files 
