@@ -386,4 +386,16 @@ chmod u=rw filename
 chmod u=rw,g=w,o=rwx filename
 
 ls -l
-ll        - metadata of files 
+ll        - metadata of files
+
+
+ls -l -h --block-size=GB /
+
+
+normal file - link 1 
+directory - 2   when ever a file is created within the number will increment by 1 
+
+softlink of file or directory -> both will have link count as 1 
+
+hardlink of file -> will have link as 2
+
