@@ -401,10 +401,30 @@ hardlink of file -> will have link as 2
 
 archieving and compression 
 ```
-Create ArchivesGzip (Fastest): tar -czvf archive.tar.gz 
-folder/Bzip2 (Balanced): tar -cjvf archive.tar.bz2 
-folder/XZ (Best compression): tar -cJvf archive.tar.xz folder/
+```
+tar -> to encode the file/folder that needs to compressed
 
+tar -cvf sample.tar  sample  
+tar -tvf sample.tar 
+tar -xvf  sample.tar
+compression
+gzip - fast compression (size lowest compression) (z) .gz
+gzip sample.tar  - compression setup
+gunzip sample.tar.gz - compression can be removed
+
+bzip2 - medium size compression (j)  .bz2
+bzip sample.tar
+bunzip sample.tar.bz2
+
+xzip  - highest amount compression (J)  .xz
+xz sample.tar
+unxz sample.tar.xz 
+
+Create ArchivesGzip (Fastest): tar -czvf etc.tar.gz etc
+folder/Bzip2 (Balanced): tar -cjvf etc.tar.bz2 etc
+folder/XZ (Best compression): tar -cJvf etc.tar.xz etc
+
+tar 
 
 ```
 
