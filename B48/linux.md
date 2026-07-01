@@ -399,3 +399,13 @@ softlink of file or directory -> both will have link count as 1
 
 hardlink of file -> will have link as 2
 
+archieving and compression 
+```
+Create ArchivesGzip (Fastest): tar -czvf archive.tar.gz 
+folder/Bzip2 (Balanced): tar -cjvf archive.tar.bz2 
+folder/XZ (Best compression): tar -cJvf archive.tar.xz folder/
+
+
+```
+
+
