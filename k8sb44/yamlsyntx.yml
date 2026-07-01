@@ -1,0 +1,30 @@
+key: value 
+
+
+name: Anup 
+
+podname: nginx
+
+address: pune ,   
+         pincode: 41972 |
+         kothrudh |
+         westned mall | 
+
+
+list: ["bannana" , "apple"]
+
+list: 
+      - bannana
+      - apple
+
+adrress: pune 
+        pincode: 4110325
+
+kubectl run nginxci --image=nginx:latest
+kubectl expose pod nginxci --port=80 --type=ClusterIP 
+
+kubectl run nginxnp --image=nginx:latest
+kubectl expose pod nginxnp --target-port=80 --port=80 --type=NodePort
+
+kubectl run nginxlb --image=nginx:latest
+kubectl expose pod nginxlb --target-port=80 --port=80 --type=LoadBalancer
