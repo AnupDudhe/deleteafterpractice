@@ -24,6 +24,6 @@ spec:
            env: 
              - name: MYSQL_ROOT_PASSWORD 
                valueFrom: 
-                  secretKeyRef:
-                      name: ssdb-secret
-                      key: root_pw
+                  configMapKeyRef:
+                      name: ssdb-config
+                      key: root_pw2
