@@ -20,7 +20,7 @@ spec:
            image: mysql:latest 
            ports:
              - containerPort: 3306
-               portocol: TCP 
+               protocol: TCP 
            env: 
              - name: MYSQL_ROOT_PASSWORD 
                value: "123456" 
