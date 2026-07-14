@@ -14,7 +14,7 @@ spec:
          maxSurge: 1  #max number of pods that can be created or updated with new version app 
          maxUnavailable: 1 #max number of pods that will unavailable 
     template: 
-        metadate:
+        metadata:
           name: mederp 
           labels:
              app: mederp 
