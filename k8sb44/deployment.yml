@@ -22,7 +22,7 @@ spec:
         spec: 
             containers:
                 - name: mederp
-                  image: nginx 
+                  image: httpd 
                   ports:
                       - name: http 
                         containerPort: 80 
