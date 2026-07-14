@@ -10,9 +10,10 @@ spec:
        matchLabels:
           app: mederp
     strategy:
-         type: RollingUpdate 
-         maxSurge: 1  #max number of pods that can be created or updated with new version app 
-         maxUnavailable: 1 #max number of pods that will unavailable 
+         type: RollingUpdate
+         rollingUpdate: 
+            maxSurge: 1  #max number of pods that can be created or updated with new version app 
+            maxUnavailable: 1 #max number of pods that will unavailable 
     template: 
         metadata:
           name: mederp 
