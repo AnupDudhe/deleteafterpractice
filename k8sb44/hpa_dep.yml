@@ -56,3 +56,6 @@ spec:
               type: Utilization 
               averageUtilization: 10
 
+#aws eks update-kubeconfig --region ap-south-1 --name eks
+#apt-get update && apt-get install -y stress
+#stress --cpu 2 --timeout 300s
