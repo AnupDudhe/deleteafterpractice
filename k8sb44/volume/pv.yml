@@ -6,7 +6,7 @@ metadata:
       type: pv
 spec:
    storageClassName: standard
-   volumeMode: Filesysystem
+   volumeMode: Filesystem
    accessModes:
       - ReadWriteOnce
    capacity:
