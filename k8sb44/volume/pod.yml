@@ -1,0 +1,19 @@
+apiVersion:  v1  #required api library calls for the pod creation         
+kind: Pod #unique naming convention 
+metadata:  #tags , assigning metadata to pod
+    name: nginxpod     
+spec:  #pod specifications.
+   volumes:
+      - name: mypd
+        persistentVolumeClaim: 
+           claimName: pv-claim
+   containers:
+      - image: nginx:latest #containers images that will be used to create pod
+        ports:
+           - containerPort: 80 #container port 
+        name: nginxcont
+        volumeMounts: 
+           - mountPath: "/etc/passwd"
+             name: mypd
+
+#kubectl run nginxpod  --image nginx:latest
