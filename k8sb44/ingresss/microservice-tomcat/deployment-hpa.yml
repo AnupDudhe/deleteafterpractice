@@ -1,0 +1,58 @@
+apiVersion: apps/v1   
+kind: Deployment
+metadata:
+    name: tomcat
+    labels: 
+        app: tomcat
+spec:
+    replicas: 1 #initial cold started replica count for the deployment
+    strategy:
+        type: RollingUpdate #your desried deployment strategy
+        rollingUpdate:
+          maxUnavailable:  1  #at a tine only 1 pod will be unavailable during the update process and 1 will be availabkle
+          maxSurge: 1
+    selector:
+        matchLabels:
+            app: tomcat
+    template:
+        metadata:
+            labels:
+                app: tomcat
+        spec:
+            containers:
+            - name: tomcat
+              image: tomcat:latest
+              ports:
+              - containerPort: 8080
+              resources: #resource management for the container
+                    requests: #starting resource allocation for the container
+                        cpu: 450m
+                        memory: 700Mi
+                    limits:  #maximum resource allocation for the container
+                        cpu: 600m
+                        memory: 900Mi
+---
+apiVersion:  autoscaling/v2 
+kind:   HorizontalPodAutoscaler
+metadata:
+  name: tomcat
+  labels:
+    app: tomcat
+spec: 
+  scaleTargetRef:
+    apiVersion: apps/v1   
+    kind: Deployment
+    name: tomcat
+  minReplicas: 1 #minimum number of replicas for the deployment
+  maxReplicas: 2 #maximum number of replicas for the deployment
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 5 #target average CPU utilization percentage for scaling
+    
+  
+                   
+                  
