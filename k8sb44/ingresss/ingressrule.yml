@@ -7,7 +7,7 @@ metadata:
 spec:   
    ingressClassName: nginx 
    rules: 
-     - host:   #lbendpoint 
+     - host: a23beec44ec374102a795d31994257a3-137776640.ap-south-1.elb.amazonaws.com   #lbendpoint 
        http:
           paths:
             - path:  /    #if only lb traffic will redirect to nginx microservice  
