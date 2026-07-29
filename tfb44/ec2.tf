@@ -7,17 +7,17 @@ provider "aws" {
 
 
 resource "aws_instance"  "webserver" {
-    ami = "ami-004f790b835b26145" 
+    ami = "ami-004f790b835b26145"
     instance_type = "t3.micro"
-    vpc_security_group_ids =  ["sg-0eae0d103615165a6" , "aws_security_group.webserver_sg.id" ]
+    vpc_security_group_ids =  ["sg-0eae0d103615165a6" , aws_security_group.webserver_sg.id ]
     key_name = "key"
     tags = {
         purpose = "webserver"
     }
-    count = 2 
+    count = 2
     user_data = <<-EOF
-                 #!/bin/bash 
-                 sudo yum install nginx -y 
+                 #!/bin/bash
+                 sudo yum install nginx -y
                  sudo systemctl start nginx
 
 
@@ -32,22 +32,22 @@ resource "aws_security_group" "webserver_sg" {
     ingress {
       from_port = 80
       to_port = 80
-      protocol = "HTTP" 
+      protocol = "TCP"
       cidr_blocks  = ["0.0.0.0/0"]
     }
 
     ingress {
       from_port = 0
-      to_port = 65535
-      protocol = "-1" 
+      to_port = 0
+      protocol = "-1"
       cidr_blocks  = ["0.0.0.0/0"]
     }
 
 
     egress {
       from_port = 0
-      to_port = 65535
-      protocol = "-1" 
+      to_port = 0
+      protocol = "-1"
       cidr_blocks  = ["0.0.0.0/0"]
 
     }
