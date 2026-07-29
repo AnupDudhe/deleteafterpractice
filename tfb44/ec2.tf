@@ -15,6 +15,15 @@ resource "aws_instance"  "webserver" {
         purpose = "webserver"
     }
     count = 2 
+    user_data = <<-EOF
+                 #!/bin/bash 
+                 sudo yum install nginx -y 
+                 sudo systemctl start nginx
+
+
+
+                EOF
+
 }
 
 
