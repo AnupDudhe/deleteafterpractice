@@ -7,21 +7,19 @@ provider "aws" {
 
 
 resource "aws_instance"  "webserver" {
-    ami = "ami-004f790b835b26145"
-    instance_type = "t3.micro"
-    vpc_security_group_ids =  ["sg-0eae0d103615165a6" , aws_security_group.webserver_sg.id ]
-    key_name = "key"
+    ami = var.amiid
+    instance_type = var.insttype
+    vpc_security_group_ids =  [ var.sg , aws_security_group.webserver_sg.id ]
+    key_name = var.kp
     tags = {
         purpose = "webserver"
     }
-    count = 2
+    count = var.instno
+    disable_api_termination = var.apiterm
     user_data = <<-EOF
                  #!/bin/bash
                  sudo yum install nginx -y
                  sudo systemctl start nginx
-
-
-
                 EOF
 
 }

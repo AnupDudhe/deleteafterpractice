@@ -26,3 +26,19 @@ resource "aws_instance"  "webserver" {
 
 
 }
+
+
+data type 
+string = "bat" , "9" , "9.2"
+int = 9 , 1 
+float = 8.2 , 6.5 
+boolean = true or false , yes or no 
+
+-------------------------------------------------
+["string" , 9 , 8.2 , true] - list   
+
+
+variable "unique_blockname" {
+    default = "" or bool or int 
+
+}
