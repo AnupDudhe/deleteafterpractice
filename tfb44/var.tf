@@ -16,9 +16,7 @@ variable "kp" {
 }
 
 
-variable "instno" {
-    default = 2
-}
+variable "instno" {default = 2}
 
 variable "apiterm" {
     default = false

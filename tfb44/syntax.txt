@@ -42,3 +42,17 @@ variable "unique_blockname" {
     default = "" or bool or int 
 
 }
+
+data block = existing resource created by gui such as sg , ami or rds 
+for a sg named - webserver 
+datablock will filter , search the sg and will provide to tf 
+
+data "cloudprovidername_resourcename" "unique_blockname" {
+
+
+}
+
+data "aws_security_group" "sgdata" {
+    name = "launch-wizard-5"
+}
+
