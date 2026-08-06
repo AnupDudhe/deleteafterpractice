@@ -101,7 +101,7 @@ systemctl enable --now httpd
 - **Scheme:** Internet-facing, IPv4
 - **Subnets:** 2+ public subnets in different AZs
 - **Security group:** `alb-sg`
-- **Listener:** HTTP : 80 → default action **Forward to `home-tg`**
+- **Listener:** HTTP : 80 → default action **Forward to `home-tg` , `laptop-tg` , `mobile-tg` **
 
 ### 3.5 Listener rules
 *(Select the ALB → Listeners → the :80 listener → Manage rules → Add rules)*
@@ -267,16 +267,36 @@ AMI=$(aws ssm get-parameter \
 ```
 
 User data:
-```bash
+```
 #!/bin/bash
 apt-get update -y
 apt-get install -y apache2
 echo '<h1>This is HOME</h1>' > /var/www/html/index.html
+echo "Served by: $(hostname)" >> /var/www/html/index.html
 echo 'FallbackResource /index.html' > /etc/apache2/conf-available/fallback.conf
 a2enconf fallback
-systemctl enable --now apache2
+systemctl restart apache2
 ```
-
+```
+#!/bin/bash
+apt-get update -y
+apt-get install -y apache2
+echo '<h1>This is LAPTOP</h1>' > /var/www/html/index.html
+echo "Served by: $(hostname)" >> /var/www/html/index.html
+echo 'FallbackResource /index.html' > /etc/apache2/conf-available/fallback.conf
+a2enconf fallback
+systemctl restart apache2
+```
+```
+#!/bin/bash
+apt-get update -y
+apt-get install -y apache2
+echo '<h1>This is MOBILE</h1>' > /var/www/html/index.html
+echo "Served by: $(hostname)" >> /var/www/html/index.html
+echo 'FallbackResource /index.html' > /etc/apache2/conf-available/fallback.conf
+a2enconf fallback
+systemctl restart apache2
+```
 Key differences:
 
 - `apt-get` instead of `dnf`.
