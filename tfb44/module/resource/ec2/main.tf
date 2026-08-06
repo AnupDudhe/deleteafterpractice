@@ -3,6 +3,7 @@ resource "aws_instance"  "webserver" {
     instance_type = var.insttype
     vpc_security_group_ids =  [ var.sg ]
     key_name = var.kp
+    subnet_id = var.ws_subnet
     tags = {
         purpose = "webserver"
     }
