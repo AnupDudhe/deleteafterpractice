@@ -232,7 +232,7 @@ AMI=$(aws ssm get-parameter \
   --query Parameter.Value --output text --region $REGION)
 ```
 
-User data:
+User data if your using amazon linux ami:
 ```bash
 #!/bin/bash
 dnf install -y httpd
