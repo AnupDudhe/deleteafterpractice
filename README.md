@@ -66,23 +66,7 @@ Apache's `FallbackResource`. That way both the health check (`/`) and the routed
   (`HOME` / `LAPTOP` / `MOBILE`) per template.
 - Name them: `home-lt`, `laptop-lt`, `mobile-lt`.
 
-#!/bin/bash
-dnf install -y httpd
-echo '<h1>This is Laptop</h1>' > /var/www/html/index.html
-echo 'FallbackResource /index.html' > /etc/httpd/conf.d/fallback.conf
-systemctl enable --now httpd
 
-#!/bin/bash
-dnf install -y httpd
-
-# Get the private IP address dynamically
-PRIVATE_IP=$(hostname -I | awk '{print $1}')
-
-# Create index.html with the private IP included
-echo "<h1>This is Home </h1><p>Server Private IP: $PRIVATE_IP</p>" > /var/www/html/index.html
-
-echo 'FallbackResource /index.html' > /etc/httpd/conf.d/fallback.conf
-systemctl enable --now httpd
 
 
 ### 3.3 Target groups
