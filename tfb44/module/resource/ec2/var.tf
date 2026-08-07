@@ -6,9 +6,7 @@ variable "insttype" {
    
 }
 
-variable "sg" {
 
-}
 
 variable "kp" {
 
