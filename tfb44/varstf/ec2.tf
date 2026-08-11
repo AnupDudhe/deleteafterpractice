@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "us-east-1"
+  profile = "configs"
+} 
 
 resource "aws_instance"  "webserver" {
     ami = var.amiid
