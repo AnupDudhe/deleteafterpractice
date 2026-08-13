@@ -9,7 +9,7 @@ resource "aws_instance"  "webserver" {
     instance_type = var.insttype
     vpc_security_group_ids =  [ var.sg]
     key_name = var.kp
-    count = 3  #identicalloops
+    count = 2  #identicalloops
 }
 
 
@@ -25,7 +25,7 @@ resource "aws_instance"  "webservertwo" {
 
 
 variable "imageid" {
-   default = ["ami-035827357e3c7e810" , "ami-01a00762f46d584a1" , "ami-0340d2c0eb945bf80"]
+   default = ["ami-0bdc7d025135d7b49" , "ami-0b6d9d3d33ba97d99" , "ami-0ed0165f19a049904"]
 }
 
 output "ip" {
