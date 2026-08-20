@@ -1,0 +1,22 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building application...'
+            }
+        }
+        stage('Test') {
+            when { branch 'main' } // Predefined condition
+            steps {
+                echo 'Running tests...'
+            }
+        }
+    }
+    post { 
+        always { echo 'Cleaning up workspace...' } // Built-in post action
+    }
+}
+
+
+        
