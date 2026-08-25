@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'webserver'}
     stages {
         stage("Pull") {
             steps{
@@ -9,12 +9,17 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo "this is build stage"'
+               sh '''mvn clean package
+              echo "this is build stage"'''
             }
         }
         stage('Test') {
             steps {
-                sh 'echo "this is Test stage"'
+                sh '''mvn clean verify sonar:sonar \\
+                  -Dsonar.projectKey=studentapp \\
+                  -Dsonar.host.url=http://3.141.107.90:9000 \\
+                  -Dsonar.login=sqp_9adecc4911e6d45ba1556fc0d7a2398d9b92675b
+                   echo "this is test stage"'''
             }
         }
         stage('Deploy') {
