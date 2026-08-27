@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         CLUSTER_NAME = "my-eks-cluster"
-        REGION = "us-west-2"
+        REGION = "ap-south-1"
         NODE_TYPE = "t3.medium"
         NODES = "2"
         MAX_NODES = "3"
