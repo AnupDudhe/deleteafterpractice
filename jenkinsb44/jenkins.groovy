@@ -10,6 +10,8 @@ pipeline {
         stage('Build') {
             steps {
                sh '''mvn clean package
+              mv /home/ubuntu/workspace/webserver/target/studentapp-2.2-SNAPSHOT.war   /home/ubuntu/workspace/webserver/target/student.war 
+              aws s3 cp  /home/ubuntu/workspace/webserver/target/student.war  s3://webappartifactscbz
               echo "this is build stage"'''
             }
         }
@@ -24,7 +26,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'echo "this is Deploy stage"'
+                   sh '''
+                sudo curl -L -o /home/ubuntu/apache-tomcat-9.0.121.zip https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.121/bin/apache-tomcat-9.0.121.zip
+                sudo unzip /home/ubuntu/apache-tomcat-9.0.121.zip -d /opt/
+                sudo aws s3 cp  s3://webappartifactscbz/student.war  /opt/apache-tomcat-9.0.121/webapps/
+                sudo bash /opt/apache-tomcat-9.0.121/bin/catalina.sh start'''
             }
         }
     }
