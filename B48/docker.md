@@ -25,3 +25,10 @@ pull push
 docker volume 
 
 docker networking
+
+
+docker images - list images 
+docker pull imagename - will clone image 
+docker tag profilename/reponame:tag imageid - to rename your image 
+docker login 
+docker push imagename - to push image
