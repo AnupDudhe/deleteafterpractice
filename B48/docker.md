@@ -32,3 +32,33 @@ docker pull imagename - will clone image
 docker tag profilename/reponame:tag imageid - to rename your image 
 docker login 
 docker push imagename - to push image
+
+
+31  docker rename 06a9dcf54fed nginxb48
+   32  docker ps
+   33  docker
+   34  clear
+   35  docker ps
+   36  docker network ls
+   37  docker run -d --network host nginx:latest
+   38  docker ps
+   39  docker inspect 0c354e58132d
+   40  clear
+   41  ls
+   42  docker network ls
+   43  docker inspect 02e2a5dc26fb
+   44  docker run -d httpd
+   45  docker ps
+   46  docker inspect 22e046cbaae2 
+   47  docker inspect 02e2a5dc26fb
+
+   53  docker network create --subnet "10.0.0.0/18" --driver bridge  cbzb48
+   54  docker network ls
+   55  docker inspect 43c4377e9301
+   56  docker run -d -p 8080:8080 --network cbzb48  tomcat:latest
+   57  docker ps
+   58  docker inspect 0d418d529a2
+   59  docker run -d --network none  nginx:latest
+   60  docker ps
+   61  docker inspect 1e385b9f626d
+   62  clear
