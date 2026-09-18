@@ -1,3 +1,4 @@
+```
 docker ps - list out all the containers that are created running state 
 docker ps -a - deleted and running container list
 docker ps -q - only running containers id listed 
@@ -62,3 +63,4 @@ docker push imagename - to push image
    60  docker ps
    61  docker inspect 1e385b9f626d
    62  clear
+```
