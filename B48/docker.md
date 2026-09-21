@@ -63,4 +63,28 @@ docker push imagename - to push image
    60  docker ps
    61  docker inspect 1e385b9f626d
    62  clear
+
+docker volume
+   90  docker volume ls
+   91  docker volume create Newvol1
+   92  docker volume ls
+   93  ls /var
+   94  ls /var/lib/
+   95  ls /var/lib/docker/
+   96  ls /var/lib/docker/volumes
+   97  cd /var/lib/docker/volumes/
+   98  ls
+   99  cd Newvol1/
+  100  ls
+  101  cd _data/
+  102  ls
+  103  pwd
+  104  ls -a
+  105  #docker run -d -p 80:80 -v Newvol1:
+  106  docker run -d -p 80:80 -v Newvol1:/usr/share/nginx/html  nginx:latest
+  107  docker ps
+  108  docker inspect 8ddc2d5d933a
+  109  ls /var/lib/docker/volumes/Newvol1/_data
+  110  cat index.html 
+  111  vim index.html 
 ```
