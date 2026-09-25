@@ -1,0 +1,9 @@
+services:
+     staticapp:
+        build: .   #docker build .
+        ports:
+          - "80:80"  #docker run -d -p 80:80 staticapp
+        volumes:
+          - .:/app  #docker run -d -p 80:80 -v $(pwd):/app staticapp
+        networks:
+          - default
