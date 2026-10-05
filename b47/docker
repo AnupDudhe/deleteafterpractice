@@ -1,0 +1,42 @@
+
+    9  sudo apt update
+   10  clear
+   11  sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   12  docker --help
+   13  docker create nginx:latest
+   14  docker images
+   15  docker ps
+   16  docker ps -a
+   17  docker start a662a3acb9fd
+   18  docker ps -a
+   19  docker ps
+   20  docker stop a662a3acb9fd
+   21  docker ps
+   22  docker ps -a
+   23  docker docker inspect a662a3acb9fd  
+   24  docker inspect a662a3acb9fd  
+   25  docker start a662a3acb9fd  
+   26  docker inspect a662a3acb9fd  
+   27  docker ps 
+   28  docker exec -it a662a3acb9fd -- bash
+   29  docker exec -it a662a3acb9fd -bash
+   30  docker exec -it a662a3acb9fd --bash
+   31  docker exec -it a662a3acb9fd bash
+   32  docker exec a662a3acb9fd mkdir /mnt/sample
+   33  docker exec -it a662a3acb9fd bash
+   34  docker top a662a3acb9fd 
+   35  docker logs a662a3acb9fd 
+   36  #docker logs a662a3acb9fd 
+   37  clear
+   38  ls
+   39  touch sample.txt
+   40  ls
+   41  docker cp sample.txt a662a3acb9fd:/mnt/sample 
+   42  docker exec -it a662a3acb9fd bash
+   43  docker ps
+   44  docker rename a662a3acb9fd b47
+   45  docker ps
+   46  docker rm -f a662a3acb9fd 
+   47  docker ps
+   48  docker ps -a
+   49  history
