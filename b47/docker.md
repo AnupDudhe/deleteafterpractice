@@ -1,3 +1,4 @@
+```
 docker ps - list out all the containers that are created running state 
 docker ps -a - deleted and running container list
 docker ps -q - only running containers id listed 
@@ -86,3 +87,4 @@ docker volume
   109  ls /var/lib/docker/volumes/Newvol1/_data
   110  cat index.html 
   111  vim index.html 
+```
