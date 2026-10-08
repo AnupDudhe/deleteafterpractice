@@ -23,7 +23,18 @@ command line or scripts(Manifest files)
 
 Manifest files - YAML format
 
-po
-```
+yaml syntax
+general address
+
+name - anup
+address - pune kothrudh 
+          indraprastha 
+          42101
+yaml based address syntax 
+name: Anup
+address: pune kothrudh
+         - indraprastha
+         - 42101
+``` 
 
 
