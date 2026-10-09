@@ -1,0 +1,26 @@
+apiVersion: v1  #official library to create pod
+kind: Pod   #unique naming convention to create 
+metadata: 
+   name: nginxlbpod
+   labels:   #tags
+        app: nginxlbpod
+spec:
+    containers:
+        - name: nginxlbpod
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: lbsvc
+spec:
+   type: LoadBalancer
+   selector:
+        app: nginxlbpod
+   ports: 
+      - protocol: TCP 
+        port: 80 #pod port 
+        targetPort: 80 # container 
+
