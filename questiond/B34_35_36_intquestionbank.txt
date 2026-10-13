@@ -1,1 +1,10 @@
+partition disk is 100% , find out what is filling that disk ? 
+df -h  - various partition disks and their names. 
+find / -xdev -type f -size +500M 
+
+https url is not working ? what will be proble steps you will take.
+telnet
+traceroute 
+ping 
+nslookup.
 
