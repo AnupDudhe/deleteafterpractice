@@ -1,0 +1,21 @@
+apiVersion: apps/v1  
+kind:  ReplicaSet
+metadata: 
+  name: webapprs
+  labels:
+    app: webapprs
+spec: 
+   replicas: 3
+   selector:
+      matchLabels:
+          app: nginxpodrs 
+   template:
+    metadata:
+      labels:
+        app: nginxpodrs 
+    spec:
+      containers:
+         - name: nginxpodrs
+           image: nginx:latest 
+           ports:
+             - containerPort: 80
