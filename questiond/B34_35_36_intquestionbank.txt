@@ -44,6 +44,24 @@ MAC address has 128bit yes or no ?
 IPV6 
 IPV4 32 
 
+kindly identify the process type ?
+i have used jobs commands and && i have ran a process can you identify is it a background or a foreground process ?
+
+
+AWS :
+
+is aws private cloud ?
+
+can i decrease a volume size ? i would like to create a volume of smaller size ? 
+
+can i change instance state why instance is in running condition ? 
+
+can i increase volume while instance is in running condition ? 
+
+what is a aws direct connect ?
+
+
+
 
 
 
