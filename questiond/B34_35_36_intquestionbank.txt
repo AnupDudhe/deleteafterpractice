@@ -8,3 +8,45 @@ traceroute
 ping 
 nslookup.
 
+can you run systemctl command and journalctl command and based on that tell me whats a difference between service and process ? 
+
+
+everyday at 2:30 am i have run backup can i automate how ?
+crontab -e 
+30 2 * * * 
+
+a user has bymistakenly created a crontab how to delete it ? 
+crontab -u username
+
+i have a /etc/sudoers , based on your knowledge shall i hardlink it or softlink ? why ?
+sudoers delete -> secondary backup
+
+usermanagment ? 
+i want to create a user, named redhat , i would like to setup a password polic how will you do that ?
+adduser
+useradd 
+passwd 
+
+i bymistakenly have deleted skeleton files in my users home directory how to recover it ?
+/etc/skel orignal skeleton files 
+skeleton files -> users home directory 
+
+password and permission management. 
+i have temp user , i would like to delete that user once their internal work is done , i would to give it permission of read and write for xyz file 
+shall i consider this user as other user or shall i add this user in a group ?
+
+NTP 
+my systems timing is off ? how to resolve this issue ? 
+NTP manage ntp refresh.
+
+MAC address has 128bit yes or no ?
+48 bit 
+IPV6 
+IPV4 32 
+
+
+
+
+
+
+
