@@ -1,0 +1,20 @@
+apiVersion: v1 
+kind: Namespace
+metadata:
+    name: flipkartns 
+    labels: 
+       app: flipkartns  
+---
+apiVersion: v1 
+kind: Pod 
+metadata:
+    name: flipkartpod 
+    labels:
+       app: flipkartpod
+    namespace: flipkartns  
+spec: 
+    containers:
+      - name: flipkartpod
+        image: nginx:latest 
+        ports:
+        - containerPort: 80
