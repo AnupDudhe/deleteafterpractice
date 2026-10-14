@@ -61,8 +61,124 @@ can i increase volume while instance is in running condition ?
 what is a aws direct connect ?
 
 
-
-
+AWS and DevOps Scenario-Based Interview Questions
+Git
+Scenario 1: Secret committed to the repo
+Question: A developer pushed a commit containing an AWS access key to the main branch on GitHub. What do you do?
+Answer: Treat the key as compromised the moment it is pushed.
+1.	Revoke and rotate the key in IAM immediately, then check CloudTrail for any activity using it.
+2.	Remove it from history with git filter-repo --replace-text (or BFG Repo-Cleaner), then force-push and ask all collaborators to re-clone.
+3.	Ask GitHub support to purge cached views if the repo is public.
+4.	Prevent recurrence with pre-commit hooks (gitleaks, git-secrets), GitHub secret scanning with push protection, and secrets kept in Secrets Manager or Vault.
+Scenario 2: Bad commit already on a shared branch
+Question: A commit that broke production was merged into main an hour ago and others have pulled since. How do you undo it?
+Answer: Use git revert <commit-sha> (or git revert -m 1 <merge-sha> for a merge commit). This creates a new commit that undoes the change without rewriting history, so nobody else's clone breaks. Avoid git reset --hard plus force-push on shared branches. Protect main with branch protection rules that block force-pushes and require reviews and passing checks.
+Scenario 3: Feature branch far behind main with conflicts
+Question: Your feature branch is 40 commits behind main and the PR shows conflicts. Do you merge or rebase?
+Answer: If the branch is only yours, run git fetch origin && git rebase origin/main, resolve conflicts commit by commit, then git push --force-with-lease. This keeps history linear. If others share the branch, merge main into it instead to avoid rewriting their history. Use git rerere to remember repeated conflict resolutions, and keep branches short-lived to avoid the problem.
+Docker
+Scenario 1: Image is 1.8 GB and builds are slow
+Question: A Node.js service image is 1.8 GB and every build takes 10 minutes even for a one-line code change. How do you fix it?
+Answer: Two problems: image size and layer cache misses.
+1.	Use a multi-stage build: compile in a node:20 builder stage, copy only dist/ and production node_modules into a slim runtime (node:20-alpine or distroless).
+2.	Order the Dockerfile for caching: copy package.json and the lockfile, run npm ci, and only then copy the source. Code changes then skip the dependency layer.
+3.	Add a .dockerignore for node_modules, .git, logs and test data.
+4.	In CI, enable BuildKit cache (--cache-from or registry cache) so runners reuse layers.
+Scenario 2: Container exits right after starting
+Question: docker run starts the container, but it exits within seconds with code 1. How do you troubleshoot?
+Answer: Check docker logs <container> first, then docker inspect for the exit code and the effective CMD/ENTRYPOINT. Common causes are a missing environment variable or config file, the main process running in the background (so PID 1 exits), a wrong entrypoint path, or file permission issues when running as a non-root user. To debug interactively, run docker run -it --entrypoint sh <image> and start the process by hand.
+Scenario 3: Two containers cannot talk to each other
+Question: An API container cannot reach a Postgres container using localhost:5432. Why, and what is the fix?
+Answer: Inside a container, localhost is the container itself, not the host or other containers. Put both containers on the same user-defined bridge network (docker network create app-net, or a shared network in Docker Compose) and connect using the service name, for example postgres:5432. Docker's embedded DNS resolves service names only on user-defined networks, not the default bridge. Also use a healthcheck plus depends_on: condition: service_healthy so the API does not start before the DB is ready.
+Kubernetes
+Scenario 1: Pod stuck in CrashLoopBackOff
+Question: After a deployment, pods go into CrashLoopBackOff. Walk through your troubleshooting.
+Answer:
+1.	kubectl describe pod <pod> to see events, exit codes and the last state (for example OOMKilled means exit code 137).
+2.	kubectl logs <pod> --previous to read the logs of the crashed container, not the restarted one.
+3.	Check common causes: a missing ConfigMap or Secret, a wrong command or args, an app that cannot reach a dependency, memory limits set too low, or a liveness probe that fires before the app is ready.
+4.	Fix the root cause. If the probe is the issue, add a startupProbe or raise initialDelaySeconds. If it is OOM, right-size requests and limits.
+5.	Roll back quickly with kubectl rollout undo deployment/<name> if production is impacted.
+Scenario 2: Zero-downtime deployment drops requests
+Question: You use a RollingUpdate strategy, but users still see 502 errors during every release. Why?
+Answer: Usually traffic reaches pods that are not ready yet, or pods are killed while still serving.
+•	Add a proper readinessProbe so new pods only join the Service when they can serve.
+•	Set maxUnavailable: 0 and maxSurge: 1 (or 25%) so capacity never drops.
+•	Handle shutdown: add a preStop hook with a short sleep (5 to 10 s) so the endpoint is removed from load balancers before SIGTERM, and make the app drain in-flight requests within terminationGracePeriodSeconds.
+•	Add a PodDisruptionBudget so node drains do not take down too many replicas at once.
+Scenario 3: Pods stuck in Pending
+Question: New pods stay in Pending and never get scheduled. What could be wrong?
+Answer: Run kubectl describe pod and read the scheduler events. Typical causes are:
+•	Insufficient CPU or memory on nodes: requests are too high, or the cluster autoscaler is off or at its max node count.
+•	A node selector, affinity rule or taint with no matching toleration.
+•	A PersistentVolumeClaim that is unbound (wrong StorageClass, or an EBS volume in a different AZ than available nodes).
+•	A namespace ResourceQuota that has been exhausted.
+Fix the specific constraint, then confirm with kubectl get events --sort-by=.lastTimestamp.
+Terraform
+Scenario 1: Two engineers corrupt the state file
+Question: Your team keeps terraform.tfstate locally and in Git. Two people ran apply at the same time and the state is now inconsistent. How do you fix this and prevent it?
+Answer: Move state to a remote backend with locking: an S3 bucket (versioning and encryption enabled) with a DynamoDB lock table, or S3 native locking (use_lockfile = true) on Terraform 1.10 and later. Migrate with terraform init -migrate-state. Recover the good state from S3 version history or a backup, then run terraform plan to confirm it matches reality. Remove state from Git, since it can contain secrets. Long term, run applies only from CI (Atlantis, Terraform Cloud or a pipeline) so nobody applies from a laptop.
+Scenario 2: Someone changed resources in the console
+Question: A security group was edited manually in the AWS console. The next terraform plan wants to revert it. What do you do?
+Answer: This is configuration drift. First decide whether the manual change is correct.
+•	If it was a valid hotfix, codify it in the .tf files so plan shows no changes.
+•	If it was wrong, let terraform apply revert it.
+•	Use terraform plan -refresh-only to review drift without changing anything.
+Prevent it by restricting console write access through IAM or SCPs, running scheduled drift-detection plans in CI, and alerting on changes through AWS Config.
+Scenario 3: Bringing existing resources under Terraform
+Question: A production VPC and RDS instance were created by hand years ago. How do you manage them with Terraform without recreating them?
+Answer: Import them. On Terraform 1.5 and later, write import blocks (resource address plus the AWS ID) and run terraform plan -generate-config-out=generated.tf to draft the configuration. Clean up the generated code, then iterate until plan shows no changes before any apply. On older versions, use terraform import <address> <id> and write the code by hand. Add lifecycle { prevent_destroy = true } on critical resources like RDS as a safety net.
+Jenkins
+Scenario 1: Builds queue for 30 minutes
+Question: Developers complain that Jenkins jobs sit in the queue for 30 minutes before starting. The controller also feels sluggish. What do you change?
+Answer: Stop running builds on the controller (set its executors to 0) and move work to agents. Use dynamic, ephemeral agents: the Kubernetes plugin (a pod per build) or the EC2 plugin with Spot instances, so capacity scales with the queue and agents are clean every time. Use labels so jobs land on the right agent type. Also review plugin bloat, JVM heap and old build retention (buildDiscarder), which commonly slow the controller.
+Scenario 2: Credentials hardcoded in pipelines
+Question: You find Docker Hub and AWS credentials hardcoded in several Jenkinsfiles. How should secrets be handled?
+Answer: Rotate the exposed credentials first. Store secrets in the Jenkins Credentials store (or pull them from Vault or AWS Secrets Manager via plugins) and reference them with withCredentials([...]) or environment { X = credentials('id') }, which masks values in logs. For AWS, prefer IAM roles on agents (instance profile or IRSA on EKS) or OIDC so there are no long-lived keys at all. Scope credentials to folders so teams only see their own.
+Scenario 3: Standardizing pipelines across 50 microservices
+Question: 50 microservices each have their own copy-pasted Jenkinsfile, and fixes must be made 50 times. How do you standardize?
+Answer: Create a Jenkins Shared Library in its own Git repo with reusable steps (build, test, scan, push image, deploy) in vars/. Each service's Jenkinsfile then shrinks to a few lines, for example standardPipeline(language: 'node', deployTo: 'eks'). Version the library with tags so teams can upgrade safely. Combine it with Multibranch Pipelines or GitHub Organization folders to auto-discover repos and branches, and manage Jenkins config itself as code with JCasC.
+AWS
+Scenario 1: Highly available web application
+Question: Design a web app on AWS that survives the loss of an entire Availability Zone.
+Answer: Place an Application Load Balancer across at least two AZs, with an Auto Scaling Group (or ECS/EKS service) spread across private subnets in those AZs. Use RDS Multi-AZ (or Aurora with a replica in another AZ) for the database, and a NAT Gateway per AZ so outbound traffic does not depend on one zone. Keep the app stateless with sessions in ElastiCache or DynamoDB, serve static assets from S3 behind CloudFront, and use Route 53 health checks. For region-level resilience, add a pilot-light or warm-standby setup in a second region.
+Scenario 2: EC2 instance in a private subnet cannot reach the internet
+Question: An EC2 instance in a private subnet cannot run yum update. What do you check?
+Answer: Check in order:
+1.	The private subnet's route table has 0.0.0.0/0 pointing to a NAT Gateway.
+2.	The NAT Gateway sits in a public subnet whose route table points to an Internet Gateway, and it has an Elastic IP.
+3.	Security group outbound rules allow HTTP/HTTPS (443/80).
+4.	Network ACLs allow both outbound traffic and the inbound ephemeral port range (1024 to 65535), since NACLs are stateless.
+For AWS-only traffic like S3 or package repos hosted in S3, a VPC gateway endpoint avoids the NAT and its data charges. VPC Reachability Analyzer helps confirm the path.
+Scenario 3: S3 bucket accidentally made public
+Question: A bucket containing customer data was found publicly readable. What do you do now and how do you prevent it?
+Answer: Immediately enable S3 Block Public Access on the bucket, remove the offending bucket policy or ACL, and review S3 server access logs and CloudTrail data events to see what was accessed. Escalate per your incident process if data was exposed. Prevent it by enabling Block Public Access at the account level (and enforcing it with an SCP across the organization), disabling ACLs with Object Ownership set to bucket owner enforced, encrypting with SSE-KMS, and alerting through AWS Config rules, Security Hub and Macie.
+Scenario 4: RDS database under heavy read load
+Question: A reporting dashboard is slowing down the production RDS MySQL database. CPU is at 90% and most queries are reads. How do you fix it?
+Answer: Offload reads. Create one or more read replicas and point reporting traffic to them (or move to Aurora, which supports up to 15 low-lag replicas behind a reader endpoint). Add caching with ElastiCache (Redis) for frequent queries. Use Performance Insights to find slow queries and add missing indexes. Add RDS Proxy if connection count is also an issue. If heavy analytics continues, move it off OLTP entirely by exporting to Redshift or S3 plus Athena.
+Scenario 5: Monthly bill suddenly doubled
+Question: The AWS bill jumped from 10,000 USD to 20,000 USD in one month. How do you investigate and control costs?
+Answer: Use Cost Explorer grouped by service, account, region and usage type to find the spike, and Cost Anomaly Detection to pinpoint when it started. Common culprits are NAT Gateway data processing, cross-AZ data transfer, forgotten large instances or GPU nodes, unattached EBS volumes and old snapshots, and log ingestion in CloudWatch. Then fix and govern: rightsize with Compute Optimizer, buy Savings Plans for steady load, use Spot for fault-tolerant work, add S3 lifecycle policies, enforce cost-allocation tags, and set AWS Budgets alerts per team.
+Scenario 6: Application needs to access S3 securely
+Question: A developer wants to put an IAM user's access keys in the app config so an EC2-hosted app can read S3. What do you recommend?
+Answer: Do not use long-lived access keys. Attach an IAM role to the EC2 instance via an instance profile; the SDK picks up temporary credentials automatically. On EKS, use IRSA or EKS Pod Identity; on ECS, use a task role; on Lambda, use the execution role. Scope the policy with least privilege (specific bucket and prefix, only s3:GetObject if read-only), and optionally restrict access to a VPC endpoint with a bucket policy condition.
+Scenario 7: Traffic spikes during a flash sale
+Question: An e-commerce site expects 10x traffic for a two-hour sale. How do you prepare?
+Answer: Use scheduled scaling to raise ASG or ECS minimum capacity before the sale, then target-tracking policies to scale further. Pre-warm caching with CloudFront for static and cacheable content and ElastiCache for hot data. Decouple order processing with SQS so spikes queue instead of overloading the backend, and use DynamoDB on-demand or provisioned capacity with auto scaling. Check service quotas (EC2 vCPU limits, Lambda concurrency) in advance, load test beforehand, and protect the site with AWS WAF rate-based rules.
+Scenario 8: Deploying a containerized app with CI/CD
+Question: Design a pipeline that deploys a containerized app to AWS on every merge to main.
+Answer: On merge, the CI tool (CodePipeline with CodeBuild, GitHub Actions or Jenkins) runs tests, builds the Docker image, scans it (ECR enhanced scanning with Inspector, or Trivy) and pushes it to ECR tagged with the commit SHA. Deployment then updates ECS (rolling, or blue/green through CodeDeploy) or EKS (Helm or Argo CD for GitOps). Authenticate the pipeline with OIDC to an IAM role instead of static keys, run Terraform for infrastructure in a separate stage, and add automatic rollback on CloudWatch alarm breaches.
+Scenario 9: Disaster recovery for a critical workload
+Question: The business wants an RPO of 15 minutes and an RTO of 1 hour for a critical app in us-east-1. Which DR strategy fits?
+Answer: Backup and restore is too slow for a one-hour RTO, and multi-site active/active is likely over-engineered. Pilot light or warm standby in a second region fits. Replicate data continuously: Aurora Global Database (typically about 1 s replication lag), DynamoDB global tables, and S3 Cross-Region Replication. Keep infrastructure defined in Terraform or CloudFormation so the DR region can scale up quickly, copy AMIs and container images to the DR region, and fail over with Route 53 failover routing. Run DR drills regularly to prove the RTO is real.
+Scenario 10: Investigating suspicious activity in the account
+Question: GuardDuty raises a finding that an EC2 instance is communicating with a known crypto-mining IP. What are your steps?
+Answer:
+1.	Contain: replace the instance's security group with an isolation group that blocks all traffic, and detach it from the ASG and load balancer without terminating it.
+2.	Preserve evidence: take EBS snapshots and capture memory if your tooling allows.
+3.	Investigate: review CloudTrail for the instance role's API calls, VPC Flow Logs, and use Amazon Detective to trace the activity. Rotate any credentials the instance could access.
+4.	Eradicate and recover: rebuild from a known-good, patched AMI and fix the entry point (for example an exposed port or vulnerable package).
+5.	Prevent: enable GuardDuty, Security Hub and Inspector across all accounts, enforce IMDSv2, and automate responses with EventBridge plus Lambda.
 
 
 
