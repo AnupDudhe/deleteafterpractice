@@ -1,0 +1,20 @@
+apiVersion: v1 
+kind: Namespace
+metadata:
+    name: amazonns 
+    labels: 
+       app: amazonns 
+---
+apiVersion: v1 
+kind: Pod 
+metadata:
+    name: amazonpod 
+    labels:
+       app: amazonpod
+    namespace: amazonns 
+spec: 
+    containers:
+      - name: amazonpod 
+        image: nginx:latest 
+        ports:
+        - containerPort: 80
