@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind:  DaemonSet
+metadata:
+    name: cwatchagent
+    labels:
+      app: cwatchagent
+spec:
+    template:
+      metadata: 
+        name: cwatchagent
+        labels:   #tags
+              app: cwatchagent
+      spec:
+          containers:
+              - name: cwatchagent
+                image: amazon/cloudwatch-agent
+                ports:
+                  - containerPort: 80
+    selector:
+        matchLabels:
+            app: cwatchagent
