@@ -21,6 +21,6 @@ spec:
       spec:
         containers:
           - name: nginxpodrs
-            image: apache:latest 
+            image: httpd:latest 
             ports:
               - containerPort: 80
