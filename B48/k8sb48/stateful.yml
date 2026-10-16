@@ -22,4 +22,4 @@ spec:
               - containerPort: 3306
             env: 
                - name: MYSQL_ROOT_PASSWORD
-                 value: "123456"
+                 value: "123456" #encrypt with the help of secrets object.
