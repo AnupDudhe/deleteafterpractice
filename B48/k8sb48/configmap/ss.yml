@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+metadata:
+    name: dbss
+    labels:
+      app: dbss
+kind: StatefulSet
+spec:
+   replicas: 3 
+   selector:
+      matchLabels:
+         app: dbss
+   template:
+      metadata:
+        name: dbss
+        labels:
+          app: dbss
+      spec:
+        containers:
+          - name: dbss
+            image: mysql:latest
+            ports:
+              - containerPort: 3306
+            env:
+             - name: MYSQL_ROOT_PASSWORD 
+               valueFrom:
+                configMapKeyRef:
+                    name: ssdb-configmap   #encrypt with the help of secrets object.
+                    key: root_pw2

@@ -1,0 +1,8 @@
+apiVersion: v1 
+kind: ConfigMap 
+metadata:
+    name: ssdb-configmap
+    labels:
+       app: ssdb-configmap 
+data:
+    root_pw2: "123456"
