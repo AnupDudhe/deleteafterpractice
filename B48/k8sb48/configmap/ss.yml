@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 metadata:
-    name: dbss
+    name: dbsscm
     labels:
-      app: dbss
+      app: dbsscm
 kind: StatefulSet
 spec:
    replicas: 3 
    selector:
       matchLabels:
-         app: dbss
+         app: dbsscm
    template:
       metadata:
-        name: dbss
+        name: dbsscm
         labels:
-          app: dbss
+          app: dbsscm
       spec:
         containers:
-          - name: dbss
+          - name: dbsscm
             image: mysql:latest
             ports:
               - containerPort: 3306
