@@ -28,7 +28,7 @@ spec:
               requests:  #lower limit  
                   cpu: "100m"
                   memory: "256Mi"                #vertical scaling
-              limit:   #upper limit 
+              limits:   #upper limit 
                   cpu: "500m"
                   memory: "512Mi"
 ---
