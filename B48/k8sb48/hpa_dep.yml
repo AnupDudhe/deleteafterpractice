@@ -52,4 +52,5 @@ spec:
          target:
            type: Utilization
            averageUtilization: 50
-  
+  #kubectl exec -it mydeployment-676d587745-2kc9r -- bash 
+  # timeout 300 sh -c "while :; do :; done"
