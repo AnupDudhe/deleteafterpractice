@@ -1,5 +1,28 @@
-
-
-
+apiVersion: networking.k8s.io/v1 
+kind:  Ingress
+metadata: 
+   name: oneingress
+   annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+spec: 
+    ingressClassName: nginx 
+    rules:
+    - host: adc578d2e515a4509a1346230a065002-460070133.eu-north-1.elb.amazonaws.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+               service:
+                  name: my-nginxapp
+                  port: 
+                   number: 80
+          - path: /tomcat 
+            pathType: Prefix
+            backend:
+               service:
+                  name: apacheclusteripsvc
+                  port: 
+                   number: 8080
 
 #adc578d2e515a4509a1346230a065002-460070133.eu-north-1.elb.amazonaws.com
