@@ -1,0 +1,56 @@
+apiVersion: apps/v1  
+metadata:
+    name: my-nginxapp
+    labels:
+       app: my-nginxapp
+kind:  Deployment
+spec:
+   replicas: 1 #desired state 
+   selector:
+      matchLabels:
+         app: my-nginxapp
+   strategy: 
+      type: RollingUpdate
+      rollingUpdate:
+         maxSurge: 1 #no of newly updated pods created 
+         maxUnavailable: 1 #no of older version pod deleted at a time
+   template:
+      metadata:
+        labels:
+          app: my-nginxapp
+      spec:
+        containers:
+          - name: my-nginxapp
+            image: nginx:latest 
+            ports:
+              - containerPort: 80
+            resources:
+              requests:  #lower limit  
+                  cpu: "100m"
+                  memory: "256Mi"                #vertical scaling
+              limits:   #upper limit 
+                  cpu: "500m"
+                  memory: "512Mi"
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+   name: my-nginxhpa 
+   labels:
+     app:  my-nginxhpa 
+spec:
+  minReplicas: 1
+  maxReplicas: 3
+  scaleTargetRef:
+     apiVersion: apps/v1  
+     kind:  Deployment
+     name:  my-nginxapp
+  metrics:
+    - type: Resource
+      resource:
+         name: cpu 
+         target:
+           type: Utilization
+           averageUtilization: 50
+  #kubectl exec -it mydeployment-676d587745-2kc9r -- bash 
+  # timeout 300 sh -c "while :; do :; done"

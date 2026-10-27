@@ -1,0 +1,56 @@
+apiVersion: apps/v1  
+metadata:
+    name: my-apacheapp
+    labels:
+       app: my-apacheapp
+kind:  Deployment
+spec:
+   replicas: 1 #desired state 
+   selector:
+      matchLabels:
+         app: my-apacheapp
+   strategy: 
+      type: RollingUpdate
+      rollingUpdate:
+         maxSurge: 1 #no of newly updated pods created 
+         maxUnavailable: 1 #no of older version pod deleted at a time
+   template:
+      metadata:
+        labels:
+          app: my-apacheapp
+      spec:
+        containers:
+          - name: my-apacheapp
+            image: tomcat:latest 
+            ports:
+              - containerPort: 8080
+            resources:
+              requests:  #lower limit  
+                  cpu: "100m"
+                  memory: "256Mi"                #vertical scaling
+              limits:   #upper limit 
+                  cpu: "500m"
+                  memory: "512Mi"
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+   name: my-apachehpa 
+   labels:
+     app:  my-apachehpa 
+spec:
+  minReplicas: 1
+  maxReplicas: 3
+  scaleTargetRef:
+     apiVersion: apps/v1  
+     kind:  Deployment
+     name: my-apacheapp
+  metrics:
+    - type: Resource
+      resource:
+         name: cpu 
+         target:
+           type: Utilization
+           averageUtilization: 50
+  #kubectl exec -it mydeployment-676d587745-2kc9r -- bash 
+  # timeout 300 sh -c "while :; do :; done"
