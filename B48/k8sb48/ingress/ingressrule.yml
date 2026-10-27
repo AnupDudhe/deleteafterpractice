@@ -14,7 +14,7 @@ spec:
             pathType: Prefix
             backend:
                service:
-                  name: my-nginxapp
+                  name: nginxclusteripsvc
                   port: 
                    number: 80
           - path: /tomcat 
