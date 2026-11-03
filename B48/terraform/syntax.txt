@@ -1,0 +1,32 @@
+provider - we use this block to inform in which cloud provider you are creating resources 
+aws 
+tf ==> aws = resource creation 
+secret access keys => provider insert 
+
+syntax 
+
+
+provider "cloudprovidername"  {
+    arguements
+    secretacesskeys =  
+}
+blockname "cloudprovidername" {
+    arguements
+}
+
+tfblockname 
+
+resource = resource block is used to create the actual resource 
+
+blockname "cloudprovidername_resourcename" "uniqueblockname" {
+   arguements
+}
+
+
+
+
+variable
+backend
+module
+loops
+provisioner 
