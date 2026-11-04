@@ -22,8 +22,10 @@ blockname "cloudprovidername_resourcename" "uniqueblockname" {
    arguements
 }
 
-
-
+#
+#terraform - ec2 create -> libraries aws boto , time , 
+#tfstate - aws cloud 1 instance (instancetype) -- aws tf script  => 
+#statelock - multiple devops engg -> one engg at time infra update 
 
 variable
 backend
