@@ -1,5 +1,5 @@
 provider "aws" {   
-   region     = ap-south-1
+   region     = "ap-south-1"
    access_key =  ""
    secret_key =  ""
 }
@@ -11,7 +11,7 @@ resource "aws_instance" "webserver_block" {
     key_name = "Linux_dev"
     security_groups = ["sg-02977f9ed12529e66"]
     tags = {
-        name = webserver
+        name = "webserver"
     }
    
 }
