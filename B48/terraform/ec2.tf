@@ -6,14 +6,20 @@ provider "aws" {
 
 
 resource "aws_instance" "webserver_block" {
-    ami = "ami-0f19324397f53458f"
-    instance_type = "t3.micro"
-    key_name = "Linux_dev"
-    vpc_security_group_ids = ["sg-02977f9ed12529e66"]
+    ami = var.this_webserverami
+    instance_type = var.this_instancetype
+    key_name = var.this_keypair
+    vpc_security_group_ids = [ var.this_sg , aws_security_group.ws_sgblock.id  ]
     tags = {
         name = "webserver"
     }
-   
+   user_data = <<-EOF
+        #!/bin/bash
+        sudo yum install nginx -y 
+        sudo systemctl start nginx
+        EOF
+    count = var.this_instcount
+    disable_api_termination = var.this_apiterm
 }
 
 resource "aws_security_group" "ws_sgblock" {
