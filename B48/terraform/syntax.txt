@@ -43,3 +43,14 @@ basic data types
 "amiid" "2" "true" "0.2" = string data types
  2 , 5 , 6 = number data types 
  true , false = boolean data types.
+
+
+blockname 
+
+output "uniqubeblockname" {
+
+}
+
+output "this_instancepublicip"{
+   value = instancebloacname.ip
+}

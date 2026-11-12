@@ -10,12 +10,12 @@ variable "this_keypair" {
  default = "Linux_dev"
 }
 
-variable "this_instcount" {
-    default = 2
-}
+#variable "this_instcount" {
+   # default = 2
+#}
 
 variable "this_apiterm" {
-    default = true 
+    default = false 
 }
 
 variable "this_sg" {
