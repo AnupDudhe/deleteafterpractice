@@ -54,3 +54,10 @@ output "uniqubeblockname" {
 output "this_instancepublicip"{
    value = instancebloacname.ip
 }
+
+Data block 
+
+data "aws_security_group" "sgdata" {
+   name = "default" 
+}
+

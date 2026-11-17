@@ -19,5 +19,5 @@ variable "this_apiterm" {
 }
 
 variable "this_sg" {
-    default = "sg-02977f9ed12529e66"
+    default = "sg-00ab26aafe31178ca"
 }

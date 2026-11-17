@@ -8,7 +8,7 @@ resource "aws_instance" "webserver_block" {
     ami = var.this_webserverami
     instance_type = var.this_instancetype
     key_name = var.this_keypair
-    vpc_security_group_ids = [ var.this_sg , aws_security_group.ws_sgblock.id  ]
+    vpc_security_group_ids = [ var.this_sg , aws_security_group.ws_sgblock.id , data.aws_security_group.sgdata.id  ]
     tags = {
         name = "webserver"
     }
@@ -58,3 +58,11 @@ output "this_instanceprivatedns" {
 output "this_instanceid" {
   value = aws_instance.webserver_block.id 
 }
+
+data "aws_security_group" "sgdata" {
+   name = "default" 
+}
+
+#data "aws_security_group" "lw1data" {
+   #name = "launch-wizard-1" 
+#}
