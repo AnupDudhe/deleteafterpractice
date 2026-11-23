@@ -6,6 +6,7 @@ resource "aws_instance" "webserver_block" {
     tags = {
         name = "webserver"
     }
+    subnet_id = var.ws_subnet
    user_data = <<-EOF
         #!/bin/bash
         sudo yum install nginx -y 
