@@ -2,7 +2,7 @@
 
 
 module "ec2" {
-   source = "/home/anup/deleteafterpractice/B48/terraform/modulepractile/resource/EC2"
+   source = "/home/anup/deleteafterpractice/B48/terraform/modulepractile/resources/EC2"
    this_webserverami = "ami-0f19324397f53458f" 
    this_instancetype = "t3.micro" 
    this_keypair = "Linux_dev" 
@@ -15,7 +15,7 @@ module "ec2" {
 
 
 module "vpc" {
-   source = "/home/anup/deleteafterpractice/B48/terraform/modulepractile/resource/VPC"
+   source = "/home/anup/deleteafterpractice/B48/terraform/modulepractile/resources/VPC"
    vpc_cidr = "10.0.0.0/16" 
    subnet_cidr = "10.0.0.0/20"
 
