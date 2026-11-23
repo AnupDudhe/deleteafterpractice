@@ -7,7 +7,7 @@ module "ec2" {
    this_instancetype = "t3.micro" 
    this_keypair = "Linux_dev" 
    this_apiterm = false 
-   this_sg = "sg-00ab26aafe31178ca" 
+   #this_sg = "sg-00ab26aafe31178ca" 
    ws_subnet = module.vpc.ws_subnetid
 
 }

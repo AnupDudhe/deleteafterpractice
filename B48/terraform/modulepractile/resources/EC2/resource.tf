@@ -2,7 +2,7 @@ resource "aws_instance" "webserver_block" {
     ami = var.this_webserverami
     instance_type = var.this_instancetype
     key_name = var.this_keypair
-    vpc_security_group_ids = [ var.this_sg ]
+    #vpc_security_group_ids = [ var.this_sg ]
     tags = {
         name = "webserver"
     }

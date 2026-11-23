@@ -18,9 +18,7 @@ variable "this_apiterm" {
    
 }
 
-variable "this_sg" {
-    
-}
+#variable "this_sg" {}
 
 variable "ws_subnet" {
 
