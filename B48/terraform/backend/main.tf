@@ -5,7 +5,7 @@ provider "aws" {
 ##Partitionkey = LockID
 terraform {
     backend "s3" {
-        bucket = "cbzb48new"
+        bucket = "cbzb48newcdec"
         key = "terraform.tfstate"
         dynamodb_table = "cbzb48new"
         region = "ap-south-1"
