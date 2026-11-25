@@ -1,0 +1,20 @@
+variable "this_webserverami" {
+   default = "ami-0f19324397f53458f"
+}
+
+variable "this_instancetype" {
+ default = "t3.micro"
+}
+
+variable "this_keypair" {
+ default = "Linux_dev"
+}
+
+
+variable "this_apiterm" {
+    default = false 
+}
+
+variable "this_sg" {
+    default = "sg-00ab26aafe31178ca"
+}
