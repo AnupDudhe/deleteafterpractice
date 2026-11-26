@@ -43,3 +43,10 @@ resource "aws_instance" "webserver_blocknew" {
 variable "ami_types" {
     default = ["ami-0593d733c2fc5bd2e" , "ami-02f853b31ccb5871f" , "ami-0e3d66c690eb97869"]
 }
+
+output "aws_ec2" {
+   value = [
+     for inst in var.ami_types: 
+       aws_instance.webserver_blocknew[inst].public_ip
+   ]
+}
