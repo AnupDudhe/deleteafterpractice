@@ -61,3 +61,10 @@ data "aws_security_group" "sgdata" {
    name = "default" 
 }
 
+
+loops 
+3 
+count loop  -> 3 (identical resources) 
+for each loop -> 3 instances (os diff) ()
+for loop -> output 
+
