@@ -20,11 +20,11 @@ resource "aws_instance" "webserver_block" {
         EOF
     disable_api_termination = var.this_apiterm
     
-    provsioner "file" {
+    provisioner "file" {
       source = "data.sql" 
       destination = "/tmp/datasql" 
     }
-    provsioner "remote-exec" {
+    provisioner "remote-exec" {
          inline = [
             "sudo yum install nginx -y" ,
             "sudo systemctl start nginx" ,
