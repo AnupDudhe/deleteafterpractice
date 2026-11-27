@@ -68,3 +68,10 @@ count loop  -> 3 (identical resources)
 for each loop -> 3 instances (os diff) ()
 for loop -> output 
 
+provsioners types 
+
+file transfer (local machine laptop -> tf provisioned machines  ) file provisioner
+
+install httpd , nginx , patching -> (ec2 instances patch created by terraform) -> remote provisioner 
+
+local laptop (script -> tf created resources)  local provsioner 
