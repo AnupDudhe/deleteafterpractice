@@ -22,7 +22,7 @@ resource "aws_instance" "webserver_block" {
     
     provisioner "file" {
       source = "data.sql" 
-      destination = "/tmp/datasql" 
+      destination = "/home/ec2-user/datasql" 
     }
     provisioner "remote-exec" {
          inline = [
@@ -31,17 +31,15 @@ resource "aws_instance" "webserver_block" {
             "sudo systemctl enable nginx" ,
             "sudo yum update all"
          ]
+    }
     provisioner "local-exec" {
           command = "echo ${self.private_ip} >> priavteip.txt"
+      }
           connection {
              type = "ssh" 
              user = "ec2-user" 
              private_key = file("${path.module}/tf.pem")
              host = self.public_ip
           }
-    }
-    
-    }
-
   
 }
