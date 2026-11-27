@@ -28,7 +28,7 @@ resource "aws_instance" "webserver_block" {
          inline = [
             "sudo yum install nginx -y" ,
             "sudo systemctl start nginx" ,
-            "sudo systemctl enable nginx"
+            "sudo systemctl enable nginx" ,
             "sudo yum update all"
          ]
     provisioner "local-exec" {
